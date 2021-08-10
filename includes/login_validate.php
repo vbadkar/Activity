@@ -25,16 +25,30 @@
                 $result=mysqli_stmt_get_result($stmt);
                 if($row=mysqli_fetch_assoc($result))
                 {
-                    if(!$pass==$row['password'])
+                    $pass_check=password_verify($pass, $row['password']);
+                    if($pass_check==0)
                     {
                         header("Location: ../login.php?error=wrongpassword");
                         exit();
                     }
-                    elseif($pass==$row['password'])
+                    elseif($pass_check==1)
                     {
+                        if(!empty($_POST['rememberme'])){
+                            setcookie('cookieuser',$user,time()+86400);
+                            setcookie('cookiepass',$pass,time()+86400);
+                        }
+                        else{
+                
+                            if(isset($_COOKIE['cookieuser'])){
+                                setcookie('cookieuser','',time()-3600);
+                            }
+                            if(isset($_COOKIE['cookiepass'])){
+                                setcookie('cookiepass','',time()-3600);
+                            }
+                        }
                         session_start();
-                        $_SESSION['sessionId']=row['id'];
-                        $_SESSION['sessionUser']=row['username'];
+                        $_SESSION['sessionId']=$row['id'];
+                        $_SESSION['sessionUser']=$row['username'];
                         header("Location: ../dashboard.php?success=loggedin");
                         exit();
                     }

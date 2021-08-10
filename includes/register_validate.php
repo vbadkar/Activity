@@ -57,15 +57,12 @@ if(isset($_POST['submit']))
                 }
                 else
                 {
-                    mysqli_stmt_bind_param($stmt,"ss",$user, $pass);
+                    $hashedPass=password_hash($pass, PASSWORD_DEFAULT);
+                    mysqli_stmt_bind_param($stmt,"ss",$user, $hashedPass);
                     mysqli_stmt_execute($stmt); 
                     header("Location: ../login.php?success=registered");
                     exit();
                 }
-                //$hashedPass=password_hash($pass, PASSWORD_DEFAULT);
-                //mysqli_stmt_bind_param($stmt,"ss",$user,$hashedPass);
-                //mysqli_stmt_execute($stmt);
-                
             }
         }
     }

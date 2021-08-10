@@ -1,20 +1,29 @@
 <?php
     require_once "includes/header.php";
-    require_once "includes/database.php";  
+    require_once "includes/database.php";
+    require_once "includes/createpost_validate.php";  
+
+    $sql="SELECT * FROM posts";
+    $stmt=mysqli_stmt_init($con);
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("Location: homepage.php?error=sqlerror ");
+        exit();
+    }
+    else{
+        mysqli_stmt_execute($stmt);
+        $result=mysqli_stmt_get_result($stmt);
+        $data=mysqli_fetch_assoc($result);
+    }
 ?>
 <title>Homepage</title>
     <div class="content clearfix">
         <div class="main_content">
             <h1 class="post_title">Recent Posts</h1>
             <div class="post">
-                <img src="images/food.jpg" , alt="" class="post_image">
+                <img src="images/<?php echo $data['image'];?>", alt="" class="post_image">
                 <div class="post_preview">
-                    <h1><a href="">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet, praesentium.</a></h1>
-                    <i>Vivek Badkar</i>
-                    <p class="preview-text">Lorem ipsum dolor sit amet consectetur adipisicing 
-                        elit. Libero voluptatum mollitia qui, voluptate n
-                        ihil iure aliquid dolorem vel magnam quisquam ea enim 
-                        repellat saepe numquam quis! Quisquam iure vitae eius.</p>
+                    <h1><a href=""><?php echo $data['title'];?></a></h1>
+                    <p class="preview-text"><?php echo $data['description'];?></p>
                     <a href="samplepost1.php" class="link btn">Read more</a>
                 </div>
             </div>

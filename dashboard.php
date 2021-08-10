@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="includes/style.css" rel="stylesheet" type="text/css" />
-    <title>Document</title>
+    <title>Dashboard</title>
 </head>
 <body>
 <header>
@@ -12,8 +12,8 @@
                 <h1><a href="homepage.php">Logo here</a></h1>
             <ul>
                 <li><a href="createpost.php">Create</a></li>
-                <li><a href="editpost.php">Edit</a></li>
-                <li><a href="deletepost.php">Delete</a></li>
+                <li><a href="includes/editpost.php">Edit</a></li>
+                <li><a href="includes/deletepost.php">Delete</a></li>
                 <ul>
                     <li> Username 
                         <?php
