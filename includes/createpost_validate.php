@@ -2,12 +2,15 @@
     if(isset($_POST['submit']))
     {
         require "database.php";
+        session_start();
         $title=$_POST['title'];
         $desc=$_POST['desc'];
         $category=$_POST['category'];
         $image=$_POST['image_file'];
         if(empty($title) || empty($desc) || empty($category) || empty($image))
         {
+            $_SESSION['message']="Fields are blank";
+            $_SESSION['type']="error";
             header("Location: ../createpost.php?error=emptyfields");
             exit();
         }
@@ -28,6 +31,8 @@
                 $count = mysqli_stmt_num_rows($stmt);
                 if($count>0)
                 {
+                    $_SESSION['message']="Same title exists";
+                    $_SESSION['type']="error";
                     header("Location: ../dashboard.php?error=titlealreadyexists");
                     exit();
                 }
@@ -44,7 +49,10 @@
                     {
                         mysqli_stmt_bind_param($stmt,"ssss",$title,$desc,$category,$image);
                         mysqli_stmt_execute($stmt);
+                        $_SESSION['message']="Post created sucessfully";
+                        $_SESSION['type']="success";
                         header("Location: ../dashboard.php?success=postcreated");
+                        $msg= "Post created sucessfullly";
                         exit();
                     }
                 }

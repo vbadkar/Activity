@@ -2,6 +2,7 @@
 if(isset($_POST['submit']))
 {
     require "database.php";
+    session_start();
     $user=$_POST['username'];
     $pass=$_POST['password'];
     $confirm_pass=$_POST['confirmPass'];
@@ -10,19 +11,27 @@ if(isset($_POST['submit']))
     $lowercase = preg_match('@[a-z]@', $pass);
     $special_chars = preg_match('@[^\w]@', $pass);
     if(empty($user)||empty($pass)||empty($confirm_pass)){
+        $_SESSION['message']="Fields are blank";
+        $_SESSION['type']="error";
         header("Location: ../register.php?error=emptyfields&username=".$user);
         exit();
     }
     elseif(!preg_match("/^[a-zA-Z0-9]*/",$user)){
+        $_SESSION['message']="Username Invalid";
+        $_SESSION['type']="error";
         header("Location: ../register.php?error=invalidusername&username=".$user);
         exit();
     }
     elseif($pass !== $confirm_pass){
+        $_SESSION['message']="Passwords don't match";
+        $_SESSION['type']="error";
         header("Location: ../register.php??error=passwordsdidntmatch&username=".$user);
         exit();
     }
     elseif(strlen($pass) < 8 || !$number || !$uppercase || !$lowercase || !$special_chars)
     {
+        $_SESSION['message']="Password invalid";
+        $_SESSION['type']="error";
         header("Location: ../register.php??error=invaildpassword&username=".$user);
         exit();
     }
@@ -43,6 +52,8 @@ if(isset($_POST['submit']))
             $count = mysqli_stmt_num_rows($stmt);
             if($count>0)
             {
+                $_SESSION['message']="Username Taken";
+                $_SESSION['type']="error";
                 header("Location: ../register.php?error=usernameexists");
                 exit();
             }
@@ -59,7 +70,10 @@ if(isset($_POST['submit']))
                 {
                     $hashedPass=password_hash($pass, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt,"ss",$user, $hashedPass);
-                    mysqli_stmt_execute($stmt); 
+                    mysqli_stmt_execute($stmt);
+                    
+                    $_SESSION['message']="Registration Sucessful";
+                    $_SESSION['type']="success"; 
                     header("Location: ../login.php?success=registered");
                     exit();
                 }

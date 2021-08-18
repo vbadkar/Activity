@@ -1,27 +1,13 @@
 <?php
     require_once "includes/header.php";
     require_once "includes/database.php";
-    require_once "includes/createpost_validate.php";
-
-    
 ?>
-<title>Homepage</title>
-<div class='slider-wrapper'>
-    <div class="post-slider">
-        <div class="post-wrapper">
-            <div class="post">
-                <img src="images/food.jpg" alt="imgfood" class="slider-image" id='sliderImg'>
-            </div>
-            <button class="prev" onclick="prev()" id="previous"><</button>
-            <button class="next" onclick="next()" id="next">></button>
-        </div>
-    </div>
-</div>
+<title>Food</title>
 <div class='content clear'>
 <div class='main_content'>
     <h1 class="posts">Posts</h1>
     <?php
-        $sql="SELECT * FROM posts";
+        $sql="SELECT * FROM posts WHERE category='Food'";
         $result=mysqli_query($con,$sql);
         $i=0;
         if(mysqli_num_rows($result) > $i){
@@ -43,12 +29,11 @@
     <div class='side-content category'> 
         <h2 class='side-title'>Category</h2>
         <ul>
-            <li><a href="food.php">Food</a></li>
             <li><a href="sports.php">Sports</a></li>
             <li><a href="music.php">Music</a></li>
             <li><a href="gymnastics.php">Gymnastics</a></li>
             <li><a href="travel.php">Travel</a></li>
-        </ul> 
+        </ul>   
     </div>
 </div>
 </div>

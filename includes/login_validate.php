@@ -2,11 +2,14 @@
    if(isset($_POST['submit']))
    {
         require "database.php";
+        session_start();
         $user=$_POST['username'];
         $pass=$_POST['password'];
         if(empty($user) || empty($pass))
         {   
-            header("Location: ../login.php?error=emptyfields ");
+            $_SESSION['message']="Fields are blank";
+            $_SESSION['type']="error";
+            header("Location: ../login.php?error=emptyfields");
             exit();
         }
         else
@@ -28,38 +31,41 @@
                     $pass_check=password_verify($pass, $row['password']);
                     if($pass_check==0)
                     {
+                        $_SESSION['message']="Wrong Password";
+                        $_SESSION['type']="error";
                         header("Location: ../login.php?error=wrongpassword");
                         exit();
                     }
                     elseif($pass_check==1)
                     {
-                        if(!empty($_POST['rememberme'])){
-                            setcookie('cookieuser',$user,time()+86400);
-                            setcookie('cookiepass',$pass,time()+86400);
+                        if(isset($_POST['rememberme'])){
+                            setcookie('cookieuser',$user,time()+3600,'/');
                         }
                         else{
                 
                             if(isset($_COOKIE['cookieuser'])){
                                 setcookie('cookieuser','',time()-3600);
                             }
-                            if(isset($_COOKIE['cookiepass'])){
-                                setcookie('cookiepass','',time()-3600);
-                            }
                         }
-                        session_start();
                         $_SESSION['sessionId']=$row['id'];
                         $_SESSION['sessionUser']=$row['username'];
+                        $_SESSION['message']="Login Sucessful";
+                        $_SESSION['type']="success";
                         header("Location: ../dashboard.php?success=loggedin");
                         exit();
                     }
                     else
                     {
+                        $_SESSION['message']="Wrong Password";
+                        $_SESSION['type']="error";
                         header("Location: ../login.php?error=wrongpassword");
                         exit();
                     }
                 }
                 else
                 {
+                    $_SESSION['message']="User data not found";
+                    $_SESSION['type']="error";
                     header("Location: ../login.php?error=nouserdatafound");
                     exit();
                 }
