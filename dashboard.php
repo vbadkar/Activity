@@ -19,13 +19,19 @@
         <div class="logo">
             <h1>Blog<span>$</span></h1>
             </div>
-                <ul>      
+                <ul>
                     <li><a href="includes/logout.php">Logout</a></li>
                 </ul>
     </header>
     <div class="manage-posts">
         <div class="left-sidebar">
-
+            <div class="admin-manage">
+                <ul>
+                    <li><a href="createpost.php">Manage Posts</a></li>
+                    <li><a href="manageuser.php">Manage Users</a></li>
+                    <li><a href="banner.php">Manage Banners</a></li>
+                </ul>
+            </div>
         </div>
         <div class="main-content">
         <?php if(isset($_SESSION['message'])):?>
@@ -37,8 +43,6 @@
                 ?>  
             </div>
         <?php endif;?>
-            <a href="createpost.php">Add Post</a>
-            <a href="banner.php">Add Banner</a>
             <table class="content-table">
                 <thead>
                     <th>Post ID.</th>

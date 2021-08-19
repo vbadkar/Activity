@@ -10,15 +10,10 @@ function prev()
     if(i==0){
         i=image.length-1;
         document.getElementById("sliderImg").src=image[i];
-        i--;
-    }
-    else if(i<=(image.length)){
-        i=i-1;
-        document.getElementById("sliderImg").src=image[i];
-        i--;
     }
     else{
-        i=0;
+        i--;
+        document.getElementById("sliderImg").src=image[i];
     }
 }
 function next()
@@ -39,4 +34,3 @@ function slides()
         i=0;
     
 }
-setInterval(slides,3000)

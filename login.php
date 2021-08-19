@@ -22,7 +22,7 @@
                     echo $_COOKIE['cookieuser'];
                 }
             ?>' autocomplete='off'><br>
-            <input class="text-input" type='password' name='password' placeholder='Password' id='show-hide'?>"><br>
+            <input class="text-input" type='password' name='password' placeholder='Password' id='show-hide'?><br>
             <p><input class="remember" type ="checkbox" name="rememberme" onclick="myFunction()">Show password</p>
             <p><input class="remember" type ="checkbox" name="rememberme">Remember Me</p>
             <button class="login-button" type='submit' name='submit'>Login</button>

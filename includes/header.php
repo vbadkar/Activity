@@ -15,10 +15,13 @@
 <body>
     <header>
             <div class='logo'>
-                <h1>LOGO HERE</h1>
+                <h1>Blo<span>G</span></h1>
             </div>
             <img class='hamburger' src='images/hamburger.png' alt='hamburger'></img>
             <ul class='list'>
+                    <li><a>Category</a>
+                      
+                    </li>
                     <li><a href='homepage.php'>Home</a></li>
                     <li><a href='register.php'>Register</a></li>
                     <li><a href='login.php'>Login</a></li>

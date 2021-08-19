@@ -1,9 +1,7 @@
 <?php
     require_once "includes/header.php";
     require_once "includes/database.php";
-    require_once "includes/createpost_validate.php";
-
-    
+    require_once "includes/createpost_validate.php";    
 ?>
 <title>Homepage</title>
 <div class='slider-wrapper'>
@@ -17,9 +15,9 @@
         </div>
     </div>
 </div>
+<h1 class="posts">Posts</h1>
 <div class='content clear'>
 <div class='main_content'>
-    <h1 class="posts">Posts</h1>
     <?php
         $sql="SELECT * FROM posts";
         $result=mysqli_query($con,$sql);
@@ -38,18 +36,6 @@
         }
     }
     ?>
-</div>
-<div class='sidebar'>  
-    <div class='side-content category'> 
-        <h2 class='side-title'>Category</h2>
-        <ul>
-            <li><a href="food.php">Food</a></li>
-            <li><a href="sports.php">Sports</a></li>
-            <li><a href="music.php">Music</a></li>
-            <li><a href="gymnastics.php">Gymnastics</a></li>
-            <li><a href="travel.php">Travel</a></li>
-        </ul> 
-    </div>
 </div>
 </div>
 <?php
