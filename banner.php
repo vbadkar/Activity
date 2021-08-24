@@ -3,7 +3,7 @@
     session_start();
     if(isset($_POST['submit'])){
         $image=$_POST['image_file'];
-;        $sql="INSERT INTO banners (image) VALUES ('$image')";
+        $sql="INSERT INTO banners (image) VALUES ('$image')";
         $stmt=mysqli_stmt_init($con);
         if(empty($image))
         {
@@ -21,7 +21,6 @@
             else
             {
                 mysqli_stmt_bind_param($stmt,"s",$image);
-                mysqli_stmt_execute($stmt);
                 mysqli_stmt_store_result($stmt);
                 $count = mysqli_stmt_num_rows($stmt);
                 if($count>0)
@@ -56,7 +55,7 @@
             <h1>Blog<span>$</span></h1>
             </div>
                 <ul>
-                    <li><a href="dashboard.php"></a>Back</li>
+                    <li><a href="dashboard.php">Back</a></li>
                     <li><a href="includes/logout.php">Logout</a></li>
                 </ul>
     </header>
@@ -94,8 +93,6 @@
                     <?php
                         $sql="SELECT * FROM banners";
                         $result=mysqli_query($con,$sql);
-                        $row=mysqli_fetch_assoc($result);
-                        $bid=$row['b_id'];
                         //$rowCount = mysqli_num_rows($result);
                         $i=0;
                         if(mysqli_num_rows($result) > $i){

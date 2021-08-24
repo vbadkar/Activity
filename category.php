@@ -1,13 +1,17 @@
 <?php
     require_once "includes/header.php";
     require_once "includes/database.php";
+    if(isset($_GET['category']))
+    {
+        $category=$_GET['category'];
+    }
 ?>
 <title>Food</title>
-<div class='content clear'>
+<div class='category-content clear'>
 <div class='main_content'>
-    <h1 class="posts">Posts</h1>
+    <h1 class="posts"><?php echo $category;?></h1>
     <?php
-        $sql="SELECT * FROM posts WHERE category='Food'";
+        $sql="SELECT * FROM posts WHERE category='$category'";
         $result=mysqli_query($con,$sql);
         $i=0;
         if(mysqli_num_rows($result) > $i){
@@ -24,18 +28,6 @@
         }
     }
     ?>
-</div>
-<div class='sidebar'>  
-    <div class='side-content category'> 
-        <h2 class='side-title'>Category</h2>
-        <ul>
-            <li><a href="sports.php">Sports</a></li>
-            <li><a href="music.php">Music</a></li>
-            <li><a href="gymnastics.php">Gymnastics</a></li>
-            <li><a href="travel.php">Travel</a></li>
-        </ul>   
-    </div>
-</div>
 </div>
 <?php
     require_once "includes/footer.php";  

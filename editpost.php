@@ -8,19 +8,21 @@
     if(isset($_POST['submit']))
     {
         require "database.php";
+        $id=$_GET['id'];
         $pid=$_POST['p_id'];
         $title=$_POST['title'];
         $desc=$_POST['desc'];
         $category=$_POST['category'];
         $image=$_POST['image_file'];
-        $sql="UPDATE posts SET title='$title',description='$desc' WHERE p_id = $id";
+        echo $title." ".$desc;
+        $sql="UPDATE posts SET title='$_POST[title]',description='$_POST[desc]' WHERE p_id = $id";
         $que=mysqli_query($con,$sql);
         $query=mysqli_fetch_assoc($que);
     }
 ?>
 <title>Edit Post</title>
     <div class="edit-form">
-        <form action="dashboard.php?dataupdated" method="post">
+        <form action="editpost.php?id=<?php echo $id?>" method="post">
         <h1 class="form-title">Edit Post</h1> 
             <input class="text-input" type="text" name="title" placeholder="Title" autocomplete='off' value="<?php if(isset($post['title'])){echo $post['title'];}?>">
             <input class="text-input" type="textarea" name="desc" placeholder="Description" autocomplete='off' value="<?php   if(isset($post['description']))
@@ -35,7 +37,7 @@
                 <option value="Gymnastics">Gymnastics</option>
                 <option value="Travel">Travel</option>
             </select>
-            <p><input class="image-input" type="file" accept="image/*" name="image_file" value="<?php echo $post['image'];?>"></p>
+            <p><input class="image-input" type="file" accept="image/*" name="image_file"></p>
             <button class="edit-button" type="submit" name="submit">Update</button>
             <a href="dashboard.php">Back</a>
         </form>

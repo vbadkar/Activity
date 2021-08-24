@@ -64,8 +64,8 @@
                         <td><?php echo $row['p_id'];?></td>
                         <td><?php echo $row['title'];?></td>
                         <td><?php echo $row['description'];?></td>
-                        <td><a href="editpost.php?id=<?php echo $row['p_id'];?>">Edit</a></td>
-                        <td><a href="deletepost.php?del_id=<?php echo  $row['p_id'];?>" onclick="return confirm('Are you sure you want to delete this?')">Delete</a></td>
+                        <td><a href="editpost.php?id=<?php echo $row['p_id'];?>" class="edit-link">Edit</a></td>
+                        <td><a href="deletepost.php?del_id=<?php echo  $row['p_id'];?>" class ="delete-link" onclick="return confirm('Are you sure you want to delete this?')">Delete</a></td>
                     </tr>
                     <?php
                             $i=$i+1;

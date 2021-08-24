@@ -34,81 +34,148 @@ html, body {
     border: 1px solid rgba(236, 0, 0, 0.548);
     background-color:rgb(190, 79, 79);
 }
+header * {
+    color: black;
+}
 header {
     height: 60px;
     background-color: wheat ;
     box-shadow: 0 0 10px #000;
     width: 100%;
-}
-header * {
-    color: black;
-}
-header .logo{
+    
+    a{
+        border: none;
+    }
+    .logo{
     float: left;
     height: inherit;
     margin-left: 1em;
+
+    }
+        
+        ul{
+        float: right;
+        margin: 0px;
+        list-style: none;
+        padding: 0px;
+    }
+        
+        ul li{
+        float: left;
+        position: relative;
+    }
+        
+        ul li a{
+        display: block;
+        padding: 20px;
+        font-size: 1.1em;
+        text-decoration: none;
+        transition: 0.5s;
+    }
+        
+        ul li a:hover{
+        background: rgb(245, 205, 131);
+        transition: 0.5s;
+    }   
+        ul li ul{
+        position: absolute;
+        top: 60px;
+        width: 180px;
+        display: none;
+        z-index: 1;
+    }   
+        ul li ul li{
+        width: 100%;
+        background: white;
+    }   
+        ul li ul li a{
+        width: 100%;
+        background: whitesmoke;
+        transition: 0.3s;
+
+    }   
+        ul li ul li a:hover{
+        background: wheat;
+        font-size: 1.2em;
+        transition: 0.3s;
+    }   
+        ul li:hover ul{
+        display: block;
+    } 
+        .hamburger
+    {
+        display: none;
+    }
 }
-header ul{
-    float: right;
+a{
+    border: 1px solid grey;
     margin: 0px;
-    list-style: none;
-    padding: 0px;
-}
-header ul li{
-    float: left;
-}
-header ul li a{
-    display: block;
-    padding: 20px;
-    font-size: 1.1em;
+    padding: 10px;
+    display: inline;
     text-decoration: none;
+    color: #000;
 }
-header ul li a:hover{
-    background: rgb(245, 205, 131);
-    transition: 0.5s;
-}
-header ul li ul li a{
-    display: block;
-}
-header .hamburger
-{
-    display: none;
+a:hover{
+    color: rgba(160, 58, 58, 0.562);
+    transition: 0.3s;
 }
 .content{
     width: 100%;
     margin: 30px auto 30px;
-}
-.content .main_content{
+    
+    .main_content{
     width: 100%;
     float: left;
     display: grid;
     gap: 2em;
     grid-template-columns: 31% 31% 31%;
+
+    .index-homepage{
+        width: 100%;
+        height: 20px;
+        margin: 0px 50px 0px 50px;
+    }
+    }
+
+        .main_content.single{
+        background: white;
+        padding: 20px 50px;
+        font-size: 1.1em;
+    }
+
+        .main_content .posts{
+        margin: 20px;
+    }
+
+        .main_content .main-post{
+        width: 95%;
+        height: 270px;
+        margin: 20px;
+        border-radius: 5px;
+        background: whitesmoke;
+    }
+
+        .main_content .main-post .image{
+        width: 40%;
+        height: 100%;
+        float: left;
+    }
+
+        .main_content .main-post .post-preview{
+        padding: 10px;
+        width: 60%;
+        float: right;
+    }
 }
-.content .main_content.single{
-    background: white;
-    padding: 20px 50px;
-    font-size: 1.1em;
-}
-.content .main_content .posts{
-    margin: 20px;
-}
-.content .main_content .main-post{
-    width: 95%;
-    height: 270px;
-    margin: 20px auto;
-    border-radius: 5px;
-    background: whitesmoke;
-}
-.content .main_content .main-post .image{
-    width: 40%;
-    height: 100%;
-    float: left;
-}
-.content .main_content .main-post .post-preview{
-    padding: 10px;
-    width: 60%;
-    float: right;
+.home-footer{
+    position: static;
+    bottom: 0%;
+    width: 100%;
+    height: 60px;
+    background-color: wheat;
+    box-shadow: 0 0 10PX #000;
+    text-align: center;
+    margin: 0 auto;
 }
 footer{
     position: fixed;
@@ -123,11 +190,18 @@ footer{
     ul li{
         list-style: none;
     }
+    a{
+        border: none;
+    }
 }
 p{
     margin: 0;
     padding: 0;
     text-align: center;
+
+    a{
+        border: none;
+    }
 }
 .login-form{
     width: 30%;
@@ -241,64 +315,68 @@ p{
     padding: 20px;
     background-color: wheat;
     border-radius: 5px;
-    box-shadow: 0 0 10px #000
-}
-.edit-form .form-title{
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 40px;
-}
-.edit-form .text-input{
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    box-shadow: 0px 0px 10px #666;
-    width: 400px;
-    height: 70px;
-    background-color: whitesmoke;
-}
-.edit-form .edit-button{
+    box-shadow: 0 0 10px #000;
+
+        .form-title{
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 40px;
+    }
+        .text-input{
         display: block;
         margin: 20px auto;
-        width: 150px;
-        height: 30px;
-        background-color: #000;
-        color: #ffffff;
         text-align: center;
+        box-shadow: 0px 0px 10px #666;
+        width: 400px;
+        height: 70px;
+        background-color: whitesmoke;
+    }
+        .edit-button{
+            display: block;
+            margin: 20px auto;
+            width: 150px;
+            height: 30px;
+            background-color: #000;
+            color: #ffffff;
+            text-align: center;
+    }
 }
 .manage-posts{
     display: flex;
     height: calc(100% - 60px);
-}
-.manage-posts .left-sidebar{
-    flex: 2;
-    height: 100%;
-    background-color: wheat;
-}
-.manage-posts .left-sidebar .admin-manage{
-    margin: 20px auto;
-}
-.manage-posts .left-sidebar .admin-manage ul{
-    display: block;
-    list-style: none;
-}
-.manage-posts .left-sidebar .admin-manage ul li{
-    padding: 20px;
-}
-.manage-posts .left-sidebar .admin-manage ul li a{
-    text-decoration: none;
-    color: black;
-    font-size: 1.1em;
-    padding: 20px;
-}
-.manage-posts .left-sidebar .admin-manage ul li a:hover{
-    background: rgb(245, 205, 131);
-    transition: 0.5s;
-}
-.manage-posts .main-content{
-    flex: 8;
-    height: 100%;
-    padding: 40px 100px 100px ;
+    
+    .left-sidebar{
+        flex: 2;
+        height: 100%;
+        background-color: wheat;
+        
+            .admin-manage{
+                margin: 20px auto;
+            }
+            .admin-manage ul{
+                display: block;
+                list-style: none;
+            }
+            .admin-manage ul li{
+                padding: 20px;
+            }
+            .admin-manage ul li a{
+                text-decoration: none;
+                color: black;
+                font-size: 1.1em;
+                padding: 20px;
+                border: none;
+            }
+            .admin-manage ul li a:hover{
+                background: rgb(245, 205, 131);
+                transition: 0.5s;
+            }
+    }
+        .main-content{
+        flex: 8;
+        height: 100%;
+        padding: 40px 100px 100px ;
+    }
 }
 .content-table{
     border-collapse: collapse;
@@ -308,63 +386,116 @@ p{
     overflow: hidden;
     border-radius: 5px 5px 0 0;
     box-shadow: 0 0 20px rgb(43, 41, 41);
-}
-.content-table thead tr{
-    background-color: wheat;
-    color: #000;
-    text-align: left;
-    font-weight: bold;
-}
-.content-table th, .content-table td{
-    padding: 12px 15px;
-}
-.content-table tbody tr{
-    border-bottom: 1px solid rgb(185, 170, 170);
-}
-.content-table tbody tr:last-of-type{
-    border-bottom: 2px solid wheat;
+
+    .edit-link{
+        color: green;
+        border-right: 1px solid gray;
+    }
+    .delete-link{
+        border-left: 1px solid gray;
+        color: red;
+    }
+    a{
+        border: none;
+    }
+    thead tr{
+        background-color: wheat;
+        color: #000;
+        text-align: left;
+        font-weight: bold;
+    }
+    th, td{
+        padding: 12px 15px;
+    }
+    tbody tr{
+        border-bottom: 1px solid rgb(185, 170, 170);
+    }
+    tbody tr:last-of-type{
+        border-bottom: 2px solid wheat;
+    }
 }
 .post-slider{
     position: relative;
     width: 100%;
     margin: 0%;
-    height: 600px;
-}
-.post-slider .next{
-    position: absolute;
-    top: 50%;
-    right: 30px;
-    font-size: 2em;
-    color: black;
-    cursor: pointer;
-    border-radius: $nav_btn_radius;
+    height: 800px;
+    
+    .next{
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        font-size: 2em;
+        color: black;
+        cursor: pointer;
+        border-radius: $nav_btn_radius;
 
+    }   
+    .prev{
+        position: absolute;
+        top: 50%;
+        left: 30px;
+        font-size: 2em;
+        color: black;
+        cursor: pointer;
+        border-radius: $nav_btn_radius;
+    }   
+    .post-wrapper{
+        width: 100%;
+        height: 800px;
+        overflow: hidden;
+
+    }   
+    .post-wrapper .post{
+        display: inline-block;
+        border-radius: 5px;
+    }   
+    .post-wrapper .post .slider-image{
+        width: 1920px;
+        height: 800px;
+        margin:0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        z-index: -1;
+    }
 }
-.post-slider .prev{
-    position: absolute;
-    top: 50%;
-    left: 30px;
-    font-size: 2em;
-    color: black;
-    cursor: pointer;
-    border-radius: $nav_btn_radius;
-}
-.post-slider .post-wrapper{
+.category-content{
     width: 100%;
-    height: 600px;
-    overflow: hidden;
+    margin: 30px auto 30px;
+    
+    .main_content{
+        width: 100%;
+        float: left;
 
-}
-.post-slider .post-wrapper .post{
-    display: inline-block;
-    border-radius: 5px;
-}
-.post-slider .post-wrapper .post .slider-image{
-    width: 1903px;
-    height: 600px;
-    margin:0;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;   
+            .single{
+            background: white;
+            padding: 20px 50px;
+            font-size: 1.1em;
+
+            h1.post{
+                background: transparent;
+                margin: 0;
+                padding: 0;
+            }
+        }
+        .main-post{
+            width: 95%;
+            height: 270px;
+            margin: 20px;
+            border-radius: 5px;
+            background: whitesmoke;
+            
+            .image{
+            width: 40%;
+            height: 100%;
+            float: left;
+            }
+            .post-preview{
+                padding: 10px;
+                width: 60%;
+                float: right;
+            }
+        }
+    }
 }
 .banner-button{
     display: block;

@@ -39,6 +39,10 @@ html, body {
   background-color: #be4f4f;
 }
 
+header * {
+  color: black;
+}
+
 header {
   height: 60px;
   background-color: wheat;
@@ -47,8 +51,8 @@ header {
   width: 100%;
 }
 
-header * {
-  color: black;
+header a {
+  border: none;
 }
 
 header .logo {
@@ -66,6 +70,7 @@ header ul {
 
 header ul li {
   float: left;
+  position: relative;
 }
 
 header ul li a {
@@ -73,6 +78,8 @@ header ul li a {
   padding: 20px;
   font-size: 1.1em;
   text-decoration: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 header ul li a:hover {
@@ -81,12 +88,54 @@ header ul li a:hover {
   transition: 0.5s;
 }
 
+header ul li ul {
+  position: absolute;
+  top: 60px;
+  width: 180px;
+  display: none;
+  z-index: 1;
+}
+
+header ul li ul li {
+  width: 100%;
+  background: white;
+}
+
 header ul li ul li a {
+  width: 100%;
+  background: whitesmoke;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+header ul li ul li a:hover {
+  background: wheat;
+  font-size: 1.2em;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+header ul li:hover ul {
   display: block;
 }
 
 header .hamburger {
   display: none;
+}
+
+a {
+  border: 1px solid grey;
+  margin: 0px;
+  padding: 10px;
+  display: inline;
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  color: rgba(160, 58, 58, 0.562);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .content {
@@ -104,6 +153,12 @@ header .hamburger {
       grid-template-columns: 31% 31% 31%;
 }
 
+.content .main_content .index-homepage {
+  width: 100%;
+  height: 20px;
+  margin: 0px 50px 0px 50px;
+}
+
 .content .main_content.single {
   background: white;
   padding: 20px 50px;
@@ -117,7 +172,7 @@ header .hamburger {
 .content .main_content .main-post {
   width: 95%;
   height: 270px;
-  margin: 20px auto;
+  margin: 20px;
   border-radius: 5px;
   background: whitesmoke;
 }
@@ -132,6 +187,18 @@ header .hamburger {
   padding: 10px;
   width: 60%;
   float: right;
+}
+
+.home-footer {
+  position: static;
+  bottom: 0%;
+  width: 100%;
+  height: 60px;
+  background-color: wheat;
+  -webkit-box-shadow: 0 0 10PX #000;
+          box-shadow: 0 0 10PX #000;
+  text-align: center;
+  margin: 0 auto;
 }
 
 footer {
@@ -150,10 +217,18 @@ footer ul li {
   list-style: none;
 }
 
+footer a {
+  border: none;
+}
+
 p {
   margin: 0;
   padding: 0;
   text-align: center;
+}
+
+p a {
+  border: none;
 }
 
 .login-form {
@@ -347,6 +422,7 @@ p {
   color: black;
   font-size: 1.1em;
   padding: 20px;
+  border: none;
 }
 
 .manage-posts .left-sidebar .admin-manage ul li a:hover {
@@ -374,6 +450,20 @@ p {
           box-shadow: 0 0 20px #2b2929;
 }
 
+.content-table .edit-link {
+  color: green;
+  border-right: 1px solid gray;
+}
+
+.content-table .delete-link {
+  border-left: 1px solid gray;
+  color: red;
+}
+
+.content-table a {
+  border: none;
+}
+
 .content-table thead tr {
   background-color: wheat;
   color: #000;
@@ -397,7 +487,7 @@ p {
   position: relative;
   width: 100%;
   margin: 0%;
-  height: 600px;
+  height: 800px;
 }
 
 .post-slider .next {
@@ -422,7 +512,7 @@ p {
 
 .post-slider .post-wrapper {
   width: 100%;
-  height: 600px;
+  height: 800px;
   overflow: hidden;
 }
 
@@ -432,11 +522,54 @@ p {
 }
 
 .post-slider .post-wrapper .post .slider-image {
-  width: 1903px;
-  height: 600px;
+  width: 1920px;
+  height: 800px;
   margin: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  z-index: -1;
+}
+
+.category-content {
+  width: 100%;
+  margin: 30px auto 30px;
+}
+
+.category-content .main_content {
+  width: 100%;
+  float: left;
+}
+
+.category-content .main_content .single {
+  background: white;
+  padding: 20px 50px;
+  font-size: 1.1em;
+}
+
+.category-content .main_content .single h1.post {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+.category-content .main_content .main-post {
+  width: 95%;
+  height: 270px;
+  margin: 20px;
+  border-radius: 5px;
+  background: whitesmoke;
+}
+
+.category-content .main_content .main-post .image {
+  width: 40%;
+  height: 100%;
+  float: left;
+}
+
+.category-content .main_content .main-post .post-preview {
+  padding: 10px;
+  width: 60%;
+  float: right;
 }
 
 .banner-button {
