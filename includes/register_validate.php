@@ -59,7 +59,7 @@ if(isset($_POST['submit']))
             }
             else
             {
-                $sql="INSERT INTO login (username, password) VALUES (?, ?)";
+                $sql="INSERT INTO login (username, password, user_type) VALUES (?, ?, ?)";
                 $stmt=mysqli_stmt_init($con);
                 if(!mysqli_stmt_prepare($stmt, $sql))
                 {
@@ -68,8 +68,9 @@ if(isset($_POST['submit']))
                 }
                 else
                 {
+                    $usertype='admin';
                     $hashedPass=password_hash($pass, PASSWORD_DEFAULT);
-                    mysqli_stmt_bind_param($stmt,"ss",$user, $hashedPass);
+                    mysqli_stmt_bind_param($stmt,"sss",$user, $hashedPass,$usertype);
                     mysqli_stmt_execute($stmt);
                     
                     $_SESSION['message']="Registration Sucessful";

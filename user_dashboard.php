@@ -39,8 +39,6 @@
             <div class="admin-manage">
                 <ul>
                     <li><a href="createpost.php">Create Posts</a></li>
-                    <li><a href="manageuser.php">Manage Users</a></li>
-                    <li><a href="banner.php">Manage Banners</a></li>
                 </ul>
             </div>
         <div class="main-content-admin">
@@ -48,7 +46,7 @@
                         $results_per_page=4;
                         $pid=$row['p_id'];
                         $userid=$_COOKIE['cookieuserid'];
-                        $sql="SELECT * FROM posts";
+                        $sql="SELECT * FROM posts WHERE user_id='$userid'";
                         $result=mysqli_query($con,$sql);
                         //$rowCount = mysqli_num_rows($result);
                         $i=0;
@@ -60,7 +58,7 @@
                             $page=$_GET['page'];
                         }
                         $start_limit=($page-1)*$results_per_page;
-                        $sql="SELECT * FROM posts LIMIT ".$start_limit.','.$results_per_page;
+                        $sql="SELECT * FROM posts WHERE user_id='$userid' LIMIT ".$start_limit.','.$results_per_page;
                         $result=mysqli_query($con,$sql);
                         if(mysqli_num_rows($result) > $i){
                             while($row=mysqli_fetch_assoc($result)){

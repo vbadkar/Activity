@@ -7,6 +7,7 @@
         $desc=$_POST['desc'];
         $category=$_POST['category'];
         $image=$_POST['image_file'];
+        $userid=$_COOKIE['cookieuserid'];
         if(empty($title) || empty($desc) || empty($category) || empty($image))
         {
             $_SESSION['message']="Fields are blank";
@@ -38,7 +39,7 @@
                 }
                 else
                 {
-                    $sql="INSERT INTO posts (title, description, category, image) VALUES (?, ?, ?, ?)";
+                    $sql="INSERT INTO posts (title, description, category, image, user_id) VALUES (?, ?, ?, ?, ?)";
                     $stmt=mysqli_stmt_init($con);
                     if(!mysqli_stmt_prepare($stmt, $sql))
                     {
@@ -47,11 +48,11 @@
                     }
                     else
                     {
-                        mysqli_stmt_bind_param($stmt,"ssss",$title,$desc,$category,$image);
+                        mysqli_stmt_bind_param($stmt,"ssssi",$title,$desc,$category,$image,$userid);
                         mysqli_stmt_execute($stmt);
                         $_SESSION['message']="Post created sucessfully";
                         $_SESSION['type']="success";
-                        header("Location: ../dashboard.php?success=postcreated");
+                        header("Location: ../createpost.php?success=postcreated");
                         $msg= "Post created sucessfullly";
                         exit();
                     }

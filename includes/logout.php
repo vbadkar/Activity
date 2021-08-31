@@ -5,6 +5,7 @@
     unset($_SESSION['sessionUser']);
     session_destroy();
     setcookie('cookieuser','',time()-86400,'/');
+    setcookie('cookieuserid','',time()-86400,'/');
     header("Location: ../homepage.php?userloggedout");
     exit();
 ?>

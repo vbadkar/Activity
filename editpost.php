@@ -1,28 +1,24 @@
 <?php 
     require "includes/database.php";
     require "includes/header.php";
-    $id=$_GET['id'];
-    $sql = "SELECT * FROM posts WHERE p_id = $id";
+    $sql = "SELECT * FROM posts";
     $result = mysqli_query($con, $sql);
-    $post=mysqli_fetch_assoc($result);
-    if(isset($_POST['submit']))
-    {
-        require "database.php";
-        $id=$_GET['id'];
-        $pid=$_POST['p_id'];
-        $title=$_POST['title'];
-        $desc=$_POST['desc'];
-        $category=$_POST['category'];
-        $image=$_POST['image_file'];
-        echo $title." ".$desc;
-        $sql="UPDATE posts SET title='$_POST[title]',description='$_POST[desc]' WHERE p_id = $id";
-        $que=mysqli_query($con,$sql);
-        $query=mysqli_fetch_assoc($que);
+    if($post=mysqli_fetch_assoc($result)){
+        $pid=$post['p_id'];
     }
 ?>
 <title>Edit Post</title>
     <div class="edit-form">
-        <form action="editpost.php?id=<?php echo $id?>" method="post">
+    <?php if(isset($_SESSION['message'])):?>
+        <div class="msg <?php echo $_SESSION['type'];?>">
+            <li><?php echo $_SESSION['message'];?></li>
+            <?php 
+                unset($_SESSION['message']);
+                unset($_SESSION['type']);
+            ?>
+        </div>
+    <?php endif;?>  
+        <form action="includes/editpost_validate.php?id=<?php echo $_GET['id']?>" method="post">
         <h1 class="form-title">Edit Post</h1> 
             <input class="text-input" type="text" name="title" placeholder="Title" autocomplete='off' value="<?php if(isset($post['title'])){echo $post['title'];}?>">
             <input class="text-input" type="textarea" name="desc" placeholder="Description" autocomplete='off' value="<?php   if(isset($post['description']))

@@ -28,6 +28,8 @@
                 $result=mysqli_stmt_get_result($stmt);
                 if($row=mysqli_fetch_assoc($result))
                 {
+                    $user_id=$row['id'];
+                    setcookie('cookieuserid',$user_id,time()+3600,'/');
                     $pass_check=password_verify($pass, $row['password']);
                     if($pass_check==0)
                     {
@@ -51,8 +53,14 @@
                         $_SESSION['sessionUser']=$row['username'];
                         $_SESSION['message']="Login Sucessful";
                         $_SESSION['type']="success";
-                        header("Location: ../dashboard.php?success=loggedin");
-                        exit();
+                        if($row['user_type']=='admin'){
+                            header("Location: ../dashboard.php?success=loggedin");
+                            exit();
+                        }else{
+                            header("Location: ../user_dashboard.php?success=loggedin");
+                            exit();
+                        }
+                        
                     }
                     else
                     {

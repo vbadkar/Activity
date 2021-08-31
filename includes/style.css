@@ -5,9 +5,7 @@
 
 html, body {
   font-size: 15px;
-  width: 100%;
-  height: 100%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   padding: 0px;
   margin: 0px;
   background-color: whitesmoke;
@@ -17,6 +15,11 @@ html, body {
   content: "";
   display: block;
   clear: both;
+}
+
+.msg {
+  width: 100%;
+  height: 40px;
 }
 
 .msg li {
@@ -143,20 +146,47 @@ a:hover {
   margin: 30px auto 30px;
 }
 
+.content .pg_num {
+  display: inline;
+  float: right;
+  margin-right: 30px;
+}
+
+.content .pg_num form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60px;
+  height: 40px;
+  margin-bottom: 0px;
+}
+
+.content .pg_num form input {
+  width: 200%;
+  height: 100%;
+  margin: 0px 3px;
+}
+
+.content .pg_num form button {
+  width: 100%;
+  height: 70%;
+  margin: 0px 3px;
+}
+
 .content .main_content {
   width: 100%;
   float: left;
   display: -ms-grid;
   display: grid;
-  gap: 2em;
-  -ms-grid-columns: 31% 31% 31%;
-      grid-template-columns: 31% 31% 31%;
+  gap: 1em;
+  -ms-grid-columns: 32% 32% 32%;
+      grid-template-columns: 32% 32% 32%;
 }
 
 .content .main_content .index-homepage {
   width: 100%;
   height: 20px;
-  margin: 0px 50px 0px 50px;
+  margin: 10px auto;
 }
 
 .content .main_content.single {
@@ -170,23 +200,50 @@ a:hover {
 }
 
 .content .main_content .main-post {
-  width: 95%;
+  width: 100%;
   height: 270px;
-  margin: 20px;
-  border-radius: 5px;
-  background: whitesmoke;
+  margin: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  background: antiquewhite;
+  position: relative;
 }
 
 .content .main_content .main-post .image {
-  width: 40%;
-  height: 100%;
-  float: left;
+  width: 243px;
+  height: 250px;
+  border-radius: inherit;
 }
 
 .content .main_content .main-post .post-preview {
   padding: 10px;
   width: 60%;
   float: right;
+}
+
+.content .main_content .main-post .post-preview h2 .post-title {
+  border: none;
+}
+
+.content .main_content .main-post .post-preview .preview-text {
+  display: block;
+  text-align: left;
+  white-space: nowrap;
+  line-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 128px;
+}
+
+.content .main_content .main-post .comment {
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 10px #666;
+          box-shadow: 0px 0px 10px #666;
+  width: 400px;
+  height: 70px;
+  background-color: whitesmoke;
 }
 
 .home-footer {
@@ -389,98 +446,259 @@ p a {
   text-align: center;
 }
 
-.manage-posts {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: calc(100% - 60px);
-}
-
-.manage-posts .left-sidebar {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+.single-main-content {
+  display: block;
+  width: 90%;
   height: 100%;
-  background-color: wheat;
+  margin: 0px auto;
+  bottom: 0%;
 }
 
-.manage-posts .left-sidebar .admin-manage {
+.single-main-content .full-content {
+  border: 1px solid black;
+  width: 80%;
+  height: 50%;
+  background-color: #ffffff;
   margin: 20px auto;
 }
 
-.manage-posts .left-sidebar .admin-manage ul {
-  display: block;
+.single-main-content .full-content .posts-title {
+  text-align: left;
+  margin-left: 20px;
+  position: relative;
+}
+
+.single-main-content .full-content .posts-title ul {
   list-style: none;
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5px;
+  padding: 5px;
 }
 
-.manage-posts .left-sidebar .admin-manage ul li {
+.single-main-content .full-content .posts-title ul .like-button {
+  top: 10px;
+  right: 60px;
+  height: 40px;
+  padding-right: 5px;
+  border: none;
+}
+
+.single-main-content .full-content .posts-title ul .dislike-button {
+  top: 10px;
+  right: 20px;
+  height: 40px;
+  padding-right: 5px;
+  border: none;
+}
+
+.single-main-content .full-content .inner-content {
+  display: block;
+}
+
+.single-main-content .full-content .inner-content .post-image {
   padding: 20px;
+  margin: 0px 60px;
 }
 
-.manage-posts .left-sidebar .admin-manage ul li a {
+.single-main-content .full-content .inner-content p {
+  text-align: left;
+  padding: 20px;
+  margin: 0px auto;
+  width: 90%;
+}
+
+.single-main-content .side-content {
+  margin-top: 30px;
+  margin: 0px auto;
+  width: 80%;
+  background-color: #ffffff;
+}
+
+.single-main-content .side-content h2 {
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.single-main-content .side-content form {
+  width: 65%;
+  display: block;
+  margin: 0px 20px;
+}
+
+.single-main-content .side-content form h3 {
+  margin: 5px;
+}
+
+.single-main-content .side-content form .enter-name {
+  border: none;
+  margin: 5px;
+  -webkit-box-shadow: 0px 0px 5px #666;
+          box-shadow: 0px 0px 5px #666;
+}
+
+.single-main-content .side-content form .enter-comment {
+  border: none;
+  margin: 5px;
+  width: 100%;
+  height: 50px;
+  -webkit-box-shadow: 0px 0px 5px #666;
+          box-shadow: 0px 0px 5px #666;
+}
+
+.single-main-content .side-content form .post-comment {
+  margin: 5px 5px;
+  padding: 0px;
+  width: 50px;
+  height: 30px;
+  background-color: #000;
+  color: #ffffff;
+  text-align: center;
+}
+
+.single-main-content .side-content .comment-section {
+  overflow: visible;
+  margin: 10px 5px;
+  border-radius: 5px;
+}
+
+.single-main-content .side-content .comment-section .comment-name {
+  margin-left: 10px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 10px;
+  padding-bottom: 15px;
+}
+
+.single-main-content .side-content .comment-section .comment-name i {
+  padding-top: 5px;
+  font-size: 1.5rem;
+}
+
+.single-main-content .side-content .comment-section .comment {
+  margin-left: 30px;
+  text-align: left;
+  padding-bottom: 15px;
+  font-size: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.single-footer {
+  position: static;
+  display: block;
+  bottom: 0%;
+  width: 100%;
+  height: 60px;
+  background-color: wheat;
+  -webkit-box-shadow: 0 0 10PX #000;
+          box-shadow: 0 0 10PX #000;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.manage-posts-user {
+  display: block;
+}
+
+.manage-posts-user .user-manage {
+  margin: 50px auto;
+  width: 90%;
+  height: 20px;
+}
+
+.manage-posts-user .user-manage ul {
+  display: inline;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.manage-posts-user .user-manage ul li {
+  margin: 10px auto;
+  display: inline;
+}
+
+.manage-posts-user .user-manage ul li a {
+  border-radius: 20px;
   text-decoration: none;
   color: black;
   font-size: 1.1em;
   padding: 20px;
-  border: none;
+  margin: 5px;
+  background: #dac192;
 }
 
-.manage-posts .left-sidebar .admin-manage ul li a:hover {
+.manage-posts-user .user-manage ul li a:hover {
   background: #f5cd83;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-.manage-posts .main-content {
-  -webkit-box-flex: 8;
-      -ms-flex: 8;
-          flex: 8;
+.manage-posts-user .main-content-user {
+  width: 100%;
+}
+
+.manage-posts-user .main-content-user .main-post-user {
+  width: 90%;
+  margin-right: 0px;
+  margin: 10px;
+  height: 350px;
+  border-radius: 20px;
+  background: wheat;
+  position: relative;
+}
+
+.manage-posts-user .main-content-user .main-post-user .image {
+  width: 40%;
   height: 100%;
-  padding: 40px 100px 100px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
 }
 
-.content-table {
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  min-width: 400px;
-  overflow: hidden;
-  border-radius: 5px 5px 0 0;
-  -webkit-box-shadow: 0 0 20px #2b2929;
-          box-shadow: 0 0 20px #2b2929;
-}
-
-.content-table .edit-link {
-  color: green;
-  border-right: 1px solid gray;
-}
-
-.content-table .delete-link {
-  border-left: 1px solid gray;
-  color: red;
-}
-
-.content-table a {
+.manage-posts-user .main-content-user .main-post-user .post-preview {
+  padding: 10px;
+  width: 60%;
+  float: right;
+  text-align: left;
   border: none;
 }
 
-.content-table thead tr {
-  background-color: wheat;
-  color: #000;
+.manage-posts-user .main-content-user .main-post-user .post-preview .post-title {
+  border: none;
+  text-align: center;
+}
+
+.manage-posts-user .main-content-user .main-post-user .post-preview .preview-text {
   text-align: left;
-  font-weight: bold;
 }
 
-.content-table th, .content-table td {
-  padding: 12px 15px;
+.manage-posts-user .main-content-user .main-post-user .edit-delete-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
 }
 
-.content-table tbody tr {
-  border-bottom: 1px solid #b9aaaa;
+.manage-posts-user .main-content-user .main-post-user .edit-delete-btn li {
+  margin: 5px;
 }
 
-.content-table tbody tr:last-of-type {
-  border-bottom: 2px solid wheat;
+.manage-posts-user .main-content-user .main-post-user .edit-delete-btn .btn.edit-link {
+  background-color: green;
+  margin-right: 5px;
+}
+
+.manage-posts-user .main-content-user .main-post-user .edit-delete-btn .btn.delete-link {
+  background-color: red;
+  margin-left: 5px;
 }
 
 .post-slider {
@@ -570,6 +788,170 @@ p a {
   padding: 10px;
   width: 60%;
   float: right;
+}
+
+.manage-posts-admin {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.manage-posts-admin .admin-manage {
+  margin: 50px auto;
+  width: 90%;
+  height: 20px;
+}
+
+.manage-posts-admin .admin-manage ul {
+  display: inline;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.manage-posts-admin .admin-manage ul li {
+  margin: 10px auto;
+  display: inline;
+}
+
+.manage-posts-admin .admin-manage ul li a {
+  border-radius: 20px;
+  text-decoration: none;
+  color: black;
+  font-size: 1.1em;
+  padding: 20px;
+  margin: 5px;
+  background: #dac192;
+}
+
+.manage-posts-admin .admin-manage ul li a:hover {
+  background: #f5cd83;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.manage-posts-admin .main-content-admin {
+  width: 100%;
+}
+
+.manage-posts-admin .main-content-admin .main-post-admin {
+  width: 90%;
+  margin-right: 0px;
+  margin: 10px;
+  height: 350px;
+  border-radius: 20px;
+  background: wheat;
+  position: relative;
+}
+
+.manage-posts-admin .main-content-admin .main-post-admin .image {
+  width: 40%;
+  height: 100%;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.manage-posts-admin .main-content-admin .main-post-admin .post-preview {
+  padding: 10px;
+  width: 60%;
+  float: right;
+  text-align: left;
+  border: none;
+}
+
+.manage-posts-admin .main-content-admin .main-post-admin .post-preview .post-title {
+  border: none;
+  text-align: center;
+}
+
+.manage-posts-admin .main-content-admin .main-post-admin .post-preview .preview-text {
+  text-align: left;
+}
+
+.manage-posts-admin .main-content-admin .main-post-admin .edit-delete-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+}
+
+.manage-posts-admin .main-content-admin .main-post-admin .edit-delete-btn .li {
+  margin: 5px;
+}
+
+.manage-posts-admin .main-content-admin .main-post-admin .edit-delete-btn .btn.edit-link {
+  background-color: green;
+  margin-right: 5px;
+}
+
+.manage-posts-admin .main-content-admin .main-post-admin .edit-delete-btn .btn.delete-link {
+  background-color: red;
+  margin-left: 5px;
+}
+
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+  -webkit-box-shadow: 0 0 20px #2b2929;
+          box-shadow: 0 0 20px #2b2929;
+}
+
+.content-table .edit-link {
+  color: green;
+  border-right: 1px solid gray;
+}
+
+.content-table .delete-link {
+  border-left: 1px solid gray;
+  color: red;
+}
+
+.content-table a {
+  border: none;
+}
+
+.content-table thead tr {
+  background-color: wheat;
+  color: #000;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th, .content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #b9aaaa;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid wheat;
+}
+
+.index-dashboard {
+  width: 80%;
+  height: 20px;
+  margin: 0px 50px 0px 50px;
+}
+
+.index-comments {
+  width: 80%;
+  height: 20px;
+  margin: 20px auto;
+}
+
+.index-comments a {
+  border-radius: 30px;
 }
 
 .banner-button {

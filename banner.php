@@ -34,7 +34,7 @@
                 mysqli_stmt_execute($stmt);
                 $_SESSION['message']="Banner added";
                 $_SESSION['type']="success";
-                header("Location: dashboard.php?success=banneradded");
+                header("Location: banner.php?success=banneradded");
                 $msg= "Banner added";
                 exit();
             }
@@ -60,16 +60,13 @@
                 </ul>
     </header>
     <div class="manage-posts">
-        <div class="left-sidebar">
             <div class="admin-manage">
                 <ul>
                     <li><a href="createpost.php">Manage Posts</a></li>
                     <li><a href="manageuser.php">Manage Users</a></li>
                 </ul>
             </div>
-        </div>
-        <div class="main-content">
-        <h1>Manage Banners</h1>
+        <div class="file-wrapper">
         <?php if(isset($_SESSION['message'])):?>
             <div class="msg <?php echo $_SESSION['type'];?>">
                 <li><?php echo $_SESSION['message'];?></li>
@@ -79,30 +76,45 @@
                 ?>  
             </div>
         <?php endif;?>
+        <h1>Manage Banners</h1>
+        <div class="file-input">
             <form action="banner.php" method="post">
                 <p><input class="image-input" type="file" accept="image/*" name="image_file"></p>
                 <button class="banner-button" type="submit" name="submit">Add Banner</button>
             </form>
-            <table class="content-table">
-                <thead>
-                    <th>Banner ID.</th>
-                    <th>Image</th>
-                    <th colspan='2'>Action</th>
-                </thead>
-                <tbody>
-                    <?php
-                        $sql="SELECT * FROM banners";
-                        $result=mysqli_query($con,$sql);
-                        //$rowCount = mysqli_num_rows($result);
-                        $i=0;
-                        if(mysqli_num_rows($result) > $i){
-                            while($row=mysqli_fetch_assoc($result)){
-                    ?> 
-                    <tr>
-                        <td><?php echo $row['b_id'];?></td>
-                        <td><?php echo $row['image'];?></td>
-                        <td><a href="deletebanner.php?del_id=<?php echo  $row['b_id'];?>" onclick="return confirm('Are you sure you want to delete this?')">Delete</a></td>
-                    </tr>
+        </div>
+        </div>
+        <div class="main-content-banner">
+        <?php
+            $sql="SELECT * FROM banners ORDER BY image ASC";
+            $result=mysqli_query($con,$sql);
+            //$rowCount = mysqli_num_rows($result);
+            $i=0;
+            if(mysqli_num_rows($result) > $i){
+                while($row=mysqli_fetch_assoc($result)){
+                    $input_image="images/".$row['image'];
+                    $output_image="images/resized/".$row['image'];
+                    $width=380;
+                    $height=220;
+                    $resource=imagecreatefromjpeg($input_image);
+                    $scaled=imagescale($resource, $width, $height);
+                    imagejpeg($scaled,$output_image);
+        ?> 
+        <div class="admin-display-wrapper">
+            <div class="admin-display">
+                <ul>
+                    <li>
+                        <img src="<?php echo $output_image;?>" alt="" class="r-image">
+                    </li>
+                    <li>
+                        <a href="deletebanner.php?del_id=<?php echo  $row['b_id'];?>" onclick="return confirm('Are you sure you want to delete this?')"class="delete-banner">Delete</a>
+                    </li>
+                </ul>
+                
+                            
+            </div>
+        </div>
+        
                     <?php
                             $i=$i+1;
                             }
@@ -115,8 +127,6 @@
                             <?php
                         }
                     ?>
-                </tbody>
-            </table>
         </div>
     </div>
 </body>

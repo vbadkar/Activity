@@ -3,7 +3,7 @@
 ?>
     <div class="post-wrapper">
             <?php
-                $sql="SELECT * FROM banners";
+                $sql="SELECT * FROM comments";
                 $result=mysqli_query($con,$sql);
                 $i=0;
                 if(mysqli_num_rows($result) > $i){

@@ -25,14 +25,12 @@
                 </ul>
     </header>
     <div class="manage-posts">
-        <div class="left-sidebar">
             <div class="admin-manage">
                 <ul>
                     <li><a href="createpost.php">Manage Posts</a></li>
                     <li><a href="banner.php">Manage Banners</a></li>
                 </ul>
             </div>
-        </div>
         <div class="main-content">
         <?php if(isset($_SESSION['message'])):?>
             <div class="msg <?php echo $_SESSION['type'];?>">
@@ -47,7 +45,7 @@
                 <thead>
                     <th>User ID</th>
                     <th>Username</th>
-                    <th colspan='2'>Action</th>
+                    <th>Action</th>
                 </thead>
                 <tbody>
                     <?php

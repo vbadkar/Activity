@@ -30,7 +30,6 @@
     for(var j=0;j<len;j++){
         img[j] = image[j].getAttribute("src");
     }
-    console.log(img);
     var  i=0;
     no_of_items=img.length;
 function prev()
@@ -72,6 +71,12 @@ function slides()
 <div class='main_content'>
     <?php
         $results_per_page=6;
+        if(isset($_POST['pg-num'])){
+            $results_per_page=$_POST['pg-num'];
+        }
+        else{
+            $results_per_page=3;
+        }
         $sql="SELECT * FROM posts";
         $result=mysqli_query($con,$sql);
         $i=0;
@@ -89,9 +94,18 @@ function slides()
             while($data=mysqli_fetch_assoc($result)){
     ?>
     <div class="main-post">
-        <img class="image" src="images/<?php echo $data['image'];?>", alt="post_image">
+        <?php 
+             $input_image="images/".$data['image'];
+             $output_image="images/resized/".$data['image'];
+             $width=320;
+             $height=250;
+             $resource=imagecreatefromjpeg($input_image);
+             $scaled=imagescale($resource, $width, $height);
+             imagejpeg($scaled,$output_image);
+        ?>
+        <img class="image" src="<?php echo $output_image;?>", alt="post_image">
         <div class="post-preview">
-            <h2><a href="single.php"><?php echo $data['title'];?></a></h2>
+            <h2><a href="single.php?id=<?php echo $data['p_id'];?>" class="post-title"><?php echo $data['title'];?></a></h2>
             <p class="preview-text"><?php echo $data['description'];?></p>
         </div>
     </div>
@@ -105,11 +119,11 @@ function slides()
         for($page=1;$page<=$num_of_pages;$page++)
         {
             echo '<a href="homepage.php?page='.$page.'">'.$page.'</a> ';
-        }   ?>
-    </div></center>
+        }   ?> 
+</div>
+</center>
 </div>
 </body>
-
 <footer class="home-footer">
     <ul>
         <li><a href="about.php">About</a></li>
