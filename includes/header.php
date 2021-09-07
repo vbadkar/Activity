@@ -20,31 +20,33 @@
 
 </head>
 <body>
-    <header>
+    <div class="header-wrapper">
+        <header>
             <div class='logo'>
-                <h1>Vozga</h1>
+                <h3>Vozga</h3>
             </div>
             <img class='hamburger' src='images/hamburger.png' alt='hamburger'></img>
             <ul class='list'>
-                    <li>
-                        <form action="search.php" method="get">
-                            <input class="search-text" type="text" name="search" placeholder="Search" autocomplete="off">
-                            <button class="search-button"  type="submit" name="search-button">
-                                <span><i class="fas fa-search" style="color:black;"></i></span></button>
-                        </form>
-                    </li>
-                    <li><a>Category<i class="fas fa-chevron-down" style="color:black; font-size:1.2rem; padding:5px;"></i></a>
-                      <ul>
-                          <li><a href="category.php?category=Food">Food</a></li>
-                          <li><a href="category.php?category=Music">Music</a></li>
-                          <li><a href="category.php?category=Sports">Sports</a></li>
-                          <li><a href="category.php?category=Gymnastics">Gymnastics</a></li>
-                          <li><a href="category.php?category=Travel">Travel</a></li>
-                      </ul>
-                    </li>
-                    <li><a href='homepage.php'>Home</a></li>
-                    <li><a href='register.php'>Register</a></li>
-                    <li><a href='login.php'>Login</a></li>
+                <li>
+                    <form action="search.php" method="get">
+                        <input class="search-text" type="text" name="search" placeholder="Search" autocomplete="off">
+                        <button class="search-button"  type="submit" name="search-button">
+                            <span><i class="fas fa-search" style="color:white; font-size: 14px;font-weight: 600;"></i></span></button>
+                    </form>
+                </li>
+                <li><a>Category<i class="fas fa-chevron-down" style="color:white; font-size: 14px; font-weight: 600; padding:5px;"></i></a>
+                    <ul>
+                        <li><a href="category.php?category=Food">Food</a></li>
+                        <li><a href="category.php?category=Music">Music</a></li>
+                        <li><a href="category.php?category=Sports">Sports</a></li>
+                        <li><a href="category.php?category=Gymnastics">Gymnastics</a></li>
+                        <li><a href="category.php?category=Travel">Travel</a></li>
+                    </ul>
+                </li>
+                <li><a href='homepage.php'>Home</a></li>
+                <li><a href='register.php'>Register</a></li>
+                <li><a href='login.php'>Login</a></li>
             </ul>
-    </header>
+        </header>
+    </div>
     <script src='script.js'></script>

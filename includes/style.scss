@@ -1,14 +1,14 @@
-@import "./header";
-@import "./variables";
-@import "./homepage_content";
-@import "./homepage_slider";
-@import "./mixins";
-@import "./displaymsgs";
-@import "./footer";
-@import "./login_form";
-@import "./register_form";
-@import "./createpost-form";
-@import "./editpost_form";
+@import "partials/header";
+@import "partials/variables";
+@import "partials/homepage_content";
+@import "partials/homepage_slider";
+@import "partials/mixins";
+@import "partials/displaymsgs";
+@import "partials/footer";
+@import "partials/login_form";
+@import "partials/register_form";
+@import "partials/createpost-form";
+@import "partials/editpost_form";
 
 *{
     box-sizing: border-box;
@@ -20,6 +20,9 @@ html, body {
     margin: 0px;
     background-color:#f8f8f8;
     line-height: $line-height;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
 }
 .clear::after{
     content: "";

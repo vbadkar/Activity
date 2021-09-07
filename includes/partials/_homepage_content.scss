@@ -1,3 +1,5 @@
+@import "./variables";
+
 .content{
   width: 65%;
   display: grid;
@@ -35,12 +37,14 @@
   grid-column-gap: 1.5rem;
   grid-row-gap: 2.0rem;
   grid-template-columns: 47.5% 47.5%;
+  grid-auto-rows: max-content;
   background-color: #f8f8f8;
   padding: 0 5px;
 
 .main-post{
   background-color: white;
   width: 100%;
+  height: max-content;
   margin: 0 auto;
   border-radius: 3px;
   box-shadow: 0px 0px 10px antiquewhite;
@@ -168,7 +172,6 @@ width: 100%;
       box-shadow: 0px 0px 10px antiquewhite;
       .social-title{
           margin: 0;
-
           border-bottom:3px solid whitesmoke;
           color: $headcolor;
           font-size: 17px;
@@ -246,29 +249,45 @@ width: 100%;
           padding: 10px;
       }
   }
-  .popular-post{
-      display: grid;
-      width: 100%;
-      grid-template-columns: 30% 60%;
-      grid-gap: 0.5rem;
+  .popular-post-wrapper{
+      border: 0px solid red;
       background-color: white;
       padding: 10px;
       margin-bottom: 2rem;
       box-shadow: 0px 0px 10px antiquewhite;
 
-      .popular-post-title{
-          width: 100%;
-          margin: 0;
-          font-size: 15px;
-          font-weight: 400;
-          line-height: 34px;
+      .popular-posts-title{
+        h2{
+            margin: 0;
+            padding: 0 0 10px 0;
+            color: $headcolor;
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 34px;
+            border-bottom:3px solid whitesmoke;
+        }
       }
-      .popular-image{
-          width: 100%;
-          margin: 0;
-          padding: 0;
-          border-radius: 5px;
-      }
+    .popular-post{
+        display: grid;
+        width: 100%;
+        grid-template-columns: 30% 60%;
+        grid-gap: 0.5rem;
+        padding: 10px 0 0px 0;
+    
+        .popular-post-title{
+                width: 100%;
+                margin: 0;
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 34px;
+        }
+        .popular-image{
+            width: 100%;
+            margin: 0;
+            padding: 0 0 0 0;
+            border-radius: 5px;
+        }
+    }
   }
   .subscribe-wrapper{
       background-color: white;

@@ -9,14 +9,14 @@
     background-image: url(https://4.bp.blogspot.com/-bmDaqaWCheM/XcRq7ny3w6I/AAAAAAAAHZI/iOyHrm3NavIOKkV-3ZuvdHHF-Fr8v0KuwCK4BGAYYCw/s1600/bg1.jpg);
     background-size: cover;
     background-position: center;
-    background-color: rgba(0,0,0,0.25);
+    
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 90%, 50% 100%, 0% 90%, 0% 100%);
     
 
     .post-wrapper{
         width: 100%;
         overflow: hidden;
-        
+        background-color: rgba(0,0,0,0.25);
         margin: 0;
         padding: 0;
         
@@ -32,7 +32,7 @@
           content: '>';
           visibility: visible;
           position: absolute;
-          top: 50%;
+          top: 40%;
           right: 30px;
           font-size: 1em;
           color: white;
@@ -43,7 +43,7 @@
           content: '<';
           position: absolute;
           visibility: visible;
-          top: 50%;
+          top: 40%;
           left: 30px;
           font-size: 1em;
           color: white;
@@ -56,11 +56,9 @@
             border-radius: 5px;
             
             .wrapper{
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                @include flexCenter();
                 .intro-wrapper{
-                    width: 80%;
+                    width: 520px;
                     position: absolute;
                     z-index: 1;
                     top: 30%;
@@ -70,7 +68,12 @@
                         font-size: 37px;
                         color: #ffffff;
                         font-weight: 700;
-                        margin: 0 0 30px;
+                        margin: 0 0 20px;
+                        line-height: 50px;
+
+                        h3{
+                            margin: 0;
+                        }
                     }
                     .intro-text{
                         font-size: 14px;
@@ -89,7 +92,7 @@
                             height: 40px;
                             color: #f8f8f8;
                             border-radius: 3px;
-                            padding-bottom: 10px;
+                            padding: 8px;
                         }
                     }
                 }

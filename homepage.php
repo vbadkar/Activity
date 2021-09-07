@@ -54,12 +54,12 @@
 <div class='content clear'>
 <div class='main_content'>
     <?php
-        $results_per_page=4;
+        $results_per_page=6;
         if(isset($_POST['pg-num'])){
             $results_per_page=$_POST['pg-num'];
         }
         else{
-            $results_per_page=4;
+            $results_per_page=6;
         }
         $sql="SELECT * FROM posts";
         $result=mysqli_query($con,$sql);
@@ -88,9 +88,6 @@
              imagejpeg($scaled,$output_image);
              $desc=$data['description'];
              $desc = substr($desc,0,100).'...';
-
-
-
         ?>
         <img class="image" src="<?php echo $output_image;?>", alt="post_image"><a href="category.php?category=<?php echo $data['category'];?>" class="post-category"><?php echo $data['category']; ?></a>
         <div class="post-preview-wrapper">
@@ -100,7 +97,6 @@
                     <span class="post-date"><i class="fas fa-calendar-week">Date</i></span>
                     <p class="desc"><?php echo $desc; ?></p>
                 </div>
-            
         </div>
     </div>
     <?php 
@@ -136,8 +132,8 @@
                     <li class="rss"><i class="fas fa-rss"></i></li>
                 </ul>
             </div>
-            <div>
-                <div class="popular-post-title">
+            <div class="popular-post-wrapper">
+                <div class="popular-posts-title">
                     <h2>Popular posts</h2>
                 </div>
                 <div class="popular-post">
@@ -177,7 +173,7 @@
                         <h2>Facebook</h2>
                 </div>
                 <div class="facebook-page">
-                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fway2themes%2Fposts%2F731449897061662&show_text=true&width=500" width="280" height="120" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fway2themes%2Fposts%2F731449897061662&show_text=true&width=500" width="280" height="120" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                 </div>
             </div>
             <div class="side-category-wrapper">
