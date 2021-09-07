@@ -1,0 +1,15 @@
+.register-form{
+  @include userInputForms;
+
+  .register-title{
+    @include formTitle;
+  }
+
+  .text-input{
+    @include formText;
+  }
+
+  .register-button{
+    @include formButton;
+  }
+}

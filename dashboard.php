@@ -77,7 +77,7 @@
                     ?>
                         <img class="image" src="<?php echo $output_image;?>", alt="post_image">
                     <div class="post-preview">
-                            <h2><a href="single.php" class="post-title"><?php echo $row['title'];?></a></h2>
+                            <h2><a href="single.php?user_id=<?php echo $userid;?>&id=<?php $row['p_id'];?>" class="post-title"><?php echo $row['title'];?></a></h2>
                             <p class="preview-text"><?php echo $row['description'];?></p>
                                 <ul class="edit-delete-btn">
                                     <li>

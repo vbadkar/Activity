@@ -1,0 +1,19 @@
+@import "./mixins";
+.msg{
+  width: 100%;
+  height: 40px;
+
+  .msg li{
+      width: 100%;
+      margin: 5px auto;
+      padding: 8px;
+      border-radius: 5px;
+      list-style: none;
+  }
+  .msg.success li{
+      @include displayMsgs(lightgreen, aquamarine);
+  }
+  .msg.error li{
+      @include displayMsgs(rgba(236, 0, 0, 0.548), rgb(190, 79, 79));
+  }
+}

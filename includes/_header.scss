@@ -1,0 +1,104 @@
+header {
+  height: 70px;
+  background: transparent;
+  width: 60%;
+  margin: 0 auto;
+  position: absolute;
+  box-shadow: none;
+  border: none;
+  z-index: 1;
+
+  a{
+      border: none;
+  }
+  .logo{
+  float: left;
+  height: inherit;
+  margin-left: 1em;
+  background-color: white;
+
+  }
+      
+      ul{
+      float: left;
+      margin: 0px;
+      list-style: none;
+      padding: 0px;
+  }
+      
+      ul li{
+      float: right;
+      position: relative;  
+      
+      }
+      ul li form{
+          width: 100%;
+          display: block;
+          float: right;
+          margin: 15px auto;
+          padding-right: 50px;
+      
+          .search-text{
+              width: 400px;
+              height: 30px;
+              text-align: justify;
+              border: none;
+              box-shadow: 0 0 3px #000;
+              border-radius: 10px;
+             
+          }
+          .search-button{
+              height: 30px;
+              background: transparent;
+              
+              border-radius: 10px;
+              border: none;
+              cursor: pointer;
+              float: right;
+          }
+      }
+      
+      ul li a{
+      display: block;
+      padding: 20px;
+      font-size: 1.1em;
+      color: black;
+      text-decoration: none;
+      transition: 0.5s;
+  }
+      
+      ul li a:hover{
+      background: rgb(245, 205, 131);
+      transition: 0.5s;
+      
+  }   
+      ul li ul{
+      position: absolute;
+      top: 60px;
+      width: 180px;
+      display: none;
+      z-index: 1;
+  }   
+      ul li ul li{
+      width: 100%;
+      background: white;
+  }   
+      ul li ul li a{
+      width: 100%;
+      background: whitesmoke;
+      transition: 0.3s;
+
+  }   
+      ul li ul li a:hover{
+      background: wheat;
+      font-size: 1.2em;
+      transition: 0.3s;
+  }   
+      ul li:hover ul{
+      display: block;
+  } 
+      .hamburger
+  {
+      display: none;
+  }
+}

@@ -1,0 +1,13 @@
+.edit-form{
+  @include userInputForms;
+
+      .form-title{
+        @include formTitle;
+  }
+      .text-input{
+        @include formText;
+  }
+      .edit-button{
+        @include formButton;
+  }
+}

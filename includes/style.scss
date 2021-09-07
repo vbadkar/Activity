@@ -1,4 +1,14 @@
-$nav_btn_radius : 18px;
+@import "./header";
+@import "./variables";
+@import "./homepage_content";
+@import "./homepage_slider";
+@import "./mixins";
+@import "./displaymsgs";
+@import "./footer";
+@import "./login_form";
+@import "./register_form";
+@import "./createpost-form";
+@import "./editpost_form";
 
 *{
     box-sizing: border-box;
@@ -8,108 +18,15 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
     padding: 0px;
     margin: 0px;
-    background-color:whitesmoke;
+    background-color:#f8f8f8;
+    line-height: $line-height;
 }
 .clear::after{
     content: "";
     display: block;
     clear: both;    
 }
-.msg{
-    width: 100%;
-    height: 40px;
-}
-.msg li{
-    width: 100%;
-    margin: 5px auto;
-    padding: 8px;
-    border-radius: 5px;
-    list-style: none;
-}
-.msg.success li{
-    color: black;
-    border: 1px solid lightgreen;
-    background-color: aquamarine;
-}
-.msg.error li{
-    color: black;
-    border: 1px solid rgba(236, 0, 0, 0.548);
-    background-color:rgb(190, 79, 79);
-}
-header * {
-    color: black;
-}
-header {
-    height: 60px;
-    background-color: wheat ;
-    box-shadow: 0 0 10px #000;
-    width: 100%;
-    
-    a{
-        border: none;
-    }
-    .logo{
-    float: left;
-    height: inherit;
-    margin-left: 1em;
 
-    }
-        
-        ul{
-        float: right;
-        margin: 0px;
-        list-style: none;
-        padding: 0px;
-    }
-        
-        ul li{
-        float: left;
-        position: relative;
-    }
-        
-        ul li a{
-        display: block;
-        padding: 20px;
-        font-size: 1.1em;
-        text-decoration: none;
-        transition: 0.5s;
-    }
-        
-        ul li a:hover{
-        background: rgb(245, 205, 131);
-        transition: 0.5s;
-        
-    }   
-        ul li ul{
-        position: absolute;
-        top: 60px;
-        width: 180px;
-        display: none;
-        z-index: 1;
-    }   
-        ul li ul li{
-        width: 100%;
-        background: white;
-    }   
-        ul li ul li a{
-        width: 100%;
-        background: whitesmoke;
-        transition: 0.3s;
-
-    }   
-        ul li ul li a:hover{
-        background: wheat;
-        font-size: 1.2em;
-        transition: 0.3s;
-    }   
-        ul li:hover ul{
-        display: block;
-    } 
-        .hamburger
-    {
-        display: none;
-    }
-}
 a{
     border: 1px solid grey;
     margin: 0px;
@@ -122,47 +39,7 @@ a:hover{
     color: rgba(160, 58, 58, 0.562);
     transition: 0.3s;
 }
-.content{
-    width: 100%;
-    margin: 30px auto 30px;
-    
-    .pg_num {
-        display: inline;
-        float: right;
-        margin-right: 30px;
 
-        form{
-            display: flex;
-            width: 60px;
-            height: 40px;
-            margin-bottom: 0px;
-            
-            input{
-                width: 200%;
-                height: 100%;
-                margin: 0px 3px;
-            }
-            button{
-                width: 100%;
-                height: 70%;
-                margin: 0px 3px;
-            }
-        }
-    }
-    
-    .main_content{
-    width: 100%;
-    float: left;
-    display: grid;
-    gap: 1em;
-    grid-template-columns: 32% 32% 32%;
-
-    .index-homepage{
-        width: 100%;
-        height: 20px;
-        margin: 10px auto;
-    }
-    }
 
         .main_content.single{
         background: white;
@@ -170,44 +47,6 @@ a:hover{
         font-size: 1.1em;
     }
 
-        .main_content .posts{
-        margin: 20px;
-    }
-
-        .main_content .main-post{
-        width: 100%;
-        height: 270px;
-        margin: 10px;
-        margin-bottom: 10px;
-        border-radius: 20px;
-        background: antiquewhite;
-        position: relative;
-    }
-
-        .main_content .main-post .image{
-        width: 243px;
-        height: 250px;
-        border-radius: inherit;
-    }
-        .main_content .main-post .post-preview{
-        padding: 10px;
-        width: 60%;
-        float: right;
-        
-        
-            h2 .post-title{
-                border: none;
-            }
-            .preview-text{
-                display: block;
-                text-align: left;
-                white-space: nowrap;
-                line-height: 25px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                max-height: 128px
-            }
-    }
     .main_content .main-post .comment{
         display: block;
         margin: 20px auto;
@@ -217,34 +56,7 @@ a:hover{
         height: 70px;
         background-color: whitesmoke;
     }
-}
-.home-footer{
-    position: static;
-    bottom: 0%;
-    width: 100%;
-    height: 60px;
-    background-color: wheat;
-    box-shadow: 0 0 10PX #000;
-    text-align: center;
-    margin: 0 auto;
-}
-footer{
-    position: fixed;
-    bottom: 0%;
-    width: 100%;
-    height: 60px;
-    background-color: wheat;
-    box-shadow: 0 0 10PX #000;
-    text-align: center;
-    margin: 0 auto;
-    
-    ul li{
-        list-style: none;
-    }
-    a{
-        border: none;
-    }
-}
+
 p{
     margin: 0;
     padding: 0;
@@ -254,144 +66,10 @@ p{
         border: none;
     }
 }
-.login-form{
-    width: 30%;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: wheat;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #000;
-    .login-title{
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 40px;
-    }
-    .text-input{
-        display: block;
-        margin: 20px auto;
-        text-align: center;
-        box-shadow: 0px 0px 10px #666;
-        width: 240px;
-        height: 30px;
-        background-color: whitesmoke;
-    }
-    .remember{
-        display: inline;
-        margin: 15px auto;
-        margin-left: 1rem;
-        text-align: center;
-        width: 20px;
-        height: 20px;
-        background-color: whitesmoke;
-    }
-    .login-button{
-            display: block;
-            margin: 20px auto;
-            width: 150px;
-            height: 30px;
-            background-color: #000;
-            color: #ffffff;
-            text-align: center;
-    }
-}
-.register-form{
-    width: 30%;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: wheat;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #000;
 
-    .register-title{
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 40px;
-    }
 
-    .text-input{
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    box-shadow: 0px 0px 10px #666;
-    width: 240px;
-    height: 30px;
-    background-color: whitesmoke;
-    }
 
-    .register-button{
-        display: block;
-        margin: 20px auto;
-        width: 150px;
-        height: 30px;
-        background-color: #000;
-        color: #ffffff;
-        text-align: center;
-    }
-}
-.post-form{
-    width: 30%;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: wheat;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #000;
 
-    .form-title{
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 40px;
-    }
-    .text-input{
-        display: block;
-        margin: 20px auto;
-        text-align: center;
-        box-shadow: 0px 0px 10px #666;
-        width: 240px;
-        height: 30px;
-        background-color: whitesmoke;
-    }
-    .create-button{
-        display: block;
-        margin: 20px auto;
-        width: 150px;
-        height: 30px;
-        background-color: #000;
-        color: #ffffff;
-        text-align: center;
-    }
-}
-.edit-form{
-    width: 50%;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: wheat;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #000;
-
-        .form-title{
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 40px;
-    }
-        .text-input{
-        display: block;
-        margin: 20px auto;
-        text-align: center;
-        box-shadow: 0px 0px 10px #666;
-        width: 400px;
-        height: 70px;
-        background-color: whitesmoke;
-    }
-        .edit-button{
-            display: block;
-            margin: 20px auto;
-            width: 150px;
-            height: 30px;
-            background-color: #000;
-            color: #ffffff;
-            text-align: center;
-    }
-}
 .single-main-content{
     display: block;
     width: 90%;
@@ -406,7 +84,6 @@ p{
         height: 50%;
         background-color: #ffffff;
         margin: 20px auto;
-   ;
 
         .posts-title{
             text-align: left;
@@ -523,17 +200,7 @@ p{
         }
     }
 }
-.single-footer{
-    position: static;
-    display: block;
-    bottom: 0%;
-    width: 100%;
-    height: 60px;
-    background-color: wheat;
-    box-shadow: 0 0 10PX #000;
-    text-align: center;
-    margin: 0 auto;
-}
+
 
 
 .manage-posts-user{
@@ -628,49 +295,6 @@ p{
     }
 }
 
-.post-slider{
-    position: relative;
-    width: 100%;
-    margin: 0%;
-    height: 800px;
-    
-    .next{
-        position: absolute;
-        top: 50%;
-        right: 30px;
-        font-size: 2em;
-        color: black;
-        cursor: pointer;
-        border-radius: $nav_btn_radius;
-
-    }   
-    .prev{
-        position: absolute;
-        top: 50%;
-        left: 30px;
-        font-size: 2em;
-        color: black;
-        cursor: pointer;
-        border-radius: $nav_btn_radius;
-    }   
-    .post-wrapper{
-        width: 100%;
-        height: 800px;
-        overflow: hidden;
-        .post{
-            display: inline-block;
-            border-radius: 5px;
-        }   
-        .post .slider-image{
-            width: 1920px;
-            height: 800px;
-            margin:0;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            z-index: -1;
-        }
-    }
-}
 .category-content{
     width: 100%;
     margin: 30px auto 30px;
@@ -691,7 +315,7 @@ p{
             }
         }
         .main-post{
-            width: 95%;
+            width: 90%;
             height: 270px;
             margin: 20px;
             border-radius: 5px;
@@ -802,6 +426,60 @@ p{
         }
     }
 }
+.main-content-search{
+    width: 100%;
+
+    .main-post-search{
+        width: 90%;
+        margin-right: 0px;
+        margin: 10px;
+        height: 300px;
+        border-radius: 20px;
+        background: wheat;
+        position: relative;
+        
+        .image{
+            width: 40%;
+            height: 100%;
+            border-bottom-left-radius: 20px;
+            border-top-left-radius: 20px;
+        }
+        .post-preview{
+            padding: 10px;
+            width: 60%;
+            float: right;
+            text-align: left;
+            border: none;
+
+            .post-title{
+                border: none;
+                text-align: center;
+            }
+            .preview-text{
+                text-align: left;
+            }
+        }
+        .edit-delete-btn{
+            display: flex;
+            list-style: none;
+            bottom: 10px;
+            right: 10px;
+            position: absolute;
+
+            .li{
+                margin: 5px;
+            }
+            .btn.edit-link{
+               background-color: green;
+               margin-right: 5px;
+            }
+            .btn.delete-link{
+               background-color: red;
+               margin-left: 5px;
+            }
+        }
+    }
+}
 .content-table{
     border-collapse: collapse;
     margin: 25px 0;
@@ -863,6 +541,8 @@ p{
     background-color: #000;
     color: #ffffff;
 }
+
+
 /*
 Media content
 */
@@ -900,23 +580,19 @@ Media content
             background:rgb(172, 190, 91);
     }
     .post-slider{
-        width: 768px;
-        height: 200px;
+        width: 100%;
         position: relative;
     }
     .post-slider .post-wrapper{
-        width: 768px;
-        height: 200px;
+        width: 100%;
     }
     .post-slider .post-wrapper .post{
         display: inline-block;
         width: 48%;
-        height: 200px;
         border-radius: 5px;
     }
     .post-slider .post-wrapper .post .slider-image{
-        width: 768px;
-        height: 200px;
+        width: 100%;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
     }
@@ -938,5 +614,45 @@ Media content
         cursor: pointer;
         overflow: hidden;
         border-radius: $nav_btn_radius;
+    }
+    .content{
+        display: grid;
+        grid-template-columns: 70% 30%;
+        grid-column-gap: 1em;
+        width: 90%;
+        margin: 10px auto;
+
+        .main-content{
+            display: grid;
+            gap:2em;
+            grid-template-columns: 32%;
+            grid-template-rows: 32%;
+
+            .main-post{
+                background-color: white;
+                margin: 0px auto;
+                width: 89%;
+                height: 400px;
+                margin-bottom: 15px;
+                border-radius: 3px;
+                box-shadow: 0px 0px 6px #666;
+                .post-image{
+
+                }
+                .post-preview-wrapper{
+                    .post-preview{
+                        .author-name{
+
+                        }
+                        .post-date{
+
+                        }
+                        .desc{
+
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,0 +1,21 @@
+.login-form{
+  @include userInputForms;
+  .login-title{
+      @include formTitle;
+  }
+  .text-input{
+    @include formText;
+  }
+  .remember{
+      display: inline;
+      margin: 15px auto;
+      margin-left: 1rem;
+      text-align: center;
+      width: 20px;
+      height: 20px;
+      background-color: whitesmoke;
+  }
+  .login-button{
+    @include formButton;
+  }
+}

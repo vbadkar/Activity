@@ -1,6 +1,7 @@
 <?php
     require "includes/database.php";
     require_once "includes/header.php";
+    error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +15,7 @@
         <div class="full-content">
             <?php 
                 $id=$_GET['id'];
+                $userid=$_GET['user_id'];
                 $sql="SELECT * FROM posts where p_id='$id'";
                 $result=mysqli_query($con,$sql);
                 $row=mysqli_fetch_assoc($result);
@@ -21,13 +23,13 @@
             <h2 class="posts-title"><?php echo $row['title'];?>
                 <ul>
                     <li>
-                        <span><a href="likes.php?type=like&id=<?php echo $id; ?>" class="like-button">
+                        <span><a href="likes.php?user_id=<?php echo $userid; ?>&type=like&id=<?php echo $id; ?>" class="like-button">
                         <span id="icon"><i class="far fa-thumbs-up"></i></span>
                         <span id="count"><?php echo $row['likes']; ?></span>
                         </a></span>
                     </li>
                     <li>
-                        <span><a href="likes.php?type=dislike&id=<?php echo $id; ?>" class="dislike-button">
+                        <span><a href="likes.php?user_id=<?php echo $userid; ?>&type=dislike&id=<?php echo $id; ?>" class="dislike-button">
                         <span id="icon"><i class="far fa-thumbs-down"></i></span>
                         <span id="count"><?php echo $row['likes']; ?></span>
                         </a></span>

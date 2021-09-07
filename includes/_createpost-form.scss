@@ -1,0 +1,13 @@
+.post-form{
+  @include userInputForms;
+
+  .form-title{
+    @include formTitle;
+  }
+  .text-input{
+    @include formText;
+  }
+  .create-button{
+    @include formButton;
+  }
+}
