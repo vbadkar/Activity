@@ -1,24 +1,11 @@
-.home-footer{
-  display:flex;
-      flex-flow:column;
-      justify-content:center;
-      align-items:center;
-      position: static;
-      bottom: 0%;
-      width: 100%;
-      line-height: 34px;
-      background-color: #1f2024;
-      box-shadow: 0 0 10PX #000;
-      text-align: center;
-      margin: 0 auto;
-      padding:0;
-      border:0px solid red;
-      
+@import "./mixins";
+.search-footer{
+    @include footer();
       ul{
          margin: 10px;
           list-style: none;
           
-          li{
+         li{
               font-size: 11px;
               font-weight: bold;
               text-transform:uppercase;
@@ -55,12 +42,11 @@ footer{
       flex-flow:column;
       justify-content:center;
       align-items:center;
-      position: fixed;
+      position: static;
       bottom: 0%;
       width: 100%;
       line-height: 34px;
       background-color: #1f2024;
-      box-shadow: 0 0 10PX #000;
       text-align: center;
       margin: 0 auto;
       padding:0;
@@ -112,7 +98,6 @@ footer{
   width: 100%;
   height: 60px;
   background-color: wheat;
-  box-shadow: 0 0 10PX #000;
   text-align: center;
   margin: 0 auto;
 }

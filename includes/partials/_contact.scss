@@ -1,53 +1,86 @@
+@import "./variables";
 .contact-wrapper{
-  display: block;
-  margin: 3.5rem auto;
-  padding: 0;
-  width: 70%;
-  box-sizing: border-box;
+    width: 65%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 70% 25%;
+    margin-top: 5rem;
+    gap: 2em;
+    .contact{
+        border: 0px solid red;
+        padding: 10px;
+       
+        .contact-form{
+            padding: 10px;
+            border: 0px solid blue;
+            background-color: white;
+            .contact-head{
+                border-bottom: 1px solid $post_border_color;
+                h2{
+                    margin: 1rem auto;
+                    font-weight: 400;
+                    font-size: 2rem;
+                }
+            }
+            .contact-form-content{
+                padding: 10px;
+                margin-top: 1rem;
+                form{
+                    .contact-input{
+                        display: grid;
+                        grid-template-columns: 49% 49%;
+                        margin-bottom: 1rem;
+                        justify-content: space-between;
+                        
+                        input{
+                            border: 1px solid $post_border_color;
+                            height: 50px;
+                            padding: 10px;
+                        }
+                    }
+                    .contact-button{
+                        display: block;
 
-  .contact-head{
-      background-color: white;
-      font-size: 2rem;
-      margin: 0;
-      padding: 10px 1.2rem 20px 1.2rem;
-      border-bottom:1px solid #f2f2f6;
+                        .input-msg{
+                            width: 100%;
+                            border: 1px solid $post_border_color;
+                            padding: 10px;
+                            margin-bottom: 1rem;
+                        }
+                        .send{
+                            width: 100%;
+                            height: 50px;
+                            background-color:#27ae60;
+                            border: 0;
+                            color: white;
+                        }
 
-      h2{
-          font-family: 'Poppins', sans-serif;
-          font-weight: normal;
-          margin-top: 1rem;
-          padding: 0;
-      }
-  }
-  .contact{
-      width: 70%;
-
-      form{
-          margin: 0;
-          padding: 0;
-
-          .contact-input{
-              display: block;
-              width: 45%;
-              height: 50px;
-              border: 1px solid #eee;
-              margin: 2   0px;
-              float: left;
-          }
-          .contact-input-msg{
-              margin: 10px;
-              width: 90%;
-              border: 1px solid #eee;
-          }
-          .send{
-              height: 50px;
-              width: 90%;
-              color: white;
-              text-align: center;
-              display: block;
-              border: 1px solid rgb(50, 114, 66);
-              background-color: rgb(50, 114, 66);
-          }
-      }
-  }
+                    }
+                }
+            }
+        }
+    .subscribe-us_wrapper{
+        border: 0px solid blue;
+        background-color: white;
+        margin-top: 2rem;
+            form{
+                display: block;
+                .text-input{
+                    width: 100%;
+                    border: 1px solid $post_border_color;
+                    height: 50px;
+                    margin-bottom: 10px;
+                }
+                .sub-btn{
+                    width: 100%;
+                    height: 50px;
+                    background-color:#27ae60;
+                    border: 0;
+                    color: white;
+                    text-transform: uppercase;
+                }
+            }
+    }
+}
+@import "./side-content";
 }

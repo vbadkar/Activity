@@ -1,0 +1,276 @@
+@use "./variables";
+.wrapper-single{
+  width: 65%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 70% 25%;
+  margin-top: 2.5rem;
+  gap: 2.2rem;
+  .single-main-content{
+    display: block;
+    width: 100%;
+    margin: 0px auto;
+    bottom: 0%;
+
+    .full-content{
+        border: 1px solid $post_border_color;
+        width: 100%;
+        background-color: #fff;
+        margin: 0px auto;
+        margin-bottom: 6rem;
+        .bread-crumb{
+          list-style: none;
+          padding-left: 1rem;
+          li{
+            display: inline;
+            
+            font-weight: 400;
+            color: #AAAAAA;
+            a{
+              border: none;
+              padding: 0;
+            font-weight: 400;
+            color: #AAAAAA;
+            }
+          }
+          li+li::before{
+            content: '\f054';
+            font-family: FontAwesome;
+            font-size: 7px;
+            font-weight: 400;
+            font-style: normal;
+            vertical-align: middle;
+            margin: 0 3px;
+          }
+        }
+        .single-post-head{
+          padding: 1rem auto;
+          .posts-title{
+            text-align: left;
+            position: relative;
+            padding: 1rem;
+            margin: 0 ;
+            font-size: 30px;
+            font-weight: 400;
+            border-top: 1px solid $post_border_color;
+            ul{
+                list-style: none;
+                float: right;
+                display: flex;
+                margin: 5px;
+                padding: 5px;
+                .like-button{ 
+                    top: 10px;
+                    right: 60px;
+                    height: 40px;
+                    padding-right: 5px;
+                    border: none;
+                }
+                .dislike-button{
+                    top: 10px;
+                    right: 20px;
+                    height: 40px;
+                    padding-right: 5px;
+                    border: none;
+                }
+            }
+            
+          }
+          .post-details{
+            padding: 0 1rem 1rem 1rem;
+            span{
+              font-size: 13px;
+              font-weight: 400;
+              color: #AAAAAA;
+            }
+            .author-name{
+              padding-right: 0.5rem;
+            }
+            
+          }
+  
+        }
+        .inner-content{
+            display:block;
+            .post-image{
+              width: 100%;
+              padding:1rem;
+              margin: 0 auto;
+              border-top: 1px solid $post_border_color;
+            }
+            p{
+              text-align: left;
+              padding: 20px;
+              margin: 0px auto;
+              width: 100%;
+              border-bottom: 1px solid $post_border_color;
+            }
+            .social-icons{
+              list-style: none;
+              width:100%;
+              margin: 0;
+              padding: 1rem;
+              li{
+                display: inline-block;
+                width:calc(100%/7);
+                height: 32px;
+                border-radius: 3px;
+                text-align: center;
+                transition: 0.5s;
+                &:hover{
+                  opacity: 0.7;
+                  transition: 0.5s;
+                }
+              }
+              .fb{
+                background-color: #3b5999;
+                color: white;
+                padding: 10px;
+            }
+            .tw{
+                background-color: #00acee;
+                color: white;
+                padding: 10px;
+            }
+            .ln{
+                background-color: #0077b5;
+                color: white;
+                padding: 10px;
+            }
+            .pn{
+                background-color: #ca2127;
+                color: white;
+                padding: 10px;
+            }
+            .wt{
+                background-color: #3fbb50;
+                color: white;
+                padding: 10px;
+            }
+            .email{
+                background-color: #888;
+                color: white;
+                padding: 10px;
+            }
+            }
+        }
+    }
+    .posted-by{
+      margin: 0;
+      padding: 1rem;
+      display: flex;
+      background-color: white;
+      border: 1px solid $post_border_color;
+      margin-bottom: 2rem;
+      .poster-pic{
+        img{
+          border-radius: 5px;
+        }
+        
+      }
+      .poster-details{
+        margin-left: 1rem;
+        span{
+          color:$headcolor;
+        }
+        h3{
+          margin: 0;
+        }
+      }
+    }
+    .you-may-like-posts{
+      margin: 0;
+      background-color: white;
+      border: 1px solid $post_border_color;
+      .may-like-title{
+        color: $headcolor;
+        margin: 0 auto;
+        width: 100%;
+        padding: 4px 5px 4px 5px;
+      }
+      .may-like-content{
+        display: flex;
+        gap: 1.5rem;
+        a{
+          border: none;
+          &:hover{
+            color: $headcolor;
+          }
+        }
+        img{
+          border-radius: 5px;
+        }
+      }
+    }
+    .side-content{
+        margin-top: 30px;
+        margin: 0px auto;
+        width: 100%;
+        background-color: #ffffff;
+  
+        h2{
+            margin-left: 20px;
+            margin-bottom: 5px;
+        }
+        form{
+            width: 65%;
+            display: block;
+            margin: 0px 20px;
+  
+            h3{
+                margin: 5px;
+            }
+            .enter-name{
+                border: none;
+                margin: 5px;
+                box-shadow: 0px 0px 5px #666;
+            }
+            .enter-comment{
+                border: none;
+                margin: 5px;
+                width: 100%;
+                height: 50px;
+                box-shadow: 0px 0px 5px #666;
+            }
+            .post-comment{
+                margin: 5px 5px;
+                padding: 0px;
+                width: 50px;
+                height: 30px;
+                background-color: #000;
+                color: #ffffff;
+                text-align: center;
+            }
+        }
+        .comment-section{
+            overflow: visible;
+            margin: 10px 5px;
+         
+            border-radius: 5px;
+           
+            .comment-name{
+                margin-left: 10px;
+                padding: 10px;
+                font-weight: bold;
+                font-size: 1.5rem;
+                line-height: 10px;
+                padding-bottom: 15px;
+  
+                i{
+                    padding-top: 5px;
+                    font-size: 1.5rem;
+                }
+            }
+            .comment{
+                margin-left: 30px;
+                text-align: left;
+                padding-bottom: 15px;
+                font-size: 1rem;
+                border-bottom: 1px solid black;
+            }
+        }
+    }
+    
+  }
+  @import "./side-content";
+}

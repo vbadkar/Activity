@@ -1,26 +1,30 @@
+@import "./variables";
 .about-wrapper{
-  display: block;
-  margin: 3.5rem auto;
-  padding: 0;
-  width: 70%;
-  box-sizing: border-box;
-
-
-  .about-head{
-      font-size: 2rem;
-      margin: 0;
-      padding: 10px 1.2rem 20px 1.2rem;
-      border-bottom:1px solid #f2f2f6;
-  }
-  .about{
-      background-color: white;
-      width: 70%;
-      p{
-          color: #979191;
-          font-size: 1rem;
-          margin: 10px;
-          text-align: left;
-          padding: 0.5rem;
-      }
-  }
+    width: 65%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 70% 25%;
+    margin-top: 5rem;
+    gap: 2em;
+    
+    .about{
+        border: 1px solid $post_border_color;
+        background-color: white;
+        padding: 10px;
+        height: fit-content;
+        .about-head{
+            margin: 0;
+            padding: 1rem 0 1rem 0;
+            border-bottom: 1px solid $post_border_color;
+            font-size: 30px;
+            font-weight: 400;
+        }
+        p{
+            text-align: left;
+            padding-top: 1rem;
+            margin-bottom: 1rem;
+            font-size: 15px;
+        }
+    }
+    @import "./side-content";
 }
