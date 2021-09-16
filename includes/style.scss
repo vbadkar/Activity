@@ -13,6 +13,7 @@
 @import "partials/about";
 @import "partials/contact";
 @import "partials/notfound";
+@import "partials/search";
 
 *{
     box-sizing: border-box;
@@ -294,60 +295,6 @@ p{
                    background-color: red;
                    margin-left: 5px;
                 }
-            }
-        }
-    }
-}
-.main-content-search{
-    width: 100%;
-
-    .main-post-search{
-        width: 90%;
-        margin-right: 0px;
-        margin: 10px;
-        height: 300px;
-        border-radius: 20px;
-        background: wheat;
-        position: relative;
-        
-        .image{
-            width: 40%;
-            height: 100%;
-            border-bottom-left-radius: 20px;
-            border-top-left-radius: 20px;
-        }
-        .post-preview{
-            padding: 10px;
-            width: 60%;
-            float: right;
-            text-align: left;
-            border: none;
-
-            .post-title{
-                border: none;
-                text-align: center;
-            }
-            .preview-text{
-                text-align: left;
-            }
-        }
-        .edit-delete-btn{
-            display: flex;
-            list-style: none;
-            bottom: 10px;
-            right: 10px;
-            position: absolute;
-
-            .li{
-                margin: 5px;
-            }
-            .btn.edit-link{
-               background-color: green;
-               margin-right: 5px;
-            }
-            .btn.delete-link{
-               background-color: red;
-               margin-left: 5px;
             }
         }
     }

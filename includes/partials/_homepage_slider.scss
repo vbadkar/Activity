@@ -2,63 +2,66 @@
     position: relative;
     width: 100%;
     
-
+    .slick-next{
+        visibility: hidden;
+        z-index: -1;
+    }
+    .slick-prev{
+        visibility: hidden;
+        z-index: -1;
+        font-size: 0;
+    }
+    .slick-next::after{
+        content: '\f061';
+        font-family: FontAwesome;
+        visibility: visible;
+        position: absolute;
+        top: 40%;
+        right: 30px;
+        font-size: 2.5rem;
+        color: white;
+        cursor: pointer;
+        border-radius: $nav_btn_radius;
+    }
+    .slick-prev::after{
+        content: '\f060';
+        font-family: FontAwesome;
+        position: absolute;
+        visibility: visible;
+        top: 40%;
+        left: 30px;
+        font-size: 2.5rem;
+        color: white;
+        cursor: pointer;
+        border-radius: $nav_btn_radius;
+        z-index: 1;
+    }
   .post-slider{
     width: 100%;
-    height: 100%;
-    background-image: url(https://4.bp.blogspot.com/-bmDaqaWCheM/XcRq7ny3w6I/AAAAAAAAHZI/iOyHrm3NavIOKkV-3ZuvdHHF-Fr8v0KuwCK4BGAYYCw/s1600/bg1.jpg);
+    height: 100%; 
     background-size: cover;
     background-position: center;
     
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 90%, 50% 100%, 0% 90%, 0% 100%);
     
-
     .post-wrapper{
         width: 100%;
+        height: 100%;
         overflow: hidden;
-        background-color: rgba(0,0,0,0.25);
         margin: 0;
         padding: 0;
+        background-color: rgba(0,0,0,0.25);
         
-        .slick-next{
-          visibility: hidden;
-          font-size: 3rem;
-      }
-      .slick-prev{
-          visibility: hidden;
-          font-size: 3rem;
-      }
-      .slick-next::after{
-          content: '>';
-          visibility: visible;
-          position: absolute;
-          top: 40%;
-          right: 30px;
-          font-size: 1em;
-          color: white;
-          cursor: pointer;
-          border-radius: $nav_btn_radius;
-      }
-      .slick-prev::after{
-          content: '<';
-          position: absolute;
-          visibility: visible;
-          top: 40%;
-          left: 30px;
-          font-size: 1em;
-          color: white;
-          cursor: pointer;
-          border-radius: $nav_btn_radius;
-          z-index: 1;
-      }
         .post{
             display: inline-block;
             border-radius: 5px;
             
             .wrapper{
-                @include flexCenter();
+                position: relative;
+                width: 100%;
+                height: 100%;
                 .intro-wrapper{
-                    width: 520px;
+                    width: 100%;
                     position: absolute;
                     z-index: 1;
                     top: 30%;
@@ -70,7 +73,7 @@
                         font-weight: 700;
                         margin: 0 0 20px;
                         line-height: 50px;
-
+    
                         h3{
                             margin: 0;
                         }
@@ -97,7 +100,12 @@
                     }
                 }
             }
-        }   
+        } 
+
+      
+      
+          
     }
 }
 }
+

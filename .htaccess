@@ -1,0 +1,9 @@
+#MOD_REWRITE STARTS HERE
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^\.]+)$ $1.php  [NC,L]
+
+#custom error page
+ErrorDocument 404 /htdocs/Activity/Page404.php

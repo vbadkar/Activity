@@ -22,7 +22,7 @@
             <div class="search-form">
                         <div class="form-toggle">
                             <form action="search.php" method="get">
-                            <input class="search-text" type="text" name="search" placeholder="Search" autocomplete="off"><span class="hide"><i class="fas fa-times"></i></span>
+                            <input class="search-text" type="text" name="search" placeholder="Search" autocomplete="off" autofocus><span class="hide"><i class="fas fa-times"></i></span>
                             </form>
                         </div>
                         <div class="icon">
@@ -41,9 +41,9 @@
                         <li><a href="category.php?category=Travel">Travel</a></li>
                     </ul>
                 </li>
-                <li><a href='homepage.php'>Home</a></li>
-                <li><a href='register.php'>Register</a></li>
-                <li><a href='login.php'>Login</a></li>
+                <li><a href='homepage'>Home</a></li>
+                <li><a href='register'>Register</a></li>
+                <li><a href='login'>Login</a></li>
             </ul>
         </header>
     </div>
@@ -68,52 +68,45 @@
     <script src='script.js'></script>
 <title>Homepage</title>
 <div class='slider-wrapper'>
-    <div class="post-slider">
-        <div class="post-wrapper">
-            <?php
-                $sql="SELECT * FROM banners";
-                $result=mysqli_query($con,$sql);
-                $i=0;
-                if(mysqli_num_rows($result) > $i){
-                    while($images=mysqli_fetch_assoc($result)){
-                    $input_image="images/".$images['image'];
-                    $output_image="images/resized".$images['image'];
-                    $width=1600;
-                    $height=832;
-                    $resource=imagecreatefromjpeg($input_image);
-                    $scaled=imagescale($resource, $width, $height);
-                    imagejpeg($scaled,$output_image);
-            ?>
-            <div class="post">
-                <picture>
-                    <source media="(min-width: 900px)" srcset="images/<?php echo $output_image;?>">
-                    <source media="(min-width: 768px)" srcset="images/<?php echo $output_image;;?>">
-                    <img src="images/<?php echo $output_image;?>" alt="" class="sliderImg" id="img-slide">
-                </picture>
+<?php
+    $sql="SELECT * FROM banners";
+    $result=mysqli_query($con,$sql);
+    $i=0;
+    if(mysqli_num_rows($result) > $i){
+        while($images=mysqli_fetch_assoc($result)){
+            $input_image="images/".$images['image'];
+            $output_image="images/resized/".$images['image'];
+            $width=1600;
+            $height=832;
+            $resource=imagecreatefromjpeg($input_image);
+            $scaled=imagescale($resource, $width, $height);
+            imagejpeg($scaled,$output_image);
+?>
+    <div class="post-slider" style="background-image: url(<?php echo $output_image;?>)">
+        <div class="post-wrapper" style="background-color: rgba(0,0,0,0.25);">
+        <div class="post">
                 <div class="wrapper">
                     <div class="intro-wrapper">
                         <div class="intro-head">
-                            <h3>A Team Of Awesome People</h3>
+                            <h3><?php echo $images['banner_title'];?></h3>
                         </div>
                         <div class="intro-text">
-                            <p>We are a creative web design agency who makes beautiful websites for thousands of peoples.</p>
+                            <p><?php echo $images['banner_snippet'];?></p>
                         </div>
                         <div class="intro-button">
-                            <a href="#">Get Started</a>
+                            <a class="btn">Get Started</a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <?php  
-                $i=$i+1;                 
-                    }
-                }
-            ?>
-           
-        </div>
-
+        </div><!--post end-->
+        </div><!-- post wrapper end-->
     </div>
-</div>
+    <?php 
+            $i=$i+1;
+            }
+        }
+        ?>
+</div><!-- slider wrapper end-->
 <div class='content clear'>
 <div class='main_content'>
     <?php
@@ -152,9 +145,9 @@
              $desc=$data['description'];
              $desc = substr($desc,0,100).'...';
         ?>
-        <img class="image" src="<?php echo $output_image;?>", alt="post_image"><a href="category.php?category=<?php echo $data['category'];?>" class="post-category"><?php echo $data['category']; ?></a>
+        <img class="image" src="<?php echo $output_image;?>", alt="post_image"><a href="category?category=<?php echo $data['category'];?>" class="post-category"><?php echo $data['category']; ?></a>
         <div class="post-preview-wrapper">
-            <a href="single.php?id=<?php echo $data['p_id'];?>" class="post-title"><?php echo $data['title'];?></a>
+            <a href="single?id=<?php echo $data['p_id'];?>" class="post-title"><?php echo $data['title'];?></a>
             <div class="post-preview">
                     <span class="author-name"><i class="fas fa-user">Name</i></span>
                     <span class="post-date"><i class="fas fa-calendar-week">Date</i></span>
@@ -172,7 +165,7 @@
             <?php
             for($page=1;$page<=$num_of_pages;$page++)
             {
-                echo '<a href="homepage.php?page='.$page.'">'.$page.'</a> ';
+                echo '<a href="homepage?page='.$page.'">'.$page.'</a> ';
             }   ?> 
         </div>
     </center>
@@ -259,9 +252,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    $('.post-wrapper').slick();
+    $('.slider-wrapper').slick();
 </script>
-</body>
 <?php
     require "includes/footer.php";
 ?>
