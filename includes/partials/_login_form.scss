@@ -5,7 +5,13 @@
   }
   .text-input{
     @include formText;
-  }
+
+   }
+   .redirection{
+     margin-top: 1rem;
+   }
+   
+}
   .remember{
       display: inline;
       margin: 15px auto;
@@ -18,4 +24,3 @@
   .login-button{
     @include formButton;
   }
-}
