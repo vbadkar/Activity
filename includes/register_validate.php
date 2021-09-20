@@ -68,7 +68,7 @@ if(isset($_POST['submit']))
                 }
                 else
                 {
-                    $usertype='admin';
+                    $usertype='user';
                     $hashedPass=password_hash($pass, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt,"sss",$user, $hashedPass,$usertype);
                     mysqli_stmt_execute($stmt);
