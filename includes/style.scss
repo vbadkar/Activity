@@ -1,7 +1,5 @@
-@import "partials/header";
-@import "partials/variables";
-@import "partials/homepage_content";
-@import "partials/homepage_slider";
+@import "partials/header","partials/variables";
+@import "partials/homepage_content","partials/homepage_slider";
 @import "partials/mixins";
 @import "partials/displaymsgs";
 @import "partials/footer";
@@ -102,11 +100,12 @@ p{
                         font-size: 1.1em;
                         padding: 20px;
                         margin: 5px;
-                        background: rgb(218, 193, 146)
-                    }
-                    a:hover{
-                        background: rgb(245, 205, 131);
-                        transition: 0.5s;
+                        background: rgb(218, 193, 146);
+                        
+                        &:hover{
+                            background: rgb(245, 205, 131);
+                            transition: 0.5s;
+                        }
                     }
                 }
             }
@@ -235,11 +234,12 @@ p{
                         font-size: 1.1em;
                         padding: 20px;
                         margin: 5px;
-                        background: rgb(218, 193, 146)
-                    }
-                    a:hover{
-                        background: rgb(245, 205, 131);
-                        transition: 0.5s;
+                        background: rgb(218, 193, 146);
+                        
+                        &:hover{
+                            background: rgb(245, 205, 131);
+                            transition: 0.5s;
+                        }
                     }
                 }
             }
@@ -299,17 +299,17 @@ p{
                         font-size: 0.9rem;
                         color: #AAAAAA;
                         padding: 3px;
-                    }
-                    .author-name:hover{
-                        color: $headcolor;
+                        &:hover{
+                            color: $headcolor;
+                        }
                     }
                     .post-date{
                         font-size: 0.9rem;
                         color: #AAAAAA;
                         padding: 3px;
-                    }
-                    .post-date:hover{
-                        color: $headcolor;
+                        &:hover{
+                            color: $headcolor;
+                        }
                     }
                     .desc {
                         width:100%;
@@ -321,14 +321,13 @@ p{
                         margin-right: -1em;
                         padding-right: 1em;
                         margin-bottom: 1rem;
-                      }
-                      .desc:before {
-                        content: '...';
-                        position: absolute;
-                        right: 0;
-                        bottom: 0;
-                      }
-                      .desc:after {
+                        &:before {
+                            content: '...';
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                          }
+                        &:after {
                         content: '';
                         position: absolute;
                         right: 0;
@@ -336,6 +335,7 @@ p{
                         height: 1em;
                         margin-top: 0.2em;
                         background: white;
+                        }
                       }
                 }
             }
@@ -399,11 +399,12 @@ p{
     }
     tbody tr{
         border-bottom: 1px solid rgb(185, 170, 170);
+        &:last-of-type{
+            border-bottom: 2px solid wheat;
+    
+        }
     }
-    tbody tr:last-of-type{
-        border-bottom: 2px solid wheat;
-
-    }
+    
 }
 
 .index-dashboard{

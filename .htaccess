@@ -1,9 +1,13 @@
+#MOD_REWRITE STARTS HERE
 Options +FollowSymlinks
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+
 RewriteEngine On
 #RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js)$
 #RewriteRule (.*) routes.php [QSA,L]
 
-#MOD_REWRITE STARTS HERE
+
 
 #RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -11,17 +15,7 @@ RewriteCond %{REQUEST_FILENAME}.\php -f
 RewriteCond %{REQUEST_FILENAME} !-l
 RewriteRule ^([^\.]+)$ $1.php  [NC,L]
 
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-l
+#Clean URL
 RewriteRule ^single/([0-9]+) single?id=$1 [NC,L,QSA]
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.\php -f
-RewriteCond %{REQUEST_FILENAME} !-l
 RewriteRule ^homepage/([0-9]+)$ homepage?page=$1 [NC,L,QSA]
 RewriteRule ^category/([a-zA-Z]+) category.php?category=$1 [NC,L,QSA]
-
-#custom error page
-ErrorDocument 404 /Activity/Page404.php
-#ErrorDocument 403 /htdocs/Activity/Page403.php
