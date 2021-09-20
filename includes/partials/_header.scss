@@ -13,7 +13,6 @@
         box-shadow: none;
         border: none;
         z-index: 1;
-      
         a{
             border: none;
         }
@@ -33,7 +32,7 @@
         .search-form{
             position: relative;
             .form-toggle{
-                display: none;
+                display: none   ;
                 form{
                     width: 100%;
                     display: block;
@@ -109,22 +108,18 @@
                 display: none;
                 transition: 0.5s ease;
             }
-            }
-            
-            ul{
+        }
+        ul{
             float: left;
             margin: 0px;
             list-style: none;
             padding: 0px;
         }
-            
-            ul li{
+        ul li{
             float: right;
-            position: relative;  
-            
-            }
-            
-            ul li a{
+            position: relative; 
+        }
+        ul li a{
             display: block;
             padding: 20px;
             font-size: 13px;
@@ -133,54 +128,59 @@
             text-decoration: none;
             transition: 0.5s;
         }
-            
-            ul li a:hover{
+        ul li a:hover{
             background-color: rgba(255,255,255,0.05);
             transition: 0.5s;
             color:$navTextColor-hover;
-            
         }  
         ul li:hover {
             background-color: rgba(255,255,255,0.05);
             transition: 0.5s;
             color:$navTextColor-hover;
-
         }
-            ul li ul{
-                position: absolute;
-                float: left;
-                left: 0;
-                top: 70px;
-                width: 180px;
-                background-color: #1f2024;
-                z-index: 99999;
-                margin-top: 0;
-                padding: 0;
-                border: 1px solid #1f2024;
-                visibility: hidden;
-                opacity: 0;
-            }
-             
-            ul li ul li{
-            width: 100%;
-            background: $navTextColor-hover;
+        ul li ul{
+            position: absolute;
+            float: left;
+            left: 0;
+            top: 70px;
+            width: 180px;
+            background-color: #1f2024;
+            z-index: 99999;
+            margin-top: 0;
+            padding: 0;
+            border: 1px solid #1f2024;
+            visibility: hidden;
+            display: none;
+        } 
+        ul li ul li{
+            display: block;
+            float: none;
+            position: relative;
+            background-color: rgba(255,255,255,0.03);
+            border-bottom: 1px solid #1f2024;
+            transition: .17s ease;
         }   
-            ul li ul li a{
-            width: 100%;
-            background: $navTextColor;
+        ul li ul li a{
+            display: block;
+            height: 36px;
+            font-size: 13px;
+            color: #f2f2f2;
+            font-weight: 600;
+            line-height: 36px;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0 15px;
+            transition: color .17s ease;
+        }   
+        ul li ul li a:hover{
+            color: $headcolor;
             transition: 0.3s;
-      
         }   
-            ul li ul li a:hover{
-            background: $navTextColor-hover;
-            font-size: 1.2em;
-            transition: 0.3s;
-        }   
-            ul li:hover ul{
+        ul li:hover ul{
             display: block;
             visibility: visible;
         } 
-            .hamburger
+        .hamburger
         {
             display: none;
         }
@@ -350,12 +350,6 @@
             color:$navTextColor-hover;
             
         }  
-        ul .sub-list:hover {
-            background-color: rgba(255,255,255,0.05);
-            transition: 0.5s;
-            color:$navTextColor-hover;
-
-        }
             ul li ul{
                 position: absolute;
                 float: left;
@@ -373,20 +367,20 @@
              
             ul li ul li{
             width: 100%;
-            background: $navTextColor-hover;
+            background-color: $navTextColor-hover;
         }   
             ul li ul li a{
             width: 100%;
-            background: $navTextColor;
+            background-color: black;
             transition: 0.3s;
       
         }   
             ul li ul li a:hover{
-            background: $navTextColor-hover;
+            background-color: black;
             font-size: 1.2em;
             transition: 0.3s;
         }   
-            ul li:hover ul{
+            ul li.sub-list:hover ul{
             display: block;
             visibility: visible;
         } 
@@ -399,6 +393,12 @@
         }
         .list.active{
             display: block;
+        }
+        .sub-list:hover {
+            background-color: rgba(255,255,255,0.05);
+            transition: 0.5s;
+            color:$navTextColor-hover;
+
         }
       }
 }
