@@ -146,9 +146,9 @@
              $desc=$data['description'];
              $desc = substr($desc,0,100).'...';
         ?>
-        <img class="image" src="<?php echo $output_image;?>", alt="post_image"><a href="category?category=<?php echo $data['category'];?>" class="post-category"><?php echo $data['category']; ?></a>
+        <img class="image" src="<?php echo $output_image;?>", alt="post_image"><a href="category/<?php echo $data['category'];?>" class="post-category"><?php echo $data['category']; ?></a>
         <div class="post-preview-wrapper">
-            <a href="single?id=<?php echo $data['p_id'];?>" class="post-title"><?php echo $data['title'];?></a>
+            <a href="single/<?php echo $data['p_id'];?>" class="post-title"><?php echo $data['title'];?></a>
             <div class="post-preview">
                     <span class="author-name"><i class="fas fa-user"></i>Name</span>
                     <span class="post-date"><i class="fas fa-calendar-week">Date</i></span>
@@ -166,7 +166,7 @@
             <?php
             for($page=1;$page<=$num_of_pages;$page++)
             {
-                echo '<a href="homepage?page='.$page.'">'.$page.'</a> ';
+                echo '<a href="homepage/'.$page.'">'.$page.'</a> ';
             }   ?> 
         </div>
     </center>
