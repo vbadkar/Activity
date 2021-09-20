@@ -36,7 +36,7 @@
         </div>
         <?php 
         $input_image="images/".$row['image'];
-        $output_image="images/resized/".$row['image'];
+        $output_image="images/".$row['image'];
         $width=803;
         $height=535;
         $resource=imagecreatefromjpeg($input_image);
@@ -222,5 +222,5 @@
 </div>
 </div>
 <?php
-require_once "includes/footer.php";
+require_once "includes/footer2.php";
 ?>
