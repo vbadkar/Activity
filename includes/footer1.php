@@ -1,5 +1,5 @@
 </body>
-<footer>
+<footer class="fixed">
     <ul>
         <li><a href="homepage.php">Home</a></li>
         <li><a href="about.php">About</a></li>
