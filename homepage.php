@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="http://localhost:8888/htdocs/Activity/">
     <link href="includes/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
@@ -149,7 +150,7 @@
         <div class="post-preview-wrapper">
             <a href="single?id=<?php echo $data['p_id'];?>" class="post-title"><?php echo $data['title'];?></a>
             <div class="post-preview">
-                    <span class="author-name"><i class="fas fa-user">Name</i></span>
+                    <span class="author-name"><i class="fas fa-user"></i>Name</span>
                     <span class="post-date"><i class="fas fa-calendar-week">Date</i></span>
                     <p class="desc"><?php echo $desc; ?></p>
                 </div>
@@ -255,5 +256,5 @@
     $('.slider-wrapper').slick();
 </script>
 <?php
-    require "includes/footer.php";
+    require "includes/footer2.php";
 ?>

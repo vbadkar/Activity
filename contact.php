@@ -123,5 +123,5 @@
 </body>
 </html>
 <?php
-    require_once "includes/footer.php";
+    require_once "includes/footer2.php";
 ?>
