@@ -145,7 +145,7 @@
             top: 70px;
             width: 180px;
             background-color: #1f2024;
-            z-index: 99999;
+            z-index: 99;
             margin-top: 0;
             padding: 0;
             border: 1px solid #1f2024;
@@ -167,7 +167,6 @@
             color: #f2f2f2;
             font-weight: 600;
             line-height: 36px;
-            box-sizing: border-box;
             margin: 0;
             padding: 0 15px;
             transition: color .17s ease;
@@ -357,30 +356,39 @@
                 top: 70px;
                 width: 180px;
                 background-color: #1f2024;
-                z-index: 99999;
+                z-index: 99;
                 margin-top: 0;
                 padding: 0;
                 border: 1px solid #1f2024;
                 visibility: hidden;
-                opacity: 0;
+                display: none;
             }
              
             ul li ul li{
-            width: 100%;
-            background-color: $navTextColor-hover;
+                display: block;
+                float: none;
+                position: relative;
+                background-color: rgba(255,255,255,0.03);
+                border-bottom: 1px solid #1f2024;
+                transition: .17s ease;
         }   
             ul li ul li a{
-            width: 100%;
-            background-color: black;
-            transition: 0.3s;
+                display: block;
+                height: 36px;
+                font-size: 13px;
+                color: #f2f2f2;
+                font-weight: 600;
+                line-height: 36px;
+                margin: 0;
+                padding: 0 15px;
+                transition: color .17s ease;
       
         }   
             ul li ul li a:hover{
-            background-color: black;
-            font-size: 1.2em;
-            transition: 0.3s;
+                color: $headcolor;
+                transition: 0.3s;
         }   
-            ul li.sub-list:hover ul{
+            ul li:hover ul{
             display: block;
             visibility: visible;
         } 
