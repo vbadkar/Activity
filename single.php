@@ -3,12 +3,6 @@
     require_once "includes/header.php";
     error_reporting(0);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog_site</title>
 </head>
 <div class="wrapper-single">
@@ -23,7 +17,7 @@
         ?>
         <ul class="bread-crumb">
             <li><a href="homepage.php">Home</a></li>
-            <li><a href="category.php?id=<?php echo $id;?>"><?php echo $row['category'];?></a></li>
+            <li><a href="category/<?php echo $id;?>"><?php echo $row['category'];?></a></li>
             <li><?php echo $row['title'];?></li>
         </ul>
         <div class="single-post-head">
@@ -86,7 +80,7 @@
                         imagejpeg($scaled,$output_image);
                     ?>
         
-            <a href="single.php?id=<?php echo $id;?>">
+            <a href="single.php/<?php echo $id;?>">
                 <img src="<?php echo $output_image?>" alt="">
                 <h3><?php echo $data['title'];?></h3>
             </a>
@@ -208,11 +202,11 @@
                     <h2>Category</h2>
                 </div>
                 <ul class="categories">
-                        <li>><a href="category.php?category=Food">Food<span class="count">(1) </span></a></li>
-                        <li>><a href="category.php?category=Music">Music<span class="count">(1) </span></a></li>
-                        <li>><a href="category.php?category=Sports">Sports<span class="count">(1) </span></a></li>
-                        <li>><a href="category.php?category=Gymnastics">Gymnastics<span class="count">(1) </span></a></li>
-                        <li>><a href="category.php?category=Travel">Travel<span class="count">(1) </span></a></li>
+                        <li>><a href="category.php/Food">Food<span class="count">(1) </span></a></li>
+                        <li>><a href="category.php/Music">Music<span class="count">(1) </span></a></li>
+                        <li>><a href="category.php/Sports">Sports<span class="count">(1) </span></a></li>
+                        <li>><a href="category.php/Gymnastics">Gymnastics<span class="count">(1) </span></a></li>
+                        <li>><a href="category.php/Travel">Travel<span class="count">(1) </span></a></li>
                 </ul>
             </div>
         </div>
