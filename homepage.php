@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="http://localhost:8888/htdocs/Activity/">
+    <base href="http://localhost/Activity/">
     <link href="includes/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
@@ -35,11 +35,11 @@
             <ul class='list'>
                 <li class="sub-list"><a>Category<i class="fas fa-chevron-down" style="color:white; font-size: 14px; font-weight: 600; padding:5px;"></i></a>
                     <ul>
-                        <li><a href="category.php?category=Food">Food</a></li>
-                        <li><a href="category.php?category=Music">Music</a></li>
-                        <li><a href="category.php?category=Sports">Sports</a></li>
-                        <li><a href="category.php?category=Gymnastics">Gymnastics</a></li>
-                        <li><a href="category.php?category=Travel">Travel</a></li>
+                        <li><a href="category.php/Food">Food</a></li>
+                        <li><a href="category.php/Music">Music</a></li>
+                        <li><a href="category.php/Sports">Sports</a></li>
+                        <li><a href="category.php/Gymnastics">Gymnastics</a></li>
+                        <li><a href="category.php/Travel">Travel</a></li>
                     </ul>
                 </li>
                 <li><a href='homepage'>Home</a></li>
