@@ -3,11 +3,20 @@
 php_value upload_max_filesize 10M
 php_value post_max_size 10M
 
+
+
+#Turns on the engine to rewrite requested URLs
+RewriteEngine On
+
+#RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js)$
+#RewriteRule (.*) routes.php [QSA,L]
+
 #custom error page
 ErrorDocument 404 /Activity/Page404.php
 #ErrorDocument 403 /Activity/Page403.php
 
-RewriteEngine On
+
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.\php -f
 RewriteCond %{REQUEST_FILENAME} !-l

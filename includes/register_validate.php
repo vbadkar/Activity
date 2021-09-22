@@ -5,12 +5,13 @@ if(isset($_POST['submit']))
     session_start();
     $user=$_POST['username'];
     $pass=$_POST['password'];
+    $email=$_POST['email'];
     $confirm_pass=$_POST['confirmPass'];
     $number = preg_match('@[0-9]@', $pass);
     $uppercase = preg_match('@[A-Z]@', $pass);
     $lowercase = preg_match('@[a-z]@', $pass);
     $special_chars = preg_match('@[^\w]@', $pass);
-    if(empty($user)||empty($pass)||empty($confirm_pass)){
+    if(empty($user)||empty($pass)|| empty($email) ||empty($confirm_pass)){
         $_SESSION['message']="Fields are blank";
         $_SESSION['type']="error";
         header("Location: ../register.php?error=emptyfields&username=".$user);
@@ -26,6 +27,12 @@ if(isset($_POST['submit']))
         $_SESSION['message']="Passwords don't match";
         $_SESSION['type']="error";
         header("Location: ../register.php??error=passwordsdidntmatch&username=".$user);
+        exit();
+    }
+    elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $_SESSION['message']="Invaild Email address";
+        $_SESSION['type']="error";
+        header("Location: ../register.php??error=invallidemailidformat&username=".$user);
         exit();
     }
     elseif(strlen($pass) < 8 || !$number || !$uppercase || !$lowercase || !$special_chars)
@@ -59,7 +66,7 @@ if(isset($_POST['submit']))
             }
             else
             {
-                $sql="INSERT INTO login (username, password, user_type) VALUES (?, ?, ?)";
+                $sql="INSERT INTO login (username, password, email, user_type) VALUES (?, ?, ?, ?)";
                 $stmt=mysqli_stmt_init($con);
                 if(!mysqli_stmt_prepare($stmt, $sql))
                 {
@@ -70,7 +77,7 @@ if(isset($_POST['submit']))
                 {
                     $usertype='user';
                     $hashedPass=password_hash($pass, PASSWORD_DEFAULT);
-                    mysqli_stmt_bind_param($stmt,"sss",$user, $hashedPass,$usertype);
+                    mysqli_stmt_bind_param($stmt,"ssss",$user, $hashedPass, $email, $usertype);
                     mysqli_stmt_execute($stmt);
                     
                     $_SESSION['message']="Registration Sucessful";

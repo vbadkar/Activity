@@ -21,8 +21,9 @@
                 {
                     echo $_COOKIE['cookieuser'];
                 }
-            ?>' autocomplete='off'><br>
+            ?>' autocomplete='off'>
             <input class="text-input pass" type='password' name='password' placeholder='Password' id='show-hide'>
+            <a href="reset_password" class="forgot-pass">Forgot Password?</a>
             <p><input class="remember" type ="checkbox" name="rememberme" onclick="myFunction()">Show password</p>
             <p><input class="remember" type ="checkbox" name="rememberme">Remember Me</p>
             <button class="login-button" type='submit' name='submit'>Login</button>

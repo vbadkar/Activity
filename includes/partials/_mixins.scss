@@ -58,3 +58,9 @@
     margin: 0 auto;
     padding:0;
 }
+@mixin navLogo {
+  float: left;
+  height: inherit;
+  margin-left: 1em;
+  background-color: white;
+}
