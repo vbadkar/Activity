@@ -1,23 +1,36 @@
 #MOD_REWRITE STARTS HERE
-Options +FollowSymlinks
+#Options +FollowSymlinks
 php_value upload_max_filesize 10M
 php_value post_max_size 10M
 
 
+
 #Turns on the engine to rewrite requested URLs
 RewriteEngine On
+
 #RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js)$
 #RewriteRule (.*) routes.php [QSA,L]
 
+#custom error page
+ErrorDocument 404 /Activity/Page404.php
+#ErrorDocument 403 /Activity/Page403.php
 
 
-#RewriteEngine on
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.\php -f
 RewriteCond %{REQUEST_FILENAME} !-l
 RewriteRule ^([^\.]+)$ $1.php  [NC,L]
 
 #Clean URL
-RewriteRule ^single/([0-9]+) single?id=$1 [NC,L,QSA]
-RewriteRule ^homepage/([0-9]+)$ homepage?page=$1 [NC,L,QSA]
-RewriteRule ^category/([a-zA-Z]+) category.php?category=$1 [NC,L,QSA]
+RewriteRule ^single/([0-9]+) single.php?id=$1 [NC,L,QSA]
+RewriteRule ^homepage/([0-9]+) homepage.php?page=$1 [NC,L,QSA]
+RewriteRule ^category/([a-zA-Z_-]+) category.php?category=$1 [NC,L,QSA]
+RewriteRule ^category/([0-9]+) category.php?id=$1 [NC,L,QSA]
+RewriteRule ^editpost/([0-9]+) editpost.php?id=$1 [NC,L,QSA]
+RewriteRule ^deletepost/([0-9]+) deletepost.php?id=$1 [NC,L,QSA]
+
+RewriteRule ^login login.php [NC,L]
+RewriteRule ^register register.php [NC,L]
+
+

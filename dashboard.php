@@ -112,10 +112,10 @@
             <div class="btns">
                 <ul class="edit-delete-btn">
                     <li>
-                        <a href="editpost.php?id=<?php echo $row['p_id'];?>" class="btn edit-link">Edit</a>
+                        <a href="editpost.php/<?php echo $row['p_id'];?>" class="btn edit-link">Edit</a>
                     </li>
                     <li>
-                        <a href="deletepost.php?del_id=<?php echo  $row['p_id'];?>" class ="btn delete-link" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
+                        <a href="deletepost.php/<?php echo  $row['p_id'];?>" class ="btn delete-link" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
                     </li>
                 </ul>
             </div>
