@@ -22,6 +22,9 @@ This is a blog site where user can add/delete/update articles and much more
 		https://github.com/vbadkar/Activity.git
 	2. Create a database named blog_site in your phpmyadmin
 	3. Import blog_site.sql file into the created database blog_site
+
+# Technologies Used
+	HTML, SASS, PHP and MYSQL
 	
 # Contributors
 * [vbadkar](https://github.com/vbadkar) (Vivek Badkar).
