@@ -1,7 +1,7 @@
 <?php
     require_once "includes/header.php";
 ?>
-<title>Registration Page</title>
+<title>Reset password</title>
     <div class="register-form">
     <?php if(isset($_SESSION['message'])):?>
         <div class="msg <?php echo $_SESSION['type'];?>">
