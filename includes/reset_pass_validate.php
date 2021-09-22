@@ -41,7 +41,7 @@ if(isset($_POST['reset-button'])){
     $message .= '<a href="'.$url.'">'.$url.'</a></p>';
     
     require '../PHPMailerAutoload.php';
-
+    require '../sendermail.php';
     $mail = new PHPMailer;
 
     //$mail->SMTPDebug = 4;      
@@ -49,14 +49,14 @@ if(isset($_POST['reset-button'])){
     $mail->isSMTP();                           
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'mailt3800@gmail.com';
-    $mail->Password = 'testmail@1271';
+    $mail->Username = $sender;
+    $mail->Password = $pass;
     $mail->SMTPSecure = 'tls';              
     $mail->Port = 587;                            
 
-    $mail->setFrom('mailt3800@gmail.com');
+    $mail->setFrom($sender);
     $mail->addAddress($email);
-    $mail->addReplyTo('mailt3800@gmail.com');
+    $mail->addReplyTo($sender);
     $mail->isHTML(true);
 
     $mail->Subject = 'Reset password';
