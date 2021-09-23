@@ -34,8 +34,8 @@
         <h2>
             Become A subscriber
         </h2>
-        <form action="subscribe.php" method="post">
-            <input class="text-input" type="text" placeholder="Email address" name="email" autocomplete="off" required>
+        <form action="includes/subscribe" method="post">
+            <input class="text-input" type="email" placeholder="Email address" name="email" autocomplete="off" required>
             <input class="sub-btn" type="submit" name="subscribe" value="Subscribe">
         </form>
     </div>
