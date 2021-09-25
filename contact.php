@@ -18,7 +18,7 @@
             <h2>Contact</h2>
         </div>
         <div class="contact-form-content">
-            <form action="" class="">
+            <form action="includes/contact_validate" method="post">
                 <div class="contact-input">
                     <input type="text" placeholder="Name" name="name">
                     <input type="text" placeholder="Email" name="email">
