@@ -19,10 +19,9 @@
   width: 60%;
   margin: 0 auto;
   position: absolute;
-  -webkit-box-shadow: none;
-          box-shadow: none;
   border: none;
   z-index: 1;
+  line-height: 4rem;
 }
 
 .homepage-header-wrapper header a {
@@ -31,15 +30,19 @@
 
 .homepage-header-wrapper header .logo {
   float: left;
-  height: inherit;
-  margin-left: 1em;
+  height: 70px;
   background-color: white;
+  padding: 10px;
+  line-height: 52px;
+  margin-right: 1rem;
 }
 
 .homepage-header-wrapper header .logo h3 {
   font-size: 20px;
-  padding: 10px;
   font-family: 'Poppins', sans-serif;
+  line-height: 52px;
+  margin: 0;
+  padding: 0;
 }
 
 .homepage-header-wrapper header .search-form {
@@ -138,11 +141,13 @@
   margin: 0px;
   list-style: none;
   padding: 0px;
+  height: 70px;
 }
 
 .homepage-header-wrapper header ul li {
   float: right;
   position: relative;
+  height: 70px;
 }
 
 .homepage-header-wrapper header ul li:hover {
@@ -154,13 +159,15 @@
 
 .homepage-header-wrapper header ul li a {
   display: block;
-  padding: 20px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   color: #ffffff;
   text-decoration: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  height: 70px;
+  line-height: 52px;
+  padding-left: 20px;
 }
 
 .homepage-header-wrapper header ul li a:hover {
@@ -258,6 +265,7 @@
   width: 60%;
   margin: 0 auto;
   border: none;
+  line-height: 4rem;
 }
 
 .header-wrapper header a {
@@ -266,15 +274,20 @@
 
 .header-wrapper header .logo {
   float: left;
-  height: inherit;
-  margin-left: 1em;
+  height: 70px;
   background-color: white;
+  padding: 10px;
+  line-height: 52px;
+  margin-right: 1rem;
 }
 
 .header-wrapper header .logo h3 {
   font-size: 20px;
   padding: 10px;
   font-family: 'Poppins', sans-serif;
+  line-height: 4rem;
+  margin: 0;
+  padding: 0;
 }
 
 .header-wrapper header .search-form {
@@ -402,7 +415,6 @@
 
 .header-wrapper header ul li a {
   display: block;
-  padding: 20px;
   font-size: 14px;
   font-weight: 600;
   color: black;
@@ -1043,7 +1055,7 @@
   height: 40px;
 }
 
-.msg .msg li {
+.msg li {
   width: 100%;
   margin: 5px auto;
   padding: 8px;
@@ -1051,13 +1063,13 @@
   list-style: none;
 }
 
-.msg .msg.success li {
+.msg.success li {
   color: black;
   border: 1px solid lightgreen;
   background-color: aquamarine;
 }
 
-.msg .msg.error li {
+.msg.error li {
   color: black;
   border: 1px solid rgba(236, 0, 0, 0.548);
   background-color: #be4f4f;
@@ -1232,6 +1244,10 @@
 
 .login-form .redirection {
   margin-top: 1rem;
+}
+
+.login-form .forgot-pass {
+  border: none;
 }
 
 .remember {
@@ -2525,10 +2541,9 @@
   width: 60%;
   margin: 0 auto;
   position: absolute;
-  -webkit-box-shadow: none;
-          box-shadow: none;
   border: none;
   z-index: 1;
+  line-height: 4rem;
 }
 
 .homepage-header-wrapper header a {
@@ -2537,15 +2552,19 @@
 
 .homepage-header-wrapper header .logo {
   float: left;
-  height: inherit;
-  margin-left: 1em;
+  height: 70px;
   background-color: white;
+  padding: 10px;
+  line-height: 52px;
+  margin-right: 1rem;
 }
 
 .homepage-header-wrapper header .logo h3 {
   font-size: 20px;
-  padding: 10px;
   font-family: 'Poppins', sans-serif;
+  line-height: 52px;
+  margin: 0;
+  padding: 0;
 }
 
 .homepage-header-wrapper header .search-form {
@@ -2644,11 +2663,13 @@
   margin: 0px;
   list-style: none;
   padding: 0px;
+  height: 70px;
 }
 
 .homepage-header-wrapper header ul li {
   float: right;
   position: relative;
+  height: 70px;
 }
 
 .homepage-header-wrapper header ul li:hover {
@@ -2660,13 +2681,15 @@
 
 .homepage-header-wrapper header ul li a {
   display: block;
-  padding: 20px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   color: #ffffff;
   text-decoration: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  height: 70px;
+  line-height: 52px;
+  padding-left: 20px;
 }
 
 .homepage-header-wrapper header ul li a:hover {
@@ -2764,6 +2787,7 @@
   width: 60%;
   margin: 0 auto;
   border: none;
+  line-height: 4rem;
 }
 
 .header-wrapper header a {
@@ -2772,15 +2796,20 @@
 
 .header-wrapper header .logo {
   float: left;
-  height: inherit;
-  margin-left: 1em;
+  height: 70px;
   background-color: white;
+  padding: 10px;
+  line-height: 52px;
+  margin-right: 1rem;
 }
 
 .header-wrapper header .logo h3 {
   font-size: 20px;
   padding: 10px;
   font-family: 'Poppins', sans-serif;
+  line-height: 4rem;
+  margin: 0;
+  padding: 0;
 }
 
 .header-wrapper header .search-form {
@@ -2908,7 +2937,6 @@
 
 .header-wrapper header ul li a {
   display: block;
-  padding: 20px;
   font-size: 14px;
   font-weight: 600;
   color: black;

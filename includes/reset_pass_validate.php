@@ -5,7 +5,7 @@ if(isset($_POST['reset-button'])){
     $tokenValidator = random_bytes(32);
     $url= "http://localhost/Activity/new_password.php?tokenAuth=".$tokenAuth."&tokenValidator=".bin2hex($tokenValidator);
     $expire= date("U") + 1800;
-    $email=$_POST['email'];  
+    $email=$_POST['email'];
     
     require "database.php";
     session_start();
@@ -41,11 +41,9 @@ if(isset($_POST['reset-button'])){
     $message .= '<a href="'.$url.'">'.$url.'</a></p>';
     
     require '../PHPMailerAutoload.php';
-    require '../sendermail.php';
+    require 'sendermail.php';
     $mail = new PHPMailer;
-
-    //$mail->SMTPDebug = 4;      
-
+   
     $mail->isSMTP();                           
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;

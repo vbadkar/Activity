@@ -18,7 +18,7 @@
             <h2>Contact</h2>
         </div>
         <div class="contact-form-content">
-            <form action="" class="">
+            <form action="includes/contact_validate" method="post">
                 <div class="contact-input">
                     <input type="text" placeholder="Name" name="name">
                     <input type="text" placeholder="Email" name="email">
@@ -31,11 +31,20 @@
         </div>
     </div>
     <div class="subscribe-us_wrapper">
+    <?php if(isset($_SESSION['message'])):?>
+        <div class="msg <?php echo $_SESSION['type'];?>">
+            <li><?php echo $_SESSION['message'];?></li>
+            <?php 
+                unset($_SESSION['message']);
+                unset($_SESSION['type']);
+            ?>
+        </div>
+    <?php endif;?>
         <h2>
             Become A subscriber
         </h2>
-        <form action="subscribe.php" method="post">
-            <input class="text-input" type="text" placeholder="Email address" name="email" autocomplete="off" required>
+        <form action="includes/subscribe" method="post">
+            <input class="text-input" type="email" placeholder="Email address" name="email" autocomplete="off" required>
             <input class="sub-btn" type="submit" name="subscribe" value="Subscribe">
         </form>
     </div>
