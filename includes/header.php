@@ -55,6 +55,7 @@ $category = $row['category'];
             </ul>
         </header>
     </div>
+    <!-- script for search bar toggle  -->
     <script>
         const button = document.querySelector('.icon');
         const search = document.querySelector('.form-toggle');
