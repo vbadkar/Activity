@@ -1,7 +1,8 @@
 <?php 
     require "includes/database.php";
     require "includes/header.php";
-    $sql = "SELECT * FROM posts";
+    $id=$_GET['id'];
+    $sql = "SELECT * FROM posts WHERE p_id='$id'";
     $result = mysqli_query($con, $sql);
     if($post=mysqli_fetch_assoc($result)){
         $pid=$post['p_id'];
@@ -21,10 +22,10 @@
         <form action="includes/editpost_validate.php?id=<?php echo $_GET['id']?>" method="post">
         <h1 class="form-title">Edit Post</h1> 
             <input class="text-input" type="text" name="title" placeholder="Title" autocomplete='off' value="<?php if(isset($post['title'])){echo $post['title'];}?>">
-            <input class="text-input" type="textarea" name="desc" placeholder="Description" autocomplete='off' value="<?php   if(isset($post['description']))
+               <textarea id="editor" class="text-input" name="desc" placeholder="Description" autocomplete='off'><?php   if(isset($post['description']))
                {
                    echo $post['description'];
-               }?>">
+               }?></textarea>
             <select class="text-input" name="category">
                 <option value="cat">Select a category</option>
                 <option value="Food">Food</option>
@@ -38,6 +39,9 @@
             <a href="dashboard.php">Back</a>
         </form>
     </div>
+<script>
+    CKEDITOR.replace('desc');
+</script>
 <?php
     require "includes/footer1.php";
 ?>
