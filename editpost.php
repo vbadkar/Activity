@@ -42,6 +42,4 @@
 <script>
     CKEDITOR.replace('desc');
 </script>
-<?php
-    require "includes/footer1.php";
-?>
+<?php require "includes/footer1.php"; ?>
