@@ -38,6 +38,5 @@
             <a href="dashboard.php">Back</a>
         </form>
     </div>
-<?php
-    require "includes/footer1.php";
-?>
+
+<?php require "includes/footer1.php"; ?>
