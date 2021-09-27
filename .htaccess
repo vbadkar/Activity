@@ -1,5 +1,7 @@
 #MOD_REWRITE STARTS HERE
 #Options +FollowSymlinks
+Options -Indexes
+
 php_value upload_max_filesize 10M
 php_value post_max_size 10M
 
@@ -12,8 +14,11 @@ RewriteEngine On
 #RewriteRule (.*) routes.php [QSA,L]
 
 #custom error page
-ErrorDocument 404 /Activity/Page404.php
-#ErrorDocument 403 /Activity/Page403.php
+ErrorDocument 404 /Page404.php
+ErrorDocument 403 /Page403.php
+
+#redirecting to another link
+#Redirect 301 /contact.php http://blog/about.php
 
 
 
@@ -29,6 +34,7 @@ RewriteRule ^category/([a-zA-Z_-]+) category.php?category=$1 [NC,L,QSA]
 RewriteRule ^category/([0-9]+) category.php?id=$1 [NC,L,QSA]
 RewriteRule ^editpost/([0-9]+) editpost.php?id=$1 [NC,L,QSA]
 RewriteRule ^deletepost/([0-9]+) deletepost.php?id=$1 [NC,L,QSA]
+RewriteRule ^search/([a-zA-Z_-]+) search.php?search=$1 [NC,L,QSA]
 
 RewriteRule ^login login.php [NC,L]
 RewriteRule ^register register.php [NC,L]

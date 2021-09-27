@@ -2,7 +2,7 @@
   if(isset($_POST['subscribe'])){
     session_start();
     $user_email=$_POST['email'];
-    $url="http://localhost/Activity/includes/unsubscribe.php";
+    $url="http://blog/unsubscribe.php?email=".$user_email; 
     if(empty($user_email)){
       $_SESSION['message']="Please enter an email address to proceed further";
       $_SESSION['type']="error";
