@@ -45,7 +45,7 @@
                     </ul>
                 </li>
                 <li><a href='homepage'>Home</a></li>
-                <li><a href="logout">Logout</a></li>
+                <li><a href="includes/logout.php">Logout</a></li>
             </ul>
         </header>
 </div>
@@ -73,7 +73,7 @@
                         $userid=$_COOKIE['cookieuserid'];
                         $sql="SELECT * FROM posts";
                         $result=mysqli_query($con,$sql);
-                        //$rowCount = mysqli_num_rows($result);
+        
                         $i=0;
                         $num_of_result=mysqli_num_rows($result);    
                         $num_of_pages=ceil($num_of_result/$results_per_page);

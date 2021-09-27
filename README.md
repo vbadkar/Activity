@@ -30,3 +30,6 @@ This is a blog site where user can add/delete/update articles and much more
 * [vbadkar](https://github.com/vbadkar) (Vivek Badkar).
 * [Libbna](https://github.com/Libbna/) (Libbna Mathew).
 * [RChaubey16](https://github.com/RChaubey16) (Ruturaj Chaubey).
+
+# Reference
+	Using https://vozga-way2themes.blogspot.com/ site as a template for themeing my blog site
