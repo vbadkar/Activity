@@ -1,3 +1,4 @@
+// funtion for hamburger toggle
 const hamburger = document.querySelector('.hamburger');
 const list = document.querySelector('.list');
 hamburger.addEventListener('click', function(){

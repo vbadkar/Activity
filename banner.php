@@ -85,48 +85,41 @@
         </div>
         </div>
         <div class="main-content-banner">
-        <?php
-            $sql="SELECT * FROM banners ORDER BY image ASC";
-            $result=mysqli_query($con,$sql);
-            //$rowCount = mysqli_num_rows($result);
-            $i=0;
-            if(mysqli_num_rows($result) > $i){
-                while($row=mysqli_fetch_assoc($result)){
-                    $input_image="images/".$row['image'];
-                    $output_image="images/resized/".$row['image'];
-                    $width=380;
-                    $height=220;
-                    $resource=imagecreatefromjpeg($input_image);
-                    $scaled=imagescale($resource, $width, $height);
-                    imagejpeg($scaled,$output_image);
-        ?> 
-        <div class="admin-display-wrapper">
-            <div class="admin-display">
-                <ul>
-                    <li>
-                        <img src="<?php echo $output_image;?>" alt="" class="r-image">
-                    </li>
-                    <li>
-                        <a href="deletebanner.php?del_id=<?php echo  $row['b_id'];?>" onclick="return confirm('Are you sure you want to delete this?')"class="delete-banner">Delete</a>
-                    </li>
-                </ul>
-                
-                            
+            <?php
+                $sql="SELECT * FROM banners ORDER BY image ASC";
+                $result=mysqli_query($con,$sql);
+                //$rowCount = mysqli_num_rows($result);
+                $i=0;
+                if(mysqli_num_rows($result) > $i){
+                    while($row=mysqli_fetch_assoc($result)){
+                        $input_image="images/".$row['image'];
+                        $output_image="images/resized/".$row['image'];
+                        $width=380;
+                        $height=220;
+                        $resource=imagecreatefromjpeg($input_image);
+                        $scaled=imagescale($resource, $width, $height);
+                        imagejpeg($scaled,$output_image);
+            ?> 
+            <div class="admin-display-wrapper">
+                <div class="admin-display">
+                    <ul>
+                        <li>
+                            <img src="<?php echo $output_image;?>" alt="" class="r-image">
+                        </li>
+                        <li>
+                            <a href="deletebanner.php?del_id=<?php echo  $row['b_id'];?>" onclick="return confirm('Are you sure you want to delete this?')"class="delete-banner">Delete</a>
+                        </li>
+                    </ul>
+                    
+                                
+                </div>
             </div>
-        </div>
-        
-                    <?php
-                            $i=$i+1;
-                            }
-                        }
-                        else{
-                            ?>
-                            <tr>
-                                <th colspan="2">No results to display</th>
-                            </tr>
-                            <?php
-                        }
-                    ?>
+            
+             <?php $i=$i+1; } } else{ ?>
+                <tr>
+                    <th colspan="2">No results to display</th>
+                </tr>
+             <?php } ?>
         </div>
     </div>
 </body>
