@@ -45,7 +45,7 @@
                     </ul>
                 </li>
                 <li><a href='homepage'>Home</a></li>
-                <li><a href="logout">Logout</a></li>
+                <li><a href="includes/logout.php">Logout</a></li>
             </ul>
         </header>
 </div>

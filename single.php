@@ -17,7 +17,7 @@
         ?>
         <ul class="bread-crumb">
             <li><a href="homepage.php">Home</a></li>
-            <li><a href="category/<?php echo $id;?>"><?php echo $row['category'];?></a></li>
+            <li><a href="category/<?php echo $row['category'];?>"><?php echo $row['category'];?></a></li>
             <li><?php echo $row['title'];?></li>
         </ul>
         <div class="single-post-head">
@@ -211,8 +211,6 @@
             </div>
         </div>
     </div>
-    
-
 </div>
 </div>
 <?php

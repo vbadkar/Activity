@@ -15,7 +15,7 @@
         <form action="includes/createpost_validate.php" method="post">
         <h1 class="form-title">Create Post</h1> 
             <input class="text-input" type="text" name="title" placeholder="Title" autocomplete='off'>
-            <textarea id="editor" class="text-input" type="text" name="desc" placeholder="Description" autocomplete='off'></textarea>
+            <textarea id="editor" class="text-input" name="desc" placeholder="Description" autocomplete='off'></textarea>
             <select class="text-input" name="category">
                 <option value="cat">Select a category</option>
                 <option value="Food">Food</option>
@@ -30,7 +30,7 @@
         </form>
     </div>
     <script>
-        CKEDITOR.replace('editor');
+        CKEDITOR.replace('desc');
     </script>
 <?php 
     require "includes/footer2.php";
