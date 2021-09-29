@@ -85,28 +85,27 @@ require_once "includes/createpost_validate.php";
                 $scaled = imagescale($resource, $width, $height);
                 imagejpeg($scaled, $output_image);
         ?>
-                <div class="post-slider" style="background-image: url(<?php echo $output_image; ?>)">
-                    <div class="post-wrapper" style="background-color: rgba(0,0,0,0.25);">
-                        <div class="post">
-                            <div class="wrapper">
-                                <div class="intro-wrapper">
-                                    <div class="intro-head">
-                                        <h3><?php echo $images['banner_title']; ?></h3>
-                                    </div>
-                                    <div class="intro-text">
-                                        <p><?php echo $images['banner_snippet']; ?></p>
-                                    </div>
-                                    <div class="intro-button">
-                                        <a class="btn">Get Started</a>
-                                    </div>
-                                </div>
+        <div class="post-slider" style="background-image: url(<?php echo $output_image; ?>)">
+            <div class="post-wrapper" style="background-color: rgba(0,0,0,0.25);">
+                <div class="post">
+                    <div class="wrapper">
+                        <div class="intro-wrapper">
+                            <div class="intro-head">
+                                <h3><?php echo $images['banner_title']; ?></h3>
+                            </div>
+                            <div class="intro-text">
+                                <p><?php echo $images['banner_snippet']; ?></p>
+                            </div>
+                            <div class="intro-button">
+                                <a class="btn">Get Started</a>
                             </div>
                         </div>
-                        <!--post end-->
-                    </div><!-- post wrapper end-->
-                </div>
+                    </div>
+                </div><!--post end-->
+            </div><!-- post wrapper end-->
+        </div>
         <?php
-                $i = $i + 1;
+            $i=$i+1;
             }
         }
         ?>
@@ -195,8 +194,9 @@ require_once "includes/createpost_validate.php";
         if(mysqli_num_rows($result) > $j){
             while($authName=mysqli_fetch_assoc($result)){  
                 $author=$authName['username'];
-                $j=$j+1;
+               
             }
+            $j=$j+1;
         }  
         $sql="SELECT * FROM posts LIMIT ".$start_limit.','.$results_per_page;
         $result=mysqli_query($con,$sql);
