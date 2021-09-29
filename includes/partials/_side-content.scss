@@ -32,7 +32,7 @@
             
   
             li{
-                width: 44px;
+                width: 100%;
                 height: 40px;
                 border: 0px solid rgb(25, 0, 255);
             }
@@ -133,18 +133,25 @@
     .subscribe-wrapper{
         background-color: white;
         padding: 20px;
+        width: 100%;
         border: 1px solid $post_border_color;
-        border: 0px solid red;
         margin-bottom: 2rem;
+
   
         h2{
             margin: 0;
-            padding: 0 0 10px 0;
+            padding: 0 0 0.7rem 0;
             border-bottom:3px solid whitesmoke;
             color: $headcolor;
             font-size: 17px;
             font-weight: 600;
             line-height: 34px;
+        }
+        .subscribe-video{
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
         }
     }
     .facebook-wrapper{
@@ -153,6 +160,7 @@
         border: 1px solid $post_border_color;
         border: 0px dashed blue;
         margin-bottom: 2rem;
+
         h2{
             margin: 0;
             padding: 0 0 10px 0;
