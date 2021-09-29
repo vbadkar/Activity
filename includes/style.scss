@@ -13,11 +13,11 @@
 @import "partials/notfound";
 @import "partials/search";
 @import "partials/unsubscribe";
+@import "partials/global";
+@import "partials/category_page";
 
 
-*{
-    box-sizing: border-box;
-}
+
 html, body { 
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
@@ -169,42 +169,6 @@ p{
     }
 }
 
-.category-content{
-    width: 65%;
-    display: grid;
-    grid-template-columns: 70% 25%;
-    grid-gap: 1em;
-    margin: 0 auto;
-    margin-top: 1.5rem;
-    .wrapper{
-        .posts{
-            width: 97%;
-            margin: 0;
-            background-color: white;
-            border: 1px solid $post_border_color;
-            margin-bottom: 1.5rem;
-            p{
-                text-align: left;
-                padding: 0.5rem 1rem 0.5rem 1rem;
-            }
-            span{
-                font-weight: bold;
-            }
-            
-        }
-        .main_content{
-            display: grid;
-            grid-column-gap: 1.5rem;
-            grid-row-gap: 2.0rem;
-            grid-template-columns: 47.5% 47.5%;
-            grid-auto-rows: max-content;
-            background-color: #f8f8f8;
-            padding: 0 5px;
-            @import "partials/card";
-        }
-    }
-    @import "partials/side-content";
-}
 .manage-posts-admin{
     width: 100%;
     height: 100%;
@@ -477,16 +441,18 @@ Media content : Mobile devices
                 max-height: fit-content;
                 position: absolute;
                 top: 100%;
+                background-color: #1f2024;
+                border: 1px solid #1f2024;
             }
             ul{
                 width: 100%;
-                background: rgb(248, 213, 147);
                 overflow: hidden;
                 max-height: 0px;
+                background-color: #1f2024;
             }
             ul li{
                     width: 100%;
-        }
+            }
         }
     }
     .header-wrapper{
@@ -519,10 +485,12 @@ Media content : Mobile devices
                 max-height: fit-content;
                 position: absolute;
                 top: 100%;
+                background-color: #1f2024;
+                border: 1px solid #1f2024;
             }
             ul{
                 width: 100%;
-                background: rgb(248, 213, 147);
+                background-color: #1f2024;
                 overflow: hidden;
                 max-height: 0px;
             }
