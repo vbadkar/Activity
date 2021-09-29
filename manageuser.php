@@ -1,9 +1,9 @@
 <?php
-require "includes/database.php";
-$sql = "SELECT * FROM login";
-$result = mysqli_query($con, $sql);
-$row = mysqli_fetch_assoc($result);
-session_start();
+    require "includes/database.php";
+    $sql = "SELECT * FROM login";
+    $result = mysqli_query($con, $sql);
+    $row = mysqli_fetch_assoc($result);
+    session_start();
 ?>
 <html lang="en">
 
