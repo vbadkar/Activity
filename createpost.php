@@ -14,8 +14,10 @@
     <?php endif;?>
         <form action="includes/createpost_validate.php" method="post">
         <h1 class="form-title">Create Post</h1> 
-            <input class="text-input" type="text" name="title" placeholder="Title" autocomplete='off'>
-            <textarea id="editor" class="text-input" name="desc" placeholder="Description" autocomplete='off'></textarea>
+            <input class="text-input" type="text" name="title" placeholder="Title(English)" autocomplete='off'>
+            <textarea id="editor" class="text-input" name="desc" placeholder="Description(English)" autocomplete='off'></textarea>
+            <input class="text-input" type="text" name="title-hi" placeholder="Title(Hindi)" autocomplete='off'>
+            <textarea id="editor" class="text-input" name="desc-hi" placeholder="Description(Hindi)" autocomplete='off'></textarea>
             <select class="text-input" name="category">
                 <option value="cat">Select a category</option>
                 <option value="Food">Food</option>
@@ -33,5 +35,5 @@
         CKEDITOR.replace('desc');
     </script>
 <?php 
-    require "includes/footer2.php";
+    require "includes/footer1.php";
 ?>

@@ -71,7 +71,6 @@
             $userid=$_COOKIE['cookieuserid'];
             $sql="SELECT * FROM posts WHERE user_id='$userid'";
             $result=mysqli_query($con,$sql);
-            //$rowCount = mysqli_num_rows($result);
             $i=0;
             $num_of_result=mysqli_num_rows($result);    
             $num_of_pages=ceil($num_of_result/$results_per_page);
