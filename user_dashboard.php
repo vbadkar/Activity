@@ -131,13 +131,13 @@
         ?>
     </div>
     <div class='index-dashboard'><center>
-    <?php
-    for($page=1;$page<=$num_of_pages;$page++)
-    {
-        echo '<a href="user_dashboard.php?page='.$page.'">'.$page.'</a> ';
-    }   ?> 
-</div>
-</center>
+        <?php
+        for($page=1;$page<=$num_of_pages;$page++)
+        {
+            echo '<a href="user_dashboard.php?page='.$page.'">'.$page.'</a> ';
+        }   ?> 
+        </div>
+    </center>
     </div>
 </body>
 </html>

@@ -35,6 +35,4 @@
     ?>
         
     </div>
-<?php
-    require_once "includes/footer1.php";
-?>
+<?php require_once "includes/footer1.php"; ?>

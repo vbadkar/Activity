@@ -1,6 +1,4 @@
-<?php
-    require_once "includes/header.php";
-?>
+<?php require_once "includes/header.php"; ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
