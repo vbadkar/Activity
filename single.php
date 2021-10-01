@@ -202,11 +202,11 @@
                     <h2>Category</h2>
                 </div>
                 <ul class="categories">
-                        <li>><a href="category.php/Food">Food<span class="count">(1) </span></a></li>
-                        <li>><a href="category.php/Music">Music<span class="count">(1) </span></a></li>
-                        <li>><a href="category.php/Sports">Sports<span class="count">(1) </span></a></li>
-                        <li>><a href="category.php/Gymnastics">Gymnastics<span class="count">(1) </span></a></li>
-                        <li>><a href="category.php/Travel">Travel<span class="count">(1) </span></a></li>
+                    <li>><a href="category.php/Food">Food<span class="count">(1) </span></a></li>
+                    <li>><a href="category.php/Music">Music<span class="count">(1) </span></a></li>
+                    <li>><a href="category.php/Sports">Sports<span class="count">(1) </span></a></li>
+                    <li>><a href="category.php/Gymnastics">Gymnastics<span class="count">(1) </span></a></li>
+                    <li>><a href="category.php/Travel">Travel<span class="count">(1) </span></a></li>
                 </ul>
             </div>
         </div>

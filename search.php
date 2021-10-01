@@ -16,17 +16,17 @@
 
 ?> 
 <div class="main-post-search">
-<?php
-    $input_image="images/".$row['image'];
-    $output_image="images/resized/".$row['image'];
-    $width=380;
-    $height=220;
-    $resource=imagecreatefromjpeg($input_image);
-    $scaled=imagescale($resource, $width, $height);
-    imagejpeg($scaled,$output_image);
-    $desc=$row['description'];
-    $desc = substr($desc,0,100).'...';
-?>
+    <?php
+        $input_image="images/".$row['image'];
+        $output_image="images/resized/".$row['image'];
+        $width=380;
+        $height=220;
+        $resource=imagecreatefromjpeg($input_image);
+        $scaled=imagescale($resource, $width, $height);
+        imagejpeg($scaled,$output_image);
+        $desc=$row['description'];
+        $desc = substr($desc,0,100).'...';
+    ?>
     <img class="image" src="<?php echo $output_image;?>", alt="post_image">
     <div class="post-preview">
         <h2><a href="single.php?id=<?php echo $row['p_id'];?>" class="post-title"><?php echo $row['title'];?></a></h2>
@@ -42,6 +42,4 @@ else{
     }   
 ?>
 </div>
-<?php
-require "includes/footer2.php";
-?>
+<?php require "includes/footer2.php"; ?>
