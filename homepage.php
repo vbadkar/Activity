@@ -33,6 +33,8 @@
 
             <img class='hamburger' src='images/hamburger.png' alt='hamburger'></img>
             <ul class='list'>
+                <li><a href="<?php echo $_SERVER['REQUEST_URI'];?>?lang=en">English</a></li>
+                <li><a href="<?php echo $_SERVER['REQUEST_URI'];?>?lang=hi">Hindi</a></li>
                 <li class="sub-list"><a>Category<i class="fas fa-chevron-down" style="color:white; font-size: 14px; font-weight: 600; padding:5px;"></i></a>
                     <ul>
                         <li><a href="category.php/Food">Food</a></li>
@@ -42,8 +44,6 @@
                         <li><a href="category.php/Travel">Travel</a></li>
                     </ul>
                 </li>
-                <li><a href="homepage?lang=en"></a>English</li>
-                <li><a href="homepage?lang=hi"></a>Hindi</li>
                 <li><a href='homepage'>Home</a></li>    
                 <li><a href='register'>Register</a></li>
                 <li><a href='login'>Login</a></li>
@@ -78,7 +78,7 @@
     if(mysqli_num_rows($result) > $i){
         while($images=mysqli_fetch_assoc($result)){
             $input_image="images/".$images['image'];
-            $output_image="images/resized/".$images['image'];
+            $output_image="images/resized1600x832".$images['image'];
             $width=1600;
             $height=832;
             $resource=imagecreatefromjpeg($input_image);
@@ -150,7 +150,7 @@
                     <div class="main-post">
                     <?php 
                          $input_image="images/".$data['image'];
-                         $output_image="images/resized/".$data['image'];
+                         $output_image="images/resized408x220".$data['image'];
                          $width=408;
                          $height=220;
                          $resource=imagecreatefromjpeg($input_image);
@@ -174,7 +174,7 @@
                     <div class="main-post">
                     <?php 
                          $input_image="images/".$data['image'];
-                         $output_image="images/resized/".$data['image'];
+                         $output_image="images/resized408x220".$data['image'];
                          $width=408;
                          $height=220;
                          $resource=imagecreatefromjpeg($input_image);
