@@ -1,4 +1,5 @@
 <?php 
+    require "includes/header.php";
     require "includes/database.php";
     session_start();
     if(isset($_POST['submit'])){
@@ -41,26 +42,9 @@
         }
     }
 ?>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="includes/style.css" rel="stylesheet" type="text/css" />
-    <title>Dashboard</title>
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <h1>Blog<span>$</span></h1>
-            </div>
-                <ul>
-                    <li><a href="dashboard.php">Back</a></li>
-                    <li><a href="includes/logout.php">Logout</a></li>
-                </ul>
-    </header>
-    <div class="manage-posts">
-            <div class="admin-manage">
+
+    <div class="manage-posts-banner">
+            <div class="banner-manage">
                 <ul>
                     <li><a href="createpost.php">Manage Posts</a></li>
                     <li><a href="manageuser.php">Manage Users</a></li>
@@ -77,12 +61,12 @@
             </div>
         <?php endif;?>
         <h1>Manage Banners</h1>
-        <div class="file-input">
-            <form action="banner.php" method="post">
-                <p><input class="image-input" type="file" accept="image/*" name="image_file"></p>
-                <button class="banner-button" type="submit" name="submit">Add Banner</button>
-            </form>
-        </div>
+            <div class="file-input">
+                <form action="banner.php" method="post">
+                    <p><input class="image-input" type="file" accept="image/*" name="image_file"></p>
+                    <button class="banner-button" type="submit" name="submit">Add Banner</button>
+                </form>
+            </div>
         </div>
         <div class="main-content-banner">
             <?php
@@ -93,7 +77,7 @@
                 if(mysqli_num_rows($result) > $i){
                     while($row=mysqli_fetch_assoc($result)){
                         $input_image="images/".$row['image'];
-                        $output_image="images/resized/".$row['image'];
+                        $output_image="images/resized308x220".$row['image'];
                         $width=380;
                         $height=220;
                         $resource=imagecreatefromjpeg($input_image);
