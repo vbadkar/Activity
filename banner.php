@@ -1,18 +1,16 @@
-<?php
-require "includes/database.php";
-session_start();
-if (isset($_POST['submit'])) {
-    $image = $_POST['image_file'];
-    $sql = "INSERT INTO banners (image) VALUES ('$image')";
-    $stmt = mysqli_stmt_init($con);
-    if (empty($image)) {
-        $_SESSION['message'] = "Fields are blank";
-        $_SESSION['type'] = "error";
-        header("Location: dashboard.php?error=emptyfields");
-        exit();
-    } else {
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: dashboard.php?error=sqlerror");
+<?php 
+    require "includes/header.php";
+    require "includes/database.php";
+    session_start();
+    if(isset($_POST['submit'])){
+        $image=$_POST['image_file'];
+        $sql="INSERT INTO banners (image) VALUES ('$image')";
+        $stmt=mysqli_stmt_init($con);
+        if(empty($image))
+        {
+            $_SESSION['message']="Fields are blank";
+            $_SESSION['type']="error";
+            header("Location: dashboard.php?error=emptyfields");
             exit();
         } else {
             mysqli_stmt_bind_param($stmt, "s", $image);
@@ -35,33 +33,14 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-<html lang="en">
+    <div class="manage-posts-banner">
+            <div class="banner-manage">
+                <ul>
+                    <li><a href="createpost.php">Manage Posts</a></li>
+                    <li><a href="manageuser.php">Manage Users</a></li>
+                </ul>
+            </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="includes/style.css" rel="stylesheet" type="text/css" />
-    <title>Dashboard</title>
-</head>
-
-<body>
-    <header>
-        <div class="logo">
-            <h1>Blog<span>$</span></h1>
-        </div>
-        <ul>
-            <li><a href="dashboard.php">Back</a></li>
-            <li><a href="includes/logout.php">Logout</a></li>
-        </ul>
-    </header>
-    <div class="manage-posts">
-        <div class="admin-manage">
-            <ul>
-                <li><a href="createpost.php">Manage Posts</a></li>
-                <li><a href="manageuser.php">Manage Users</a></li>
-            </ul>
-        </div>
         <div class="file-wrapper">
             <?php if (isset($_SESSION['message'])) : ?>
                 <div class="msg <?php echo $_SESSION['type']; ?>">

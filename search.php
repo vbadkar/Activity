@@ -18,7 +18,7 @@
 <div class="main-post-search">
 <?php
     $input_image="images/".$row['image'];
-    $output_image="images/resized/".$row['image'];
+    $output_image="images/resized380x220".$row['image'];
     $width=380;
     $height=220;
     $resource=imagecreatefromjpeg($input_image);
