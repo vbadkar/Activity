@@ -88,7 +88,7 @@
         <div class="main-post-admin">
             <?php
                 $input_image="images/".$row['image'];
-                $output_image="images/resized/".$row['image'];
+                $output_image="images/resized408x220".$row['image'];
                 $width=408;
                 $height=220;
                 $resource=imagecreatefromjpeg($input_image);

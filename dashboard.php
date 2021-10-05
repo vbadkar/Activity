@@ -61,9 +61,10 @@
     <div class="manage-posts-admin">
             <div class="admin-manage">
                 <ul>
-                    <li><a href="createpost.php">Create Posts</a></li>
-                    <li><a href="manageuser.php">Manage Users</a></li>
-                    <li><a href="banner.php">Manage Banners</a></li>
+                    <li><a href="createpost">Create Posts</a></li>
+                    <li><a href="manageuser">Manage Users</a></li>
+                    <li><a href="banner">Manage Banners</a></li>
+                    <li><a href="add_category">Add Categories</a></li>
                 </ul>
             </div>
         <div class="main-content-admin">
@@ -88,9 +89,9 @@
                             while($row=mysqli_fetch_assoc($result)){
                     ?> 
                     <div class="main-post-admin">
-                    <?
+                    <?php
                         $input_image="images/".$row['image'];
-                        $output_image="images/resized/".$row['image'];
+                        $output_image="images/resized408x220".$row['image'];
                         $width=408;
                         $height=220;
                         $resource=imagecreatefromjpeg($input_image);
@@ -101,7 +102,7 @@
                     ?>
                     <img class="image" src="<?php echo $output_image;?>", alt="post_image">
                     <div class="post-preview-wrapper">
-                <a href="single?id=<?php echo $row['p_id'];?>" class="post-title"><?php echo $row['title'];?></a>
+                <a href="single/<?php echo $row['p_id'];?>" class="post-title"><?php echo $row['title'];?></a>
                 <div class="post-preview">
                     <span class="author-name"><i class="fas fa-user"></i>Name</span>
                     <span class="post-date"><i class="fas fa-calendar-week">Date</i></span>
