@@ -29,13 +29,13 @@
         </div>
         </div>
         <?php 
-        $input_image="images/".$row['image'];
-        $output_image="images/".$row['image'];
-        $width=803;
-        $height=535;
-        $resource=imagecreatefromjpeg($input_image);
-        $scaled=imagescale($resource, $width, $height);
-        imagejpeg($scaled,$output_image);
+            $input_image="images/".$row['image'];
+            $output_image="images/resized803x535".$row['image'];
+            $width=803;
+            $height=535;
+            $resource=imagecreatefromjpeg($input_image);
+            $scaled=imagescale($resource, $width, $height);
+            imagejpeg($scaled,$output_image);
         ?>
         <div class="inner-content">
             <img src="<?php echo $output_image;?>" alt="" class="post-image">
@@ -72,7 +72,7 @@
                 ?>
                     <?php 
                         $input_image="images/".$data['image'];
-                        $output_image="images/resized/".$data['image'];
+                        $output_image="images/resized254x120".$data['image'];
                         $width=254;
                         $height=120;
                         $resource=imagecreatefromjpeg($input_image);
@@ -164,7 +164,7 @@
                 ?>
                     <?php 
                         $input_image="images/".$data['image'];
-                        $output_image="images/resized/".$data['image'];
+                        $output_image="images/resized75x60".$data['image'];
                         $width=75;
                         $height=60;
                         $resource=imagecreatefromjpeg($input_image);
