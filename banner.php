@@ -88,7 +88,7 @@
                 <div class="admin-display">
                     <ul>
                         <li>
-                            <img src="<?php echo $output_image;?>" alt="" class="r-image">
+                            <img src="<?php echo $output_image;?>" alt="banner-image" class="r-image">
                         </li>
                         <li>
                             <a href="deletebanner.php?del_id=<?php echo  $row['b_id'];?>" onclick="return confirm('Are you sure you want to delete this?')"class="delete-banner">Delete</a>
