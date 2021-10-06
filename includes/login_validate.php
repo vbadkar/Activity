@@ -81,9 +81,3 @@
 
         }
     }
-    else
-    {
-        //header("Location: ./login.php?error=accessdenied");
-        //exit();
-    }
-?>
