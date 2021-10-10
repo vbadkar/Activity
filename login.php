@@ -1,5 +1,8 @@
 <?php
     require_once 'includes/header.php';
+    session_start();
+    $sql="SELECT usertype FROM login";
+
 ?>
   <title>Login Page</title>
   <?php if(isset($_SESSION['message'])):?>

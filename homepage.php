@@ -1,13 +1,14 @@
 <?php
     require_once "includes/database.php";
     require_once "includes/createpost_validate.php";
+    $base = "http://blog/";
 ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="http://blog/">
+    <base href="<?php echo $base; ?>">
     <link href="includes/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
@@ -23,25 +24,29 @@
             <div class="search-form">
                 <div class="form-toggle">
                     <form action="search.php" method="get">
-                        <input class="search-text" type="text" name="search" placeholder="Search" autocomplete="off" autofocus><span class="hide"><i class="fas fa-times"></i></span>
+                        <input class="search-text" type="text" name="search" placeholder="Search" autocomplete="off" autofocus required><span class="hide"><i class="fas fa-times"></i></span>
                     </form>
                 </div>
                 <div class="icon">
-                    <span class="show"><i class="fas fa-search" style="color:white; font-size: 14px;font-weight: 600;"></i></span>
+                    <span class="show"><i class="fas fa-search" style="color:black; font-size: 14px;font-weight: 600;"></i></span>
                 </div>
             </div>
-
-            <img class='hamburger' src='images/hamburger.png' alt='hamburger'></img>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="close">
+                <i class="fas fa-times"></i>
+            </div>
             <ul class='list'>
                 <li><a href="<?php echo $_SERVER['REQUEST_URI'];?>?lang=en">English</a></li>
                 <li><a href="<?php echo $_SERVER['REQUEST_URI'];?>?lang=hi">Hindi</a></li>
-                <li class="sub-list"><a>Category<i class="fas fa-chevron-down" style="color:white; font-size: 14px; font-weight: 600; padding:5px;"></i></a>
+                <li class="sub-list"><a>Category<i class="fas fa-chevron-down" style="color:black; font-size: 14px; font-weight: 600; padding:5px;"></i></a>
                     <ul>
-                        <li><a href="category.php/Food">Food</a></li>
-                        <li><a href="category.php/Music">Music</a></li>
-                        <li><a href="category.php/Sports">Sports</a></li>
-                        <li><a href="category.php/Gymnastics">Gymnastics</a></li>
-                        <li><a href="category.php/Travel">Travel</a></li>
+                        <li><a href="category/Food">Food</a></li>
+                        <li><a href="category/Music">Music</a></li>
+                        <li><a href="category/Sports">Sports</a></li>
+                        <li><a href="category/Gymnastics">Gymnastics</a></li>
+                        <li><a href="category/Travel">Travel</a></li>
                     </ul>
                 </li>
                 <li><a href='homepage'>Home</a></li>    
@@ -71,20 +76,20 @@
     <script src='script.js'></script>
     <title>Homepage</title>
     <div class='slider-wrapper'>
-<?php
-    $sql="SELECT * FROM banners";
-    $result=mysqli_query($con,$sql);
-    $i=0;
-    if(mysqli_num_rows($result) > $i){
-        while($images=mysqli_fetch_assoc($result)){
-            $input_image="images/".$images['image'];
-            $output_image="images/resized1600x832".$images['image'];
-            $width=1600;
-            $height=832;
-            $resource=imagecreatefromjpeg($input_image);
-            $scaled=imagescale($resource, $width, $height);
-            imagejpeg($scaled,$output_image);
-?>
+    <?php
+        $sql="SELECT * FROM banners";
+        $result=mysqli_query($con,$sql);
+        $i=0;
+        if(mysqli_num_rows($result) > $i){
+            while($images=mysqli_fetch_assoc($result)){
+                $input_image="images/".$images['image'];
+                $output_image="images/resized1600x832".$images['image'];
+                $width=1600;
+                $height=832;
+                $resource=imagecreatefromjpeg($input_image);
+                $scaled=imagescale($resource, $width, $height);
+                imagejpeg($scaled,$output_image);
+    ?>
     <div class="post-slider" style="background-image: url(<?php echo $output_image;?>)">
         <div class="post-wrapper" style="background-color: rgba(0,0,0,0.25);">
         <div class="post">
@@ -144,57 +149,7 @@
         $result=mysqli_query($con,$sql);
         if(mysqli_num_rows($result) > $i){
             while($data=mysqli_fetch_assoc($result)){
-    ?>
-            <?php 
-                if(isset($_GET['lang']) && $_GET['lang']=='en' || !isset($_GET['lang'])){ ?>
-                    <div class="main-post">
-                    <?php 
-                         $input_image="images/".$data['image'];
-                         $output_image="images/resized408x220".$data['image'];
-                         $width=408;
-                         $height=220;
-                         $resource=imagecreatefromjpeg($input_image);
-                         $scaled=imagescale($resource, $width, $height);
-                         imagejpeg($scaled,$output_image);
-                         $desc=$data['description'];
-                         $desc = substr($desc,0,100).'...';             
-                    ?>
-                    <img class="image" src="<?php echo $output_image;?>", alt="post_image"><a href="category/<?php echo $data['category'];?>" class="post-category"><?php echo $data['category']; ?></a>
-                    <div class="post-preview-wrapper">
-                        <a href="single/<?php echo $data['p_id'];?>" class="post-title"><?php echo $data['title'];?></a>
-                        <div class="post-preview">
-                                <span class="author-name"><i class="fas fa-user"></i><?php echo $author; ?></span>
-                                <span class="post-date"><i class="fas fa-calendar-week">Date</i></span>
-                                <p class="desc"><?php echo $desc; ?></p>
-                            </div>
-                    </div>
-                </div>
-            <?php }
-                else{ ?>
-                    <div class="main-post">
-                    <?php 
-                         $input_image="images/".$data['image'];
-                         $output_image="images/resized408x220".$data['image'];
-                         $width=408;
-                         $height=220;
-                         $resource=imagecreatefromjpeg($input_image);
-                         $scaled=imagescale($resource, $width, $height);
-                         imagejpeg($scaled,$output_image);
-                         $desc=$data['description_hi'];
-                         $desc = substr($desc,0,200).'...';             
-                    ?>
-                    <img class="image" src="<?php echo $output_image;?>", alt="post_image"><a href="category/<?php echo $data['category'];?>" class="post-category"><?php echo $data['category']; ?></a>
-                    <div class="post-preview-wrapper">
-                        <a href="single/<?php echo $data['p_id'];?>" class="post-title"><?php echo $data['title_hi'];?></a>
-                        <div class="post-preview">
-                                <span class="author-name"><i class="fas fa-user"></i><?php echo $author; ?></span>
-                                <span class="post-date"><i class="fas fa-calendar-week">Date</i></span>
-                                <p class="desc"><?php echo $desc; ?></p>
-                            </div>
-                    </div>
-                </div>
-            <?php
-                }
+                include("includes/card.php");
             }
         }
     ?>    
@@ -212,7 +167,25 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script>
-            $('.slider-wrapper').slick();
+            $('.slider-wrapper').slick({
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+            window.addEventListener('scroll', function(){
+            let scroll = document.querySelector('.slider-wrapper');
+            let scrollText = document.querySelector('.intro-wrapper');
+            if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+                scroll.style.opacity = "0.5";
+                scroll.style.transition="250ms";
+                scrollText.style.opacity = "0.5";
+                scrollText.style.transition="250ms";
+            } else {
+                scroll.style.opacity = "1";
+                scroll.style.transition="250ms";
+                scrollText.style.opacity = "1";
+                scrollText.style.transition="250ms";
+            }
+        })
         </script>
         <?php
         require "includes/footer2.php";

@@ -17,6 +17,7 @@
         <p class="redirection">Already registered?<a href="login.php">Login</a></p>
             <input class="text-input" type='text' name='username' placeholder='Username' autocomplete='off'>
             <input class="text-input" type='text' name='email' placeholder='Email ID' autocomplete='off'>
+            <input type='hidden' name='usertype' value="user">
             <input class="text-input" type='password' name='password'placeholder='Password' id="show-hide">
             <input class="text-input" type='password' name='confirmPass'placeholder='Confirm Password' id="show-hide"><br>
             <button class="register-button" type='submit' name='submit'>Register</button>

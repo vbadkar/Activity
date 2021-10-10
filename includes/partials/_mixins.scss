@@ -66,3 +66,8 @@
   line-height: 52px;
   margin-right: 1rem;
 }
+@mixin responsive-wrapper-display {
+  width: 95%;
+  margin: 0 auto;
+  display: block;
+}

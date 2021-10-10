@@ -28,7 +28,7 @@
                 ?>
                     <?php 
                         $input_image="images/".$data['image'];
-                        $output_image="images/resized/".$data['image'];
+                        $output_image="images/resized75x60".$data['image'];
                         $width=75;
                         $height=60;
                         $resource=imagecreatefromjpeg($input_image);

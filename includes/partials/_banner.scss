@@ -1,0 +1,23 @@
+.manage-posts-banner{
+    width: 96%;
+    display: block;
+    margin: 0 auto;
+    .banner-manage{
+        ul{
+            list-style: none;
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .file-wrapper{
+        background-color: white;
+    }
+    .main-content-banner{
+        background-color: white;
+
+        ul{
+            list-style: none;
+        }
+    }
+}

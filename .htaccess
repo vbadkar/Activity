@@ -35,6 +35,7 @@ RewriteRule ^category/([0-9]+) category.php?id=$1 [NC,L,QSA]
 RewriteRule ^editpost/([0-9]+) editpost.php?id=$1 [NC,L,QSA]
 RewriteRule ^deletepost/([0-9]+) deletepost.php?id=$1 [NC,L,QSA]
 RewriteRule ^search/([a-zA-Z_-]+) search.php?search=$1 [NC,L,QSA]
+#RewriteRule ^new_password/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+) new_password.php?tokenAuth=$1&tokenValidator=$2 [NC,L,QSA]
 
 RewriteRule ^login login.php [NC,L]
 RewriteRule ^register register.php [NC,L]

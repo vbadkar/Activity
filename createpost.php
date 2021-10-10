@@ -33,6 +33,7 @@
     </div>
     <script>
         CKEDITOR.replace('desc');
+        CKEDITOR.replace('desc-hi');
     </script>
 <?php 
     require "includes/footer1.php";

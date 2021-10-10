@@ -1,8 +1,9 @@
 <?php
-$dbHost = "localhost";
-$dbUser = "root";
-$dbPass = "";
-$dbName = "blog_site";
+//require_once "../config.php";
+    $dbHost = "localhost";
+    $dbUser = "root";
+    $dbPass = "Vivek@1271";
+    $dbName = "blog_site";
 
 $con = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 if (!$con) {

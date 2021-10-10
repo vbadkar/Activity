@@ -5,6 +5,7 @@ if(isset($_POST['submit']))
     session_start();
     $user=$_POST['username'];
     $pass=$_POST['password'];
+    $usertype=$_POST['usertype'];
     $email=$_POST['email'];
     $confirm_pass=$_POST['confirmPass'];
     $number = preg_match('@[0-9]@', $pass);
@@ -75,7 +76,6 @@ if(isset($_POST['submit']))
                 }
                 else
                 {
-                    $usertype='user';
                     $hashedPass=password_hash($pass, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt,"ssss",$user, $hashedPass, $email, $usertype);
                     mysqli_stmt_execute($stmt);
