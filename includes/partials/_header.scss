@@ -27,10 +27,13 @@
          }
       
         }
+        .close{
+            display: none;
+        }
         .search-form{
             position: relative;
             .form-toggle{
-                display: none   ;
+                display: none;
                 form{
                     width: 100%;
                     display: block;
@@ -117,13 +120,6 @@
         ul li{
             float: right;
             position: relative;
-            
-            
-            &:hover {
-                background-color: rgba(255,255,255,0.05);
-                transition: 0.5s;
-                color:$navTextColor-hover;
-            }
         }
         ul li a{
             display: block;
@@ -131,15 +127,27 @@
             font-weight: 600;
             color: #ffffff;
             text-decoration: none;
-            -webkit-transition: 0.5s;
             transition: 0.5s;
-            height: 70px;
             line-height: 52px;
             padding-left: 20px;
+
             &:hover{
-                background-color: rgba(255,255,255,0.05);
-                transition: 0.5s;
                 color:$navTextColor-hover;
+                animation-name: navlinksborder;
+                animation-timing-function: ease;
+                animation-duration: 1s;
+                border-bottom: 2px solid red;
+                transition: 0.5s;
+            }
+        }
+        @keyframes  navlinksborder{
+            from{
+                
+                width: 0%;
+            }
+            to{
+                
+                width: 100%;
             }
         }
         ul li ul{

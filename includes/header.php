@@ -12,6 +12,7 @@ require_once "includes/createpost_validate.php";
     <base href="http://blog/">
     <link href="includes/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/7ed99e45ec.js" crossorigin="anonymous"></script>
 
@@ -36,13 +37,15 @@ require_once "includes/createpost_validate.php";
 
             <img class='hamburger' src='images/hamburger.png' alt='hamburger'></img>
             <ul class='list'>
+                <li><a href="<?php echo $_SERVER['REQUEST_URI'];?>?lang=en">English</a></li>
+                <li><a href="<?php echo $_SERVER['REQUEST_URI'];?>?lang=hi">Hindi</a></li>
                 <li class="sub-list"><a>Category<i class="fas fa-chevron-down" style="color:black; font-size: 14px; font-weight: 600; padding:5px;"></i></a>
                     <ul>
-                        <li><a href="category.php/Food">Food</a></li>
-                        <li><a href="category.php/Music">Music</a></li>
-                        <li><a href="category.php/Sports">Sports</a></li>
-                        <li><a href="category.php/Gymnastics">Gymnastics</a></li>
-                        <li><a href="category.php/Travel">Travel</a></li>
+                        <li><a href="category/Food">Food</a></li>
+                        <li><a href="category/Music">Music</a></li>
+                        <li><a href="category/Sports">Sports</a></li>
+                        <li><a href="category/Gymnastics">Gymnastics</a></li>
+                        <li><a href="category/Travel">Travel</a></li>
                     </ul>
                 </li>
                 <li><a href='homepage'>Home</a></li>
@@ -67,6 +70,12 @@ require_once "includes/createpost_validate.php";
             search.classList.toggle('inactive');
             navBar.classList.toggle('active');
             navBar.classList.remove('inactive');
+        }
+    </script>
+    <script>
+        function translate(){
+            var lang = jQuery('#translate').val();
+            window.location.href="?lang="+lang;
         }
     </script>
     <script src='script.js'></script>

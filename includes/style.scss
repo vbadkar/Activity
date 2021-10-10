@@ -15,8 +15,7 @@
 @import "partials/unsubscribe";
 @import "partials/global";
 @import "partials/category_page";
-
-
+@import "partials/banner.scss";
 
 html, body { 
     font-size: 15px;
@@ -400,15 +399,15 @@ Media content : Mobile devices
 @media(max-width: 768px) {
 
     .slider-wrapper{
-        .post-slider{
-            .post-wrapper{
-                .slick-next::after{
-                    color: #000;
-                }
-                .slick-prev::after{
-                    color: #000;
-                }
-            }
+        .slick-next::after{
+            color: #000;
+            display: none;
+            visibility: hidden;
+        }
+        .slick-prev::after{
+            color: #000;
+            display: none;
+            visibility: hidden;
         }
     }
     .homepage-header-wrapper{
@@ -420,8 +419,22 @@ Media content : Mobile devices
             background-color: white;
         
             .hamburger{
+                left: 10px;
                 display: block;
                 position: absolute;
+                font-size: 1.2rem;
+                margin-top: 5px;
+            }
+            .hamburger.hide{
+                display: none;
+            }
+            .close{
+                left: 10px;
+                display: none;
+                position: absolute;
+            }
+            .close.show{
+                display: block;
             }
             .search{
                 margin: 20px;
@@ -434,7 +447,7 @@ Media content : Mobile devices
                 width: 100%;
                 margin: 20px;
                 height: 100%;
-                float: right;
+                text-align: center;
             }
             .list.show{
                 display: block;
@@ -443,6 +456,13 @@ Media content : Mobile devices
                 top: 100%;
                 background-color: #1f2024;
                 border: 1px solid #1f2024;
+            }
+            .search-form{
+                position: relative;
+                .icon{
+                    position: fixed;
+                    right: 15px;
+                }
             }
             ul{
                 width: 100%;
@@ -466,6 +486,19 @@ Media content : Mobile devices
             .hamburger{
                 display: block;
                 position: absolute;
+                font-size: 1.5rem;
+                margin-top: 5px;
+            }
+            .hamburger.hide{
+                display: none;
+            }
+            .close{
+                left: 10px;
+                display: none;
+                position: absolute;
+            }
+            .close.show{
+                display: block;
             }
             .search{
                 margin: 20px;
@@ -487,6 +520,11 @@ Media content : Mobile devices
                 top: 100%;
                 background-color: #1f2024;
                 border: 1px solid #1f2024;
+            }
+            .search-form{
+                .icon{
+                    right: 15px;
+                }
             }
             ul{
                 width: 100%;
@@ -520,13 +558,13 @@ Media content : Mobile devices
         }
     }
     .contact-wrapper{
-        width: 95%;
-        margin: 0 auto;
-        display: block;
+        @include responsive-wrapper-display();
     }
     .about-wrapper{
-        width: 95%;
-        margin: 0 auto;
-        display: block;
+        @include responsive-wrapper-display();
     }
+    .wrapper-single{
+        @include responsive-wrapper-display();
+    }
+    
 }

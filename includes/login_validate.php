@@ -54,10 +54,10 @@
                         $_SESSION['message']="Login Sucessful";
                         $_SESSION['type']="success";
                         if($row['user_type']=='admin'){
-                            header("Location: ../dashboard.php?success=loggedin");
+                            header("Location: ../dashboard.php?success=admin");
                             exit();
                         }else{
-                            header("Location: ../user_dashboard.php?success=loggedin");
+                            header("Location: ../user_dashboard.php?success=user");
                             exit();
                         }
                         
@@ -81,3 +81,4 @@
 
         }
     }
+?>
