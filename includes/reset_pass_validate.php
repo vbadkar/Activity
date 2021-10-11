@@ -1,4 +1,7 @@
 <?php
+      use PHPMailer\PHPMailer\PHPMailer;
+      use PHPMailer\PHPMailer\SMTP;
+      use PHPMailer\PHPMailer\Exception;
 
 if(isset($_POST['reset-button'])){
     $tokenAuth = bin2hex(random_bytes(8)); //generating bytes and converting them to hexadecimal
@@ -40,7 +43,7 @@ if(isset($_POST['reset-button'])){
     $message .= '<p>Here is the link for rest passowrd:<br>';
     $message .= '<a href="'.$url.'">'.$url.'</a></p>';
     
-    require '../PHPMailerAutoload.php';
+    require '../vendor/autoload.php';
     require 'sendermail.php';
     $mail = new PHPMailer;
    

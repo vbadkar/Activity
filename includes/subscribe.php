@@ -1,4 +1,8 @@
 <?php 
+  use PHPMailer\PHPMailer\PHPMailer;
+  use PHPMailer\PHPMailer\SMTP;
+  use PHPMailer\PHPMailer\Exception;
+
   if(isset($_POST['subscribe'])){
     session_start();
     $user_email=$_POST['email'];
@@ -46,7 +50,7 @@
           $message .= 'If you no longer want to receive this email, click on following link to unsubscribe us';
           $message .= '<a href="'.$url.'">'.$url.'</a></p>';
 
-          require '../PHPMailerAutoload.php';
+          require '../vendor/autoload.php';
           require 'sendermail.php';
           $mail = new PHPMailer;
         
