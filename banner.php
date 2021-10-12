@@ -1,4 +1,5 @@
 <?php 
+
     require "includes/header.php";
     require "includes/database.php";
     session_start();
