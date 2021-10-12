@@ -6,7 +6,7 @@
     <title>Blog_site</title>
 </head>
 <?php
-    if(isset($_GET['lang']) && $_GET['lang']=='en' || !isset($_GET['lang'])){
+    if(isset($_COOKIE['lang_en'])){
 ?>
 <div class="wrapper-single">
     <div class='single-main-content'>
