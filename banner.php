@@ -85,8 +85,6 @@
                                     <a href="deletebanner.php?del_id=<?php echo  $row['b_id']; ?>" onclick="return confirm('Are you sure you want to delete this?')" class="delete-banner">Delete</a>
                                 </li>
                             </ul>
-
-
                         </div>
                     </div>
 
