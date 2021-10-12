@@ -1,4 +1,5 @@
 <?php 
+
     require "includes/header.php";
     require "includes/database.php";
     session_start();
@@ -31,7 +32,7 @@
             exit();
         }
     }
-}
+
 ?>
     <div class="manage-posts-banner">
             <div class="banner-manage">
