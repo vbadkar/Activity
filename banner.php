@@ -32,7 +32,6 @@
             exit();
         }
     }
-
 ?>
     <div class="manage-posts-banner">
             <div class="banner-manage">
