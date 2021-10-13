@@ -1,3 +1,4 @@
 config.php
 sendermail.php
 /vendor/
+/ckeditor/
