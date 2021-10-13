@@ -17,7 +17,7 @@
 </head>
 <body style="transform:none">
     <div class="homepage-header-wrapper">
-        <header>
+        <header class="homeHeader">
             <div class='logo'>
                 <h3>Vozga</h3>
             </div>
@@ -28,7 +28,7 @@
                     </form>
                 </div>
                 <div class="icon">
-                    <span class="show"><i class="fas fa-search" style="color:black; font-size: 14px;font-weight: 600;"></i></span>
+                    <span class="show"><i class="fas fa-search"></i></span>
                 </div>
             </div>
             <div class="hamburger">
@@ -38,20 +38,56 @@
                 <i class="fas fa-times"></i>
             </div>
             <ul class='list'>
-                <li><a href="<?php echo $_SERVER['REQUEST_URI'];?>?lang=en">English</a></li>
-                <li><a href="<?php echo $_SERVER['REQUEST_URI'];?>?lang=hi">Hindi</a></li>
-                <li class="sub-list"><a>Category<i class="fas fa-chevron-down" style="color:black; font-size: 14px; font-weight: 600; padding:5px;"></i></a>
+                <li>
+                    <form action="homepage" method="post">
+                        <select name="language" id="">
+                            <option value="en">English</option>
+                            <option value="hi">Hindi</option>
+                        </select>
+                        <button name="language-switch">Go</button>
+                    </form>
+                </li>
+                <?php
+                    if(isset($_POST['language-switch'])){
+                        $language=$_POST['language'];
+                        if($language == 'en'){
+                            setcookie('lang_hi','',time()-86400,'/');
+                            setcookie('lang_en',$language,'/');
+                        }else{
+                            setcookie('lang_en','',time()-86400,'/');
+                            setcookie('lang_hi',$language,'/');
+                        }
+                    }
+                ?>
+                <?php 
+                    if(isset($_COOKIE['lang_en'])){?>
+                    <li class="sub-list"><a class="links">Category<i class="fas fa-chevron-down"></i></a>
                     <ul>
-                        <li><a href="category/Food">Food</a></li>
-                        <li><a href="category/Music">Music</a></li>
-                        <li><a href="category/Sports">Sports</a></li>
-                        <li><a href="category/Gymnastics">Gymnastics</a></li>
-                        <li><a href="category/Travel">Travel</a></li>
+                        <li class="catContent" ><a href="category/Food">Food</a></li>
+                        <li class="catContent"><a href="category/Music">Music</a></li>
+                        <li class="catContent"><a href="category/Sports">Sports</a></li>
+                        <li class="catContent"><a href="category/Gymnastics">Gymnastics</a></li>
+                        <li class="catContent"><a href="category/Travel">Travel</a></li>
                     </ul>
                 </li>
-                <li><a href='homepage'>Home</a></li>    
-                <li><a href='register'>Register</a></li>
-                <li><a href='login'>Login</a></li>
+                <li><a class="links" href='homepage'>Home</a></li>    
+                <li><a class="links" href='register'>Register</a></li>
+                <li><a class="links" href='login'>Login</a></li>
+                    
+                    <?php }else{ ?>
+                        <li class="sub-list"><a class="links">श्रेणी<i class="fas fa-chevron-down"></i></a>
+                    <ul>
+                        <li class="catContent" ><a href="category/Food">भोजन</a></li>
+                        <li class="catContent"><a href="category/Music">संगीत</a></li>
+                        <li class="catContent"><a href="category/Sports">खेल</a></li>
+                        <li class="catContent"><a href="category/Gymnastics">कसरत</a></li>
+                        <li class="catContent"><a href="category/Travel">यात्रा</a></li>
+                    </ul>
+                </li>
+                <li><a class="links" href='homepage'>घर</a></li>    
+                <li><a class="links" href='register'>रजिस्टर करें</a></li>
+                <li><a class="links" href='login'>लॉग इन करें</a></li>
+                <?php } ?>
             </ul>
         </header>
     </div>
@@ -72,6 +108,8 @@
             navBar.classList.toggle('active');
             navBar.classList.remove('inactive');
         }
+
+
     </script>
     <script src='script.js'></script>
     <title>Homepage</title>
@@ -144,7 +182,7 @@
                
             }
             $j=$j+1;
-        }  
+        }
         $sql="SELECT * FROM posts LIMIT ".$start_limit.','.$results_per_page;
         $result=mysqli_query($con,$sql);
         if(mysqli_num_rows($result) > $i){
@@ -152,7 +190,7 @@
                 include("includes/card.php");
             }
         }
-    ?>    
+    ?>
     <center>
         <div class='index-homepage'>
             <?php
@@ -168,22 +206,36 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script>
             $('.slider-wrapper').slick({
-                autoplay: true,
-                autoplaySpeed: 2000,
+                //autoplay: true,
+                //autoplaySpeed: 2000,
             });
             window.addEventListener('scroll', function(){
             let scroll = document.querySelector('.slider-wrapper');
             let scrollText = document.querySelector('.intro-wrapper');
             if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-                scroll.style.opacity = "0.5";
+                scroll.style.opacity = "0.6";
                 scroll.style.transition="250ms";
                 scrollText.style.opacity = "0.5";
                 scrollText.style.transition="250ms";
-            } else {
+            } 
+            else{
                 scroll.style.opacity = "1";
                 scroll.style.transition="250ms";
                 scrollText.style.opacity = "1";
                 scrollText.style.transition="250ms";
+            }
+
+            let navBar = document.querySelector('.homeHeader');
+            let links = document.querySelector('.links');
+            console.log(links);
+            if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+                navBar.style.background="white";
+                links.style.color="black";
+                links.classList.toggle("active");
+            } else {
+                navBar.style.background="transparent";
+                links.style.color="white";
+                links.classList.remove("active");
             }
         })
         </script>
