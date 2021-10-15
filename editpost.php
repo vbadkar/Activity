@@ -39,6 +39,8 @@
             <a href="dashboard.php">Back</a>
         </form>
     </div>
+
+<!-- script for CKEDITOR -->
 <script>
     CKEDITOR.replace('desc');
 </script>
