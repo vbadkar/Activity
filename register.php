@@ -3,18 +3,18 @@
 ?>
 <title>Registration Page</title>
     <div class="register-form">
-    <?php if(isset($_SESSION['message'])):?>
-        <div class="msg <?php echo $_SESSION['type'];?>">
-            <li><?php echo $_SESSION['message'];?></li>
-            <?php 
-                unset($_SESSION['message']);
-                unset($_SESSION['type']);
-            ?>
-        </div>
-    <?php endif;?>
+        <?php if(isset($_SESSION['message'])):?>
+            <div class="msg <?php echo $_SESSION['type'];?>">
+                <li><?php echo $_SESSION['message'];?></li>
+                <?php 
+                    unset($_SESSION['message']);
+                    unset($_SESSION['type']);
+                ?>
+            </div>
+        <?php endif;?>
         <form action='includes/register_validate.php' method='post'>
-        <h1 class="register-title">Registration Page</h1>
-        <p class="redirection">Already registered?<a href="login.php">Login</a></p>
+            <h1 class="register-title">Registration Page</h1>
+            <p class="redirection">Already registered?<a href="login.php">Login</a></p>
             <input class="text-input" type='text' name='username' placeholder='Username' autocomplete='off'>
             <input class="text-input" type='text' name='email' placeholder='Email ID' autocomplete='off'>
             <input type='hidden' name='usertype' value="user">
