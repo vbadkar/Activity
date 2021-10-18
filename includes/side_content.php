@@ -49,7 +49,7 @@
                 </div>
                 <div class="subscribe-video">
                     <div class="video-wrap">
-                    <iframe width="260" height="200" src="https://www.youtube.com/embed/CY4hLz87hu4" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="267.56" height="200" src="https://www.youtube.com/embed/CY4hLz87hu4?cc_load_policy=1" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -65,12 +65,36 @@
                 <div class="side-category">
                     <h2>Category</h2>
                 </div>
+                <?php
+                    $food=0;
+                    $music=0;
+                    $sports=0;
+                    $gymnastics=0;
+                    $travel=0;
+                    $sql="SELECT * FROM posts";
+                    $result=mysqli_query($con,$sql);
+                    if(mysqli_num_rows($result) > $i){
+                        while($data=mysqli_fetch_assoc($result)){
+                            if($data['category'] == 'Food'){
+                                $food++;
+                            }elseif($data['category'] == 'Music'){
+                                $music++;
+                            }elseif($data['category'] == 'Sports'){
+                                $sports++;
+                            }elseif($data['category'] == 'Gymnastics'){
+                                $gymnastics++;
+                            }elseif($data['category'] == 'Travel'){
+                                $travel++;
+                            }
+                        }
+                    }
+                ?>
                 <ul class="categories">
-                        <li>><a href="category.php?category=Food">Food<span class="count">(1) </span></a></li>
-                        <li>><a href="category.php?category=Music">Music<span class="count">(1) </span></a></li>
-                        <li>><a href="category.php?category=Sports">Sports<span class="count">(1) </span></a></li>
-                        <li>><a href="category.php?category=Gymnastics">Gymnastics<span class="count">(1) </span></a></li>
-                        <li>><a href="category.php?category=Travel">Travel<span class="count">(1) </span></a></li>
+                        <li>><a href="category/Food">Food<span class="count">(<?php echo $food; ?>) </span></a></li>
+                        <li>><a href="category/Music">Music<span class="count">(<?php echo $music; ?>) </span></a></li>
+                        <li>><a href="category/Sports">Sports<span class="count">(<?php echo $sports; ?>) </span></a></li>
+                        <li>><a href="category/Gymnastics">Gymnastics<span class="count">(<?php echo $gymnastics; ?>) </span></a></li>
+                        <li>><a href="category/Travel">Travel<span class="count">(<?php echo $travel; ?>) </span></a></li>
                 </ul>
             </div>
         </div>
