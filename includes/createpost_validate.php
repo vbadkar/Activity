@@ -9,6 +9,7 @@
         $category=$_POST['category'];
         $image=$_POST['image_file'];
         $userid=$_COOKIE['cookieuserid'];
+        $dupid=0;
         if(empty($title) || empty($desc) || empty($language) || empty($category) || empty($image))
         {
             $_SESSION['message']="Fields are blank";
@@ -40,7 +41,7 @@
                 }
                 else
                 {
-                    $sql="INSERT INTO posts (title, description, category, image, user_id, lang_code) VALUES (?, ?, ?, ?, ?, ?)";
+                    $sql="INSERT INTO posts (dup_id, title, description, category, image, user_id, lang_code) VALUES (?, ?, ?, ?, ?, ?, ?)";
                     $stmt=mysqli_stmt_init($con);
                     if(!mysqli_stmt_prepare($stmt, $sql))
                     {
@@ -49,7 +50,7 @@
                     }
                     else
                     {
-                        mysqli_stmt_bind_param($stmt,"ssssis",$title, $desc, $category, $image, $userid, $language);
+                        mysqli_stmt_bind_param($stmt,"issssis",$dupid, $title, $desc, $category, $image, $userid, $language);
                         mysqli_stmt_execute($stmt);
                         $_SESSION['message']="Post created sucessfully";
                         $_SESSION['type']="success";

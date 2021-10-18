@@ -39,31 +39,37 @@
             </div>
             <ul class='list'>
                 <li>
-                    <form action="homepage" method="post">
-                        <select name="language" id="">
-                            <option value="en">English</option>
-                            <option value="hi">Hindi</option>
-                        </select>
-                        <button name="language-switch">Go</button>
-                    </form>
-                </li>
-                <?php
-                    if(isset($_POST['language-switch'])){
-                        $language=$_POST['language'];
-                        if($language == 'en'){
-                            setcookie('lang_hi','',time()-86400,'/');
-                            setcookie('lang_en',$language,'/');
+                    <?php
+                        if(isset($_COOKIE['lang_code']) && $_COOKIE['lang_code']==='en'){
+                            $selEN = 'selected';
                         }else{
-                            setcookie('lang_en','',time()-86400,'/');
-                            setcookie('lang_hi',$language,'/');
+                            $selHI = 'selected';
                         }
+                    ?>
+                    <select id="lang" onchange="getSelectedValue();">
+                        <option value="">Select Language</option>
+                        <option value="en" <?php echo $selEN;?> >English</option>
+                        <option value="hi" <?php echo $selHI;?> >Hindi</option>
+                    </select>
+                </li>
+                <script>
+                    function getSelectedValue(){
+                        let select = document.querySelector("#lang").value;
+                        if(select == "en"){
+                            document.cookie = "lang_code=en";
+                            window.location.reload();
+                        }else if(select == "hi"){
+                            document.cookie = "lang_code=hi";
+                            window.location.reload();
+                        }
+                        
                     }
-                ?>
+                </script>
                 <?php 
-                    if(isset($_COOKIE['lang_en'])){?>
+                    if(isset($_COOKIE['lang_code']) && $_COOKIE['lang_code']==='en'){?>
                     <li class="sub-list"><a class="links">Category<i class="fas fa-chevron-down"></i></a>
                     <ul>
-                        <li class="catContent" ><a href="category/Food">Food</a></li>
+                        <li class="catContent"><a href="category/Food">Food</a></li>
                         <li class="catContent"><a href="category/Music">Music</a></li>
                         <li class="catContent"><a href="category/Sports">Sports</a></li>
                         <li class="catContent"><a href="category/Gymnastics">Gymnastics</a></li>
@@ -182,12 +188,24 @@
                
             }
             $j=$j+1;
-        }
-        $sql="SELECT * FROM posts LIMIT ".$start_limit.','.$results_per_page;
-        $result=mysqli_query($con,$sql);
-        if(mysqli_num_rows($result) > $i){
-            while($data=mysqli_fetch_assoc($result)){
-                include("includes/card.php");
+        } 
+        if(isset($_COOKIE['lang_code']) && $_COOKIE['lang_code']==='en'){
+            $lang_code=$_COOKIE["lang_code"];
+            $sql="SELECT * FROM posts WHERE lang_code= '$lang_code' LIMIT ".$start_limit.','.$results_per_page;
+            $result=mysqli_query($con,$sql);
+            if(mysqli_num_rows($result) > $i){
+                while($data=mysqli_fetch_assoc($result)){
+                    include("includes/card.php");
+                }
+            }
+        }else{
+            $lang_code=$_COOKIE["lang_code"];
+            $sql="SELECT * FROM posts WHERE lang_code= '$lang_code' LIMIT ".$start_limit.','.$results_per_page;
+            $result=mysqli_query($con,$sql);
+            if(mysqli_num_rows($result) > $i){
+                while($data=mysqli_fetch_assoc($result)){
+                    include("includes/card.php");
+                }
             }
         }
     ?>
@@ -226,16 +244,14 @@
             }
 
             let navBar = document.querySelector('.homeHeader');
-            let links = document.querySelector('.links');
-            console.log(links);
+            let links = document.querySelector('.list');
+            //console.log(links);
             if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
                 navBar.style.background="white";
-                links.style.color="black";
-                links.classList.toggle("active");
+                links.classList.toggle("scroll");
             } else {
                 navBar.style.background="transparent";
-                links.style.color="white";
-                links.classList.remove("active");
+                links.classList.remove("scroll");
             }
         })
         </script>

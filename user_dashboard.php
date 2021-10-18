@@ -114,6 +114,9 @@
                     <li>
                         <a href="deletepost.php?del_id=<?php echo  $row['p_id'];?>" class ="btn delete-link" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
                     </li>
+                    <li>
+                        <a href="translate.php?id=<?php echo $row['p_id'];?>" class="btn translate-link">Translate</a>
+                    </li>
                 </ul>
             </div>
         </div>

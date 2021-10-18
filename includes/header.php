@@ -37,8 +37,34 @@ require_once "includes/createpost_validate.php";
 
             <img class='hamburger' src='images/hamburger.png' alt='hamburger'></img>
             <ul class='list'>
-                <li><a href="<?php echo $_SERVER['REQUEST_URI'];?>?lang=en">English</a></li>
-                <li><a href="<?php echo $_SERVER['REQUEST_URI'];?>?lang=hi">Hindi</a></li>
+                <li>
+                <?php
+                        if(isset($_COOKIE['lang_code']) && $_COOKIE['lang_code']==='en'){
+                            $selEN = 'selected';
+                        }else{
+                            $selHI = 'selected';
+                        }
+                    ?>
+                    <select id="lang" onchange="getSelectedValue();">
+                        <option value="">Select Language</option>
+                        <option value="en" <?php echo $selEN;?> >English</option>
+                        <option value="hi" <?php echo $selHI;?> >Hindi</option>
+                    </select>
+                </li>
+                <script>
+                    function getSelectedValue(){
+                        let select = document.querySelector("#lang").value;
+                        if(select == "en"){
+                            document.cookie = "lang_code=en";
+                            window.location.reload();
+                        }else if(select == "hi"){
+                            document.cookie = "lang_code=hi";
+                            window.location.reload();
+                        }
+                        
+                    }
+                </script>
+                </li>
                 <li class="sub-list"><a>Category<i class="fas fa-chevron-down" style="color:black; font-size: 14px; font-weight: 600; padding:5px;"></i></a>
                     <ul>
                         <li><a href="category/Food">Food</a></li>
