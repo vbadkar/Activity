@@ -1,25 +1,22 @@
 <?php
 
-require_once("{$_SERVER['DOCUMENT_ROOT']}/htdocs/Activity/router.php");
+require_once(__DIR__."/router.php");
 
-get('/htdocs/Activity/homepage', 'homepage.php');
+get('/', 'homepage.php');
 
-get('/htdocs/Activity/login', 'login.php');
+get('/homepage', 'homepage.php');
 
-get('/htdocs/Activity/register', 'register.php');
+get('/login', 'login.php');
 
-get('/htdocs/Activity/single', 'single.php');
+get('/register', 'register.php');
 
-get('/htdocs/Activity/login', 'login.php');
+get('/single/$id', 'single.php');
 
-get('/htdocs/Activity/login', 'login.php');
+get('/about', 'about.php');
 
-get('/htdocs/Activity/login', 'login.php');
+get('/contact', 'contact.php');
 
-get('/htdocs/Activity/login', 'login.php');
+//get('/category/$category', 'category.php');
 
-get('/htdocs/Activity/login', 'login.php');
-
-get('/htdocs/Activity/login', 'login.php');
 
 any('/404', '/Page404.php');
