@@ -56,10 +56,10 @@
                     function getSelectedValue(){
                         let select = document.querySelector("#lang").value;
                         if(select == "en"){
-                            document.cookie = "lang_code=en";
+                            document.cookie = "lang_code=en; path=/";
                             window.location.reload();
                         }else if(select == "hi"){
-                            document.cookie = "lang_code=hi";
+                            document.cookie = "lang_code=hi; path=/";
                             window.location.reload();
                         }
                         
@@ -230,26 +230,21 @@
             window.addEventListener('scroll', function(){
             let scroll = document.querySelector('.slider-wrapper');
             let scrollText = document.querySelector('.intro-wrapper');
+            let navBar = document.querySelector('.homeHeader');
+            let links = document.querySelector('.list');
             if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
                 scroll.style.opacity = "0.6";
                 scroll.style.transition="250ms";
                 scrollText.style.opacity = "0.5";
                 scrollText.style.transition="250ms";
+                navBar.style.background="white";
+                links.classList.toggle("scroll");
             } 
             else{
                 scroll.style.opacity = "1";
                 scroll.style.transition="250ms";
                 scrollText.style.opacity = "1";
                 scrollText.style.transition="250ms";
-            }
-
-            let navBar = document.querySelector('.homeHeader');
-            let links = document.querySelector('.list');
-            //console.log(links);
-            if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-                navBar.style.background="white";
-                links.classList.toggle("scroll");
-            } else {
                 navBar.style.background="transparent";
                 links.classList.remove("scroll");
             }
