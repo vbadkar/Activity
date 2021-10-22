@@ -36,7 +36,7 @@
                         $scaled=imagescale($resource, $width, $height);
                         imagejpeg($scaled,$output_image);
                     ?>
-                    <img src="<?php echo $output_image;?>" alt="" class="popular-image">
+                    <img src="<?php echo $output_image;?>" alt="Popular-post" class="popular-image">
                     <h3 class="popular-post-title"><?php echo $data['title'];?></h3>
                     <?php
                         }
@@ -140,7 +140,7 @@
                         $scaled=imagescale($resource, $width, $height);
                         imagejpeg($scaled,$output_image);
                     ?>
-                    <img src="<?php echo $output_image;?>" alt="" class="popular-image">
+                    <img src="<?php echo $output_image;?>" alt="Popular-post" class="popular-image">
                     <h3 class="popular-post-title"><?php echo $data['title'];?></h3>
                     <?php
                         }
