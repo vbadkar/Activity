@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__."/router.php");
+require_once(__DIR__ . "/router.php");
 
 get('/', 'homepage.php');
 
@@ -15,8 +15,5 @@ get('/single/$id', 'single.php');
 get('/about', 'about.php');
 
 get('/contact', 'contact.php');
-
-//get('/category/$category', 'category.php');
-
 
 any('/404', '/Page404.php');
