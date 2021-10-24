@@ -35,6 +35,10 @@ overflow: hidden;
           .post-title{
               border: none;
               text-align: center;
+
+              &:hover{
+                color: $headcolor;
+              }
           }
           .preview-text{
               text-align: left;

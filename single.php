@@ -14,7 +14,8 @@
             <?php 
             $id=$_GET['id'];
             $userid=$_GET['user_id'];
-            $sql="SELECT * FROM posts where p_id='$id'";
+            $lang_code = $_COOKIE['lang_code'];
+            $sql="SELECT * FROM posts WHERE lang_code='$lang_code' AND p_id='$id'";
             $result=mysqli_query($con,$sql);
             $row=mysqli_fetch_assoc($result);
             ?>
@@ -148,17 +149,18 @@
                     <?php 
                     $id=$_GET['id'];
                     $userid=$_GET['user_id'];
-                    $sql="SELECT * FROM posts where p_id='$id'";
+                    $lang_code = $_COOKIE['lang_code'];
+                    $sql="SELECT * FROM posts WHERE lang_code='$lang_code' AND p_id='$id'";
                     $result=mysqli_query($con,$sql);
                     $row=mysqli_fetch_assoc($result);
                     ?>
                     <ul class="bread-crumb">
                         <li><a href="homepage.php">Home</a></li>
                         <li><a href="category/<?php echo $row['category'];?>"><?php echo $row['category'];?></a></li>
-                        <li class="title"><?php echo $row['title_hi'];?></li>
+                        <li class="title"><?php echo $row['title'];?></li>
                     </ul>
                     <div class="single-post-head">
-                    <h2 class="posts-title"><?php echo $row['title_hi'];?>
+                    <h2 class="posts-title"><?php echo $row['title'];?>
                     </h2>
                     <div class="post-details">
                         <span class="author-name"><i class="fas fa-user">Name</i></span>
@@ -176,7 +178,7 @@
                     ?>
                     <div class="inner-content">
                         <img src="<?php echo $output_image;?>" alt="" class="post-image">
-                        <p><?php echo $row['description_hi'];?></p>
+                        <p><?php echo $row['description'];?></p>
                         <ul class="social-icons">
                                 <li class="fb"><i class="fab fa-facebook-f"></i></li>
                                 <li class="tw"><i class="fab fa-twitter"></i></li>
@@ -192,7 +194,7 @@
                         <img src="images/Sora Blogging Tips.jpg" width="80" height="80" alt="user-pic">
                     </div>
                     <div class="poster-details">
-                        <h3>Posted by <span class="author-name">Author Name</span></h3>
+                        <h3>द्वारा प्रकाशित किया गया था <span class="author-name">Author Name</span></h3>
                         <p>बहुत उपेक्ष उपयोगकर्ता डाले। सहयोग करके पासपाई सार्वजनिक भीयह मुश्किल सुचनाचलचित्र सक्षम सुना जिसकी प्रमान पत्रिका माहितीवानीज्य अधिकार अधिकांश निर्माता हैं। </p>
                     </div>
                 </div>
@@ -202,7 +204,7 @@
                     </div>
                     <div class="may-like-content">
                     <?php 
-                                $sql="SELECT * FROM posts LIMIT 0,3";
+                                $sql="SELECT * FROM posts WHERE lang_code='$lang_code' LIMIT 0,3";
                                 $result=mysqli_query($con,$sql);
                                 if(mysqli_num_rows($result) > $i){
                                     while($data=mysqli_fetch_assoc($result)){
@@ -219,7 +221,7 @@
                     
                         <a href="single.php/<?php echo $id;?>">
                             <img src="<?php echo $output_image?>" alt="">
-                            <h3><?php echo $data['title_hi'];?></h3>
+                            <h3><?php echo $data['title'];?></h3>
                         </a>
                     
                     <?php
@@ -271,83 +273,7 @@
                 </div>
             </div><!--single comment section end -->
             </div><!-- single main content end-->
-            <div class="side-content">
-                <div class="side-posts">
-                    <div class="social">
-                        <h2 class="social-title">Social</h2>
-                        <ul class="social-icons">
-                            <li class="fb"><i class="fab fa-facebook-f"></i></li>
-                            <li class="tw"><i class="fab fa-twitter"></i></li>
-                            <li class="ln"><i class="fab fa-linkedin-in"></i></li>
-                            <li class="rd"><i class="fab fa-reddit"></i></li>
-                            <li class="pn"><i class="fab fa-pinterest"></i></li>
-                            <li class="vk"><i class="fab fa-vk"></i></li>
-                            <li class="ins"><i class="fab fa-instagram"></i></li>
-                            <li class="yt"><i class="fab fa-youtube"></i></li>
-                            <li class="wt"><i class="fab fa-whatsapp"></i></li>
-                            <li class="rss"><i class="fas fa-rss"></i></li>
-                        </ul>
-                    </div>
-                    <div class="popular-post-wrapper">
-                        <div class="popular-posts-title">
-                            <h2>Popular posts</h2>
-                        </div>
-                        <div class="popular-post">
-                        <?php 
-                            $sql="SELECT * FROM posts LIMIT 0,3";
-                            $result=mysqli_query($con,$sql);
-                            if(mysqli_num_rows($result) > $i){
-                                while($data=mysqli_fetch_assoc($result)){
-                        ?>
-                            <?php 
-                                $input_image="images/".$data['image'];
-                                $output_image="images/resized75x60".$data['image'];
-                                $width=75;
-                                $height=60;
-                                $resource=imagecreatefromjpeg($input_image);
-                                $scaled=imagescale($resource, $width, $height);
-                                imagejpeg($scaled,$output_image);
-                            ?>
-                            <img src="<?php echo $output_image;?>" alt="" class="popular-image">
-                            <h3 class="popular-post-title"><?php echo $data['title_hi'];?></h3>
-                            <?php
-                                }
-                            }
-                        ?>
-                        </div>
-                    </div>
-                    <div class="subscribe-wrapper">
-                        <div class="subscribe">
-                            <h2>Subscribe Us</h2>
-                        </div>
-                        <div class="subscribe-video">
-                            <div class="video-wrap">
-                            <iframe width="284" height="130" src="https://www.youtube.com/embed/CY4hLz87hu4" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="facebook-wrapper">
-                        <div class="facebook">
-                                <h2>Facebook</h2>
-                        </div>
-                        <div class="facebook-page">
-                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fway2themes%2Fposts%2F731449897061662&show_text=true&width=500" width="285" height="150" style="border:none;overflow:hidden;padding:10px" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                        </div>
-                    </div>
-                    <div class="side-category-wrapper">
-                        <div class="side-category">
-                            <h2>Category</h2>
-                        </div>
-                        <ul class="categories">
-                                <li>><a href="category.php/Food">Food<span class="count">(1) </span></a></li>
-                                <li>><a href="category.php/Music">Music<span class="count">(1) </span></a></li>
-                                <li>><a href="category.php/Sports">Sports<span class="count">(1) </span></a></li>
-                                <li>><a href="category.php/Gymnastics">Gymnastics<span class="count">(1) </span></a></li>
-                                <li>><a href="category.php/Travel">Travel<span class="count">(1) </span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <?php include('includes/side_content.php') ?>
         </div>
 </div>
 <?php

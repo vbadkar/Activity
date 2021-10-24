@@ -167,7 +167,6 @@ p{
         }
     }
 }
-
 .manage-posts-admin{
     width: 100%;
     height: 100%;
@@ -324,10 +323,30 @@ p{
                        background-color: red;
                        margin-left: 5px;
                     }
+                    .btn.translate-link{
+                        background-color: yellow;
+                        margin-left: 5px;
+                     }
                 }
             }
         }
     }
+}
+.accordian{
+    background-color: black;
+    color: white;
+
+}
+.accordian .label::before{
+    content: '+';
+    position: absolute;
+    right:20px;
+}
+.accordian .wrapper{
+    height: 0;
+}
+.accordian .wrapper.active{
+    height: 150px;
 }
 .content-table{
     border-collapse: collapse;
@@ -472,6 +491,11 @@ Media content : Mobile devices
             }
             ul li{
                     width: 100%;
+            }
+            .list{
+                .catContent{
+                    height: 150px;
+                }
             }
         }
     }

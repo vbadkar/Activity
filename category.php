@@ -38,7 +38,7 @@
         <title>Food</title>
         <div class='category-content clear'>
         <div class="wrapper">
-        <div class="posts"><p>Showing posts with label <span>"<?php echo $category;?>"</span></p></div>
+        <div class="posts"><p>इस लेबल वाली पोस्ट दिखाई जा रही हैं <span>"<?php echo $category;?>"</span></p></div>
         <div class='main_content'>
         <?php
             $lang_code=$_COOKIE['lang_code'];

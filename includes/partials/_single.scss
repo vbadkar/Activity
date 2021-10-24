@@ -32,6 +32,7 @@
             color: #AAAAAA;
             }
           }
+          
           li+li::before{
             content: '\f054';
             font-family: FontAwesome;
@@ -40,6 +41,9 @@
             font-style: normal;
             vertical-align: middle;
             margin: 0 3px;
+          }
+          .title{
+            border-bottom: 2px solid $headcolor;
           }
         }
         .single-post-head{

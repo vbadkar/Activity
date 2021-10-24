@@ -8,7 +8,8 @@
 
     if(isset($_GET['search'])){
     $search=mysqli_real_escape_string($con,$_GET['search']);
-    $sql="SELECT * FROM posts WHERE title LIKE '%$search%' OR description LIKE '%$search%' OR SOUNDEX(category) = SOUNDEX('%$search%')";
+    $lang_code=$_COOKIE['lang_code'];
+    $sql="SELECT * FROM posts WHERE title LIKE '%$search%' OR description LIKE '%$search%' OR SOUNDEX(category) = SOUNDEX('%$search%') AND lang_code='$lang_code'";
     $result=mysqli_query($con,$sql);
     $rowCount=mysqli_num_rows($result);
     if($rowCount>0){

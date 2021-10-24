@@ -11,7 +11,7 @@ php_value post_max_size 10M
 RewriteEngine On
 
 RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js)$
-RewriteRule (.*) routes.php [QSA,L]
+#RewriteRule (.*) routes.php [QSA,L]
 
 #custom error page
 ErrorDocument 404 /Page404.php

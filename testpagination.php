@@ -1,27 +1,35 @@
 <?php
+    require "includes/header.php";
     require "includes/database.php";
 ?>
-    <div class="post-wrapper">
-            <?php
-                $sql="SELECT * FROM comments";
-                $result=mysqli_query($con,$sql);
-                $i=0;
-                if(mysqli_num_rows($result) > $i){
-                    while($images=mysqli_fetch_assoc($result)){?>
-            <div class="post">
-                <img src="images/<?php echo $images['image'];?>" alt="imgfood" id='sliderImg'>
+    <div class="accordian">
+        <div class="label">
+            Category
+            <div class="wrapper">
+                <div class="catContent">
+                Food
             </div>
-
-            <button class="prev" onclick="prev()" id="previous"><</button>
-            <button class="next" onclick="next()" id="next">></button>
-            <?php  
-                $i=$i+1;                 
-                    }
-                }
-            ?>
+            <div class="catContent">
+                Music
+            </div>
+            <div class="catContent">
+                Sports
+            </div>
+            <div class="catContent">
+                Gymnastics
+            </div>
+            <div class="catContent">
+                Travel
+            </div>
+            </div>
+        </div>
     </div>
     <script>
-        const image = document.getElementById("sliderImg");
-        var img= image.getAttribute("src");
-        console.log(img);
+        let label = document.querySelector(".label");
+        let content = document.querySelector(".wrapper");
+        console.log(label);
+        console.log(content);
+            label.addEventListener("click", function(){
+                content.classList.toggle("active");
+            });
     </script>
