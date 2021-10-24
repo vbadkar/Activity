@@ -64,7 +64,8 @@
                     <li><a href="createpost">Create Posts</a></li>
                     <li><a href="manageuser">Manage Users</a></li>
                     <li><a href="banner">Manage Banners</a></li>
-                    <li><a href="add_category">Add Categories</a></li>
+                    <li><a href="add-category">Add Categories</a></li>
+                    <li><a href="add-language">Add Languages</a></li>
                 </ul>
             </div>
         <div class="main-content-admin">
