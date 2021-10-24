@@ -3,7 +3,7 @@
     $dbHost = "localhost";
     $dbUser = "root";
     $dbPass = "Vivek@1271";
-    $dbName = "blog_site";
+    $dbName = "blogsite";
 
 $con = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 if (!$con) {
