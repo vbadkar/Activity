@@ -1,7 +1,7 @@
 <?php
     require_once "includes/database.php";
     require_once "includes/createpost_validate.php";
-    $base = "http://blog/";
+    $base = "http://test_vozga.com/";
 ?>
 <html lang="en">
 <head>
