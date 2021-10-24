@@ -39,5 +39,7 @@ RewriteRule ^search/([a-zA-Z_-]+) search.php?search=$1 [NC,L,QSA]
 
 RewriteRule ^login login.php [NC,L]
 RewriteRule ^register register.php [NC,L]
+RewriteRule ^add-category add-category.php [NC,L]
+
 
 
