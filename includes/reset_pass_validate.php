@@ -75,7 +75,7 @@ if(isset($_POST['reset-button'])){
         header("Location: ../reset_password.php?success=");
         exit();
     }
-    //sending email -end
+   
 }else{
     header("Location: ../login.php?error");
     exit();
