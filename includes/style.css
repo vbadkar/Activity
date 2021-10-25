@@ -2289,13 +2289,11 @@
 }
 
 .contact-wrapper .contact {
-  border: 0px solid red;
   padding: 10px;
 }
 
 .contact-wrapper .contact .contact-form {
   padding: 10px;
-  border: 0px solid blue;
   background-color: white;
 }
 
@@ -2351,7 +2349,6 @@
 }
 
 .contact-wrapper .contact .subscribe-us_wrapper {
-  border: 0px solid blue;
   background-color: white;
   margin-top: 2rem;
 }

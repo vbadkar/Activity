@@ -6,13 +6,11 @@
     margin-top: 5rem;
     gap: 2em;
     .contact{
-        border: 0px solid red;
         padding: 10px;
        
         .contact-form{
             padding: 10px;
-            border: 0px solid blue;
-            background-color: white;
+            background-color: $bgcolor;
             .contact-head{
                 border-bottom: 1px solid $post_border_color;
                 h2{
@@ -51,7 +49,7 @@
                             height: 50px;
                             background-color:#27ae60;
                             border: 0;
-                            color: white;
+                            color: $bgcolor;
                         }
 
                     }
@@ -59,8 +57,7 @@
             }
         }
     .subscribe-us_wrapper{
-        border: 0px solid blue;
-        background-color: white;
+        background-color: $bgcolor;
         margin-top: 2rem;
             form{
                 display: block;
@@ -75,7 +72,7 @@
                     height: 50px;
                     background-color:#27ae60;
                     border: 0;
-                    color: white;
+                    color: $bgcolor;
                     text-transform: uppercase;
                 }
             }

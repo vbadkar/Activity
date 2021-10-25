@@ -8,7 +8,7 @@
     
     .about{
         border: 1px solid $post_border_color;
-        background-color: white;
+        background-color: $bgcolor;
         padding: 10px;
         height: fit-content;
         .about-head{

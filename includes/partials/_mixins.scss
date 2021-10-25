@@ -8,7 +8,7 @@
   width: 30%;
   margin: 50px auto;
   padding: 20px;
-  background-color: white;
+  background-color: $bgcolor;
   border-radius: 5px;
   border: 1px solid $post_border_color;
 }
@@ -61,7 +61,7 @@
 @mixin navLogo {
   float: left;
   height: 70px;
-  background-color: white;
+  background-color: $bgcolor;
   padding: 10px;
   line-height: 52px;
   margin-right: 1rem;

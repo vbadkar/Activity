@@ -9,7 +9,7 @@
         width:100%;
         padding: 10px;
         margin-bottom: 2rem;
-        background-color: white;
+        background-color: $bgcolor;
         border: 1px solid $post_border_color;
         .social-title{
             margin: 0;
@@ -92,7 +92,7 @@
     }
     .popular-post-wrapper{
         border: 0px solid red;
-        background-color: white;
+        background-color: $bgcolor;
         padding: 10px;
         margin-bottom: 2rem;
         border: 1px solid $post_border_color;
@@ -131,7 +131,7 @@
       }
     }
     .subscribe-wrapper{
-        background-color: white;
+        background-color: $bgcolor;
         padding: 20px;
         width: 100%;
         border: 1px solid $post_border_color;
@@ -155,7 +155,7 @@
         }
     }
     .facebook-wrapper{
-        background-color: white;
+        background-color: $bgcolor;
         padding: 20px;
         border: 1px solid $post_border_color;
         border: 0px dashed blue;
@@ -172,7 +172,7 @@
         }
     }
     .side-category-wrapper{
-        background-color: white;
+        background-color: $bgcolor;
         padding: 20px;
         border: 1px solid $post_border_color;
         border: 0px solid red;
