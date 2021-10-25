@@ -238,7 +238,7 @@
                 scrollText.style.opacity = "0.5";
                 scrollText.style.transition="250ms";
                 navBar.style.background="white";
-                links.classList.toggle("scroll");
+                links.classList.add("scroll");
             } 
             else{
                 scroll.style.opacity = "1";
