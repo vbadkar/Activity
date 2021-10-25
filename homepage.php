@@ -121,7 +121,7 @@
     <title>Homepage</title>
     <div class='slider-wrapper'>
     <?php
-        $sql="SELECT * FROM banners";
+        $sql="SELECT * FROM posts";
         $result=mysqli_query($con,$sql);
         $i=0;
         if(mysqli_num_rows($result) > $i){
@@ -133,6 +133,8 @@
                 $resource=imagecreatefromjpeg($input_image);
                 $scaled=imagescale($resource, $width, $height);
                 imagejpeg($scaled,$output_image);
+                $desc=$images['description'];
+                $desc = substr($desc,0,100).'';
     ?>
     <div class="post-slider" style="background-image: url(<?php echo $output_image;?>)">
         <div class="post-wrapper" style="background-color: rgba(0,0,0,0.25);">
@@ -140,13 +142,13 @@
                 <div class="wrapper">
                     <div class="intro-wrapper">
                         <div class="intro-head">
-                            <h3><?php echo $images['banner_title'];?></h3>
+                            <h3><?php echo $images['title'];?></h3>
                         </div>
                         <div class="intro-text">
-                            <p><?php echo $images['banner_snippet'];?></p>
+                            <p><?php echo $desc;?></p>
                         </div>
                         <div class="intro-button">
-                            <a class="btn">Get Started</a>
+                            <a href="single/<?php echo $images['p_id']; ?>" class="btn">Read More</a>
                         </div>
                     </div>
                 </div>
