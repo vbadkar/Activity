@@ -1,5 +1,4 @@
 <?php
-//require_once "../config.php";
     $dbHost = "localhost";
     $dbUser = "root";
     $dbPass = "Vivek@1271";
