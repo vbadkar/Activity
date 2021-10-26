@@ -91,11 +91,21 @@
                     }
                 ?>
                 <ul class="categories">
-                        <li>><a href="category/Food">Food<span class="count">(<?php echo $food; ?>) </span></a></li>
-                        <li>><a href="category/Music">Music<span class="count">(<?php echo $music; ?>) </span></a></li>
-                        <li>><a href="category/Sports">Sports<span class="count">(<?php echo $sports; ?>) </span></a></li>
-                        <li>><a href="category/Gymnastics">Gymnastics<span class="count">(<?php echo $gymnastics; ?>) </span></a></li>
-                        <li>><a href="category/Travel">Travel<span class="count">(<?php echo $travel; ?>) </span></a></li>
+                        <?php 
+                            $sql = "SELECT * FROM categories";
+                            $result = mysqli_query($con, $sql);
+                            $i=0;
+                            $count=0;
+                            if(mysqli_num_rows($result)>$i){
+                                while($row = mysqli_fetch_assoc($result)){
+                                    
+                        ?>
+                        <li>><a href="category/<?php echo $row['cat_name'];?>"><?php echo $row['cat_name'];?><span class="count">(<?php echo $count; ?>) </span></a></li>
+                        <?php 
+                                    
+                                }
+                            }
+                        ?>
                 </ul>
             </div>
         </div>
