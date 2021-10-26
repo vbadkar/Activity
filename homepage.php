@@ -69,11 +69,18 @@
                     if(isset($_COOKIE['lang_code']) && $_COOKIE['lang_code']==='en'){?>
                     <li class="sub-list"><a class="links">Category<i class="fas fa-chevron-down"></i></a>
                     <ul>
-                        <li class="catContent"><a href="category/Food">Food</a></li>
-                        <li class="catContent"><a href="category/Music">Music</a></li>
-                        <li class="catContent"><a href="category/Sports">Sports</a></li>
-                        <li class="catContent"><a href="category/Gymnastics">Gymnastics</a></li>
-                        <li class="catContent"><a href="category/Travel">Travel</a></li>
+						<?php 
+							$sql = "SELECT * FROM categories";
+							$result = mysqli_query($con, $sql);
+							$i = 0;
+							if(mysqli_num_rows($result) > $i){
+								while($row = mysqli_fetch_assoc($result)){
+						?>
+                        <li class="catContent"><a href="category/<?php echo $row['cat_name'];?>"><?php echo $row['cat_name'];?></a></li>
+						<?php 
+								}
+							}
+						?>
                     </ul>
                 </li>
                 <li><a class="links" href='homepage'>Home</a></li>    
@@ -125,16 +132,16 @@
         $result=mysqli_query($con,$sql);
         $i=0;
         if(mysqli_num_rows($result) > $i){
-            while($images=mysqli_fetch_assoc($result)){
-                $input_image="images/".$images['image'];
-                $output_image="images/resized1600x832".$images['image'];
+            while($data=mysqli_fetch_assoc($result)){
+                $input_image="images/".$data['image'];
+                $output_image="images/resized1600x832".$data['image'];
                 $width=1600;
                 $height=832;
                 $resource=imagecreatefromjpeg($input_image);
                 $scaled=imagescale($resource, $width, $height);
                 imagejpeg($scaled,$output_image);
-                $desc=$images['description'];
-                $desc = substr($desc,0,100).'';
+                $desc=$data['description'];
+                $desc = substr($desc,0,100).'...';
     ?>
     <div class="post-slider" style="background-image: url(<?php echo $output_image;?>)">
         <div class="post-wrapper" style="background-color: rgba(0,0,0,0.25);">
@@ -142,13 +149,13 @@
                 <div class="wrapper">
                     <div class="intro-wrapper">
                         <div class="intro-head">
-                            <h3><?php echo $images['title'];?></h3>
+                            <h3><?php echo $data['title'];?></h3>
                         </div>
                         <div class="intro-text">
                             <p><?php echo $desc;?></p>
                         </div>
                         <div class="intro-button">
-                            <a href="single/<?php echo $images['p_id']; ?>" class="btn">Read More</a>
+                            <a href="single/<?php echo $data['p_id'];?>" class="btn">Read More</a>
                         </div>
                     </div>
                 </div>
