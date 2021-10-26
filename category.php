@@ -14,7 +14,7 @@
         }
     }
     if(isset($_COOKIE['lang_code']) && $_COOKIE['lang_code']==='en'){ ?>
-        <title>Food</title>
+        <title><?php echo $category; ?></title>
         <div class='category-content clear'>
             <div class="wrapper">
                 <div class="posts"><p>Showing posts with label <span>"<?php echo $category;?>"</span></p></div>
