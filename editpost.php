@@ -40,7 +40,7 @@
         </form>
     </div>
 
-<!-- script for CKEDITOR -->
+
 <script>
     CKEDITOR.replace('desc');
 </script>
