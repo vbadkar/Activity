@@ -174,13 +174,7 @@
 
 .homepage-header-wrapper .homeHeader ul li .links:hover {
   color: #1f2024;
-  -webkit-animation-name: navlinksborder;
-          animation-name: navlinksborder;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  border-bottom: 2px solid #75dab0;
+  width: 100%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -188,10 +182,19 @@
 .homepage-header-wrapper .homeHeader ul li .links::after {
   content: "";
   position: absolute;
-  width: 100%;
-  background: red;
+  height: 3px;
+  width: 0;
+  background: #75dab0;
   left: 0;
   bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.homepage-header-wrapper .homeHeader ul li .links:hover::after {
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .homepage-header-wrapper .homeHeader ul li i {
@@ -2786,13 +2789,7 @@
 
 .homepage-header-wrapper .homeHeader ul li .links:hover {
   color: #1f2024;
-  -webkit-animation-name: navlinksborder;
-          animation-name: navlinksborder;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  border-bottom: 2px solid #75dab0;
+  width: 100%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -2800,10 +2797,19 @@
 .homepage-header-wrapper .homeHeader ul li .links::after {
   content: "";
   position: absolute;
-  width: 100%;
-  background: red;
+  height: 3px;
+  width: 0;
+  background: #75dab0;
   left: 0;
   bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.homepage-header-wrapper .homeHeader ul li .links:hover::after {
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .homepage-header-wrapper .homeHeader ul li i {
