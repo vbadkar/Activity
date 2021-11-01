@@ -44,7 +44,6 @@
           }else{
             mysqli_stmt_bind_param($stmt, 's', $user_email);
             mysqli_stmt_execute($stmt);
-            //sending subscription confirmation mail to user
             $message='<p>Great...You just subscribed to us!!</p><br>';
             $message .= '<p>Now you will be informed first hand over a email form us whenever something new comes up<p><br>';
             $message .= 'If you no longer want to receive this email, click on following link to unsubscribe us';
