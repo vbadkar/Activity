@@ -174,13 +174,7 @@
 
 .homepage-header-wrapper .homeHeader ul li .links:hover {
   color: #1f2024;
-  -webkit-animation-name: navlinksborder;
-          animation-name: navlinksborder;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  border-bottom: 2px solid #75dab0;
+  width: 100%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -188,10 +182,19 @@
 .homepage-header-wrapper .homeHeader ul li .links::after {
   content: "";
   position: absolute;
-  width: 100%;
-  background: red;
+  height: 3px;
+  width: 0;
+  background: #75dab0;
   left: 0;
   bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.homepage-header-wrapper .homeHeader ul li .links:hover::after {
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .homepage-header-wrapper .homeHeader ul li i {
@@ -463,14 +466,41 @@
   float: right;
 }
 
-.header-wrapper header ul li a {
+.header-wrapper header ul li .links {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: black;
   text-decoration: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  position: relative;
+  height: 70px;
+}
+
+.header-wrapper header ul li .links:hover {
+  color: #75dab0;
+  width: 100%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.header-wrapper header ul li .links::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background: #75dab0;
+  left: 0;
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.header-wrapper header ul li .links:hover::after {
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .header-wrapper header ul li a:hover {
@@ -549,7 +579,7 @@
 }
 
 .content {
-  width: 65%;
+  width: 90%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 70% 25%;
@@ -744,10 +774,24 @@
   background: white;
 }
 
-.content .main_content .index-homepage {
+.content .main_content .pager-wrapper {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.content .main_content .pager-wrapper .index-homepage {
   width: 100%;
   height: 20px;
   margin: 10px auto;
+}
+
+.content .main_content .pager-wrapper .index-homepage .pager {
+  background-color: #75dab0;
+  color: white;
+  border-radius: 2rem;
+  border: none;
+  font-size: 17px;
 }
 
 .content .side-content {
@@ -1282,7 +1326,7 @@
 }
 
 .login-form {
-  width: 30%;
+  width: 40%;
   margin: 50px auto;
   padding: 20px;
   background-color: white;
@@ -1291,19 +1335,20 @@
 }
 
 .login-form .login-title {
-  text-align: left;
+  text-align: center;
   text-transform: uppercase;
   font-size: 40px;
   margin: 0;
   padding: 1rem;
   border-bottom: 1px solid #f2f2f6;
+  line-height: 2.5rem;
 }
 
 .login-form .text-input {
   display: block;
   margin: 20px auto;
   text-align: center;
-  width: 400px;
+  width: 100%;
   height: 50px;
   border: 1px solid #f2f2f6;
   outline: none;
@@ -1338,7 +1383,7 @@
 }
 
 .register-form {
-  width: 30%;
+  width: 40%;
   margin: 50px auto;
   padding: 20px;
   background-color: white;
@@ -1347,19 +1392,20 @@
 }
 
 .register-form .register-title {
-  text-align: left;
+  text-align: center;
   text-transform: uppercase;
   font-size: 40px;
   margin: 0;
   padding: 1rem;
   border-bottom: 1px solid #f2f2f6;
+  line-height: 2.5rem;
 }
 
 .register-form .text-input {
   display: block;
   margin: 20px auto;
   text-align: center;
-  width: 400px;
+  width: 100%;
   height: 50px;
   border: 1px solid #f2f2f6;
   outline: none;
@@ -1376,7 +1422,7 @@
 }
 
 .post-form {
-  width: 30%;
+  width: 40%;
   margin: 50px auto;
   padding: 20px;
   background-color: white;
@@ -1385,19 +1431,20 @@
 }
 
 .post-form .form-title {
-  text-align: left;
+  text-align: center;
   text-transform: uppercase;
   font-size: 40px;
   margin: 0;
   padding: 1rem;
   border-bottom: 1px solid #f2f2f6;
+  line-height: 2.5rem;
 }
 
 .post-form .text-input {
   display: block;
   margin: 20px auto;
   text-align: center;
-  width: 400px;
+  width: 100%;
   height: 50px;
   border: 1px solid #f2f2f6;
   outline: none;
@@ -1414,7 +1461,7 @@
 }
 
 .edit-form {
-  width: 30%;
+  width: 40%;
   margin: 50px auto;
   padding: 20px;
   background-color: white;
@@ -1423,19 +1470,20 @@
 }
 
 .edit-form .form-title {
-  text-align: left;
+  text-align: center;
   text-transform: uppercase;
   font-size: 40px;
   margin: 0;
   padding: 1rem;
   border-bottom: 1px solid #f2f2f6;
+  line-height: 2.5rem;
 }
 
 .edit-form .text-input {
   display: block;
   margin: 20px auto;
   text-align: center;
-  width: 400px;
+  width: 100%;
   height: 50px;
   border: 1px solid #f2f2f6;
   outline: none;
@@ -2782,13 +2830,7 @@
 
 .homepage-header-wrapper .homeHeader ul li .links:hover {
   color: #1f2024;
-  -webkit-animation-name: navlinksborder;
-          animation-name: navlinksborder;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  border-bottom: 2px solid #75dab0;
+  width: 100%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -2796,10 +2838,19 @@
 .homepage-header-wrapper .homeHeader ul li .links::after {
   content: "";
   position: absolute;
-  width: 100%;
-  background: red;
+  height: 3px;
+  width: 0;
+  background: #75dab0;
   left: 0;
   bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.homepage-header-wrapper .homeHeader ul li .links:hover::after {
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .homepage-header-wrapper .homeHeader ul li i {
@@ -3062,14 +3113,41 @@
   float: right;
 }
 
-.header-wrapper header ul li a {
+.header-wrapper header ul li .links {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: black;
   text-decoration: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  position: relative;
+  height: 70px;
+}
+
+.header-wrapper header ul li .links:hover {
+  color: #75dab0;
+  width: 100%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.header-wrapper header ul li .links::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background: #75dab0;
+  left: 0;
+  bottom: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.header-wrapper header ul li .links:hover::after {
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .header-wrapper header ul li a:hover {

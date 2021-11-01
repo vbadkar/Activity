@@ -45,43 +45,43 @@
             mysqli_stmt_bind_param($stmt, 's', $user_email);
             mysqli_stmt_execute($stmt);
             //sending subscription confirmation mail to user
-          $message='<p>Great...You just subscribed to us!!</p><br>';
-          $message .= '<p>Now you will be informed first hand over a email form us whenever something new comes up<p><br>';
-          $message .= 'If you no longer want to receive this email, click on following link to unsubscribe us';
-          $message .= '<a href="'.$url.'">'.$url.'</a></p>';
+            $message='<p>Great...You just subscribed to us!!</p><br>';
+            $message .= '<p>Now you will be informed first hand over a email form us whenever something new comes up<p><br>';
+            $message .= 'If you no longer want to receive this email, click on following link to unsubscribe us';
+            $message .= '<a href="'.$url.'">'.$url.'</a></p>';
 
-          require '../vendor/autoload.php';
-          require 'sendermail.php';
-          $mail = new PHPMailer;
-        
-          $mail->isSMTP();                           
-          $mail->Host = 'smtp.gmail.com';
-          $mail->SMTPAuth = true;
-          $mail->Username = $sender;
-          $mail->Password = $pass;
-          $mail->SMTPSecure = 'tls';              
-          $mail->Port = 587;                            
+            require '../vendor/autoload.php';
+            require 'sendermail.php';
+            $mail = new PHPMailer;
+          
+            $mail->isSMTP();                           
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = $sender;
+            $mail->Password = $pass;
+            $mail->SMTPSecure = 'tls';              
+            $mail->Port = 587;                            
 
-          $mail->setFrom($sender);
-          $mail->addAddress($user_email);
-          $mail->addReplyTo($sender);
-          $mail->isHTML(true);
+            $mail->setFrom($sender);
+            $mail->addAddress($user_email);
+            $mail->addReplyTo($sender);
+            $mail->isHTML(true);
 
-          $mail->Subject = 'Thanks for subscribing us!!';
-          $mail->Body = $message;
-          $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+            $mail->Subject = 'Thanks for subscribing us!!';
+            $mail->Body = $message;
+            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-          if(!$mail->send()) {
-              $_SESSION['message']="Something went wrong..try again";
-              $_SESSION['type']="error"; 
-              header("Location: ../reset_password.php?error=failedtosendmail");
-              exit();
-          } else {
-            $_SESSION['message']="Thanks for subscribing!!";
-            $_SESSION['type']="success"; 
-            header("Location: ../contact.php?success=subscribed");
-            exit(); 
-          }
+            if(!$mail->send()) {
+                $_SESSION['message']="Something went wrong..try again";
+                $_SESSION['type']="error"; 
+                header("Location: ../reset_password.php?error=failedtosendmail");
+                exit();
+            } else {
+              $_SESSION['message']="Thanks for subscribing!!";
+              $_SESSION['type']="success"; 
+              header("Location: ../contact.php?success=subscribed");
+              exit(); 
+            }
           //sending email -end
           }
         }

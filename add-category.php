@@ -15,6 +15,7 @@
         <form action='includes/add-category-inc.php' method='post'>
             <h1 class="register-title">Add Category</h1>
             <input class="text-input" type='text' name='category' placeholder='Enter a category' autocomplete='off'>
+            <input type='hidden' name='lang_code' value="en">
             <button class="register-button" type='submit' name='submit'>Add</button>
         </form>
     </div>

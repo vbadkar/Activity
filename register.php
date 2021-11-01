@@ -24,5 +24,5 @@
         </form>
     </div>
 <?php
-    require_once "includes/footer1.php";
+    require_once "includes/footer2.php";
 ?>

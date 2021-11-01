@@ -65,7 +65,7 @@ require_once "includes/createpost_validate.php";
                     }
                 </script>
                 </li>
-                <li class="sub-list"><a>Category<i class="fas fa-chevron-down" style="color:black; font-size: 14px; font-weight: 600; padding:5px;"></i></a>
+                <li class="sub-list"><a class="links">Category<i class="fas fa-chevron-down" style="color:black; font-size: 14px; font-weight: 600; padding:5px;"></i></a>
                     <ul>
                         <li><a href="category/Food">Food</a></li>
                         <li><a href="category/Music">Music</a></li>
@@ -74,9 +74,9 @@ require_once "includes/createpost_validate.php";
                         <li><a href="category/Travel">Travel</a></li>
                     </ul>
                 </li>
-                <li><a href='homepage'>Home</a></li>
-                <li><a href='register'>Register</a></li>
-                <li><a href='login'>Login</a></li>
+                <li><a class="links" href='homepage'>Home</a></li>
+                <li><a class="links" href='register'>Register</a></li>
+                <li><a class="links" href='login'>Login</a></li>
             </ul>
         </header>
     </div>

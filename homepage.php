@@ -218,47 +218,45 @@
             }
         }
     ?>
-    <center>
+    <div class="pager-wrapper">
         <div class='index-homepage'>
             <?php
-            for ($page = 1; $page <= $num_of_pages; $page++) {
-                echo '<a href="homepage/' . $page . '">' . $page . '</a> ';
-            }   ?>
+                for ($page = 1; $page <= $num_of_pages; $page++) {
+                    echo '<a class="pager" href="homepage/' . $page . '">' . $page . '</a> ';
+                }   
+            ?>
         </div>
-    </center>
-
-        </div>
-        <?php include('includes/side_content.php') ?>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script>
-            $('.slider-wrapper').slick({
-                //autoplay: true,
-                //autoplaySpeed: 2000,
-            });
-            window.addEventListener('scroll', function(){
-            let scroll = document.querySelector('.slider-wrapper');
-            let scrollText = document.querySelector('.intro-wrapper');
-            let navBar = document.querySelector('.homeHeader');
-            let links = document.querySelector('.list');
-            if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-                scroll.style.opacity = "0.6";
-                scroll.style.transition="250ms";
-                scrollText.style.opacity = "0.5";
-                scrollText.style.transition="250ms";
-                navBar.style.background="white";
-                links.classList.add("scroll");
-            } 
-            else{
-                scroll.style.opacity = "1";
-                scroll.style.transition="250ms";
-                scrollText.style.opacity = "1";
-                scrollText.style.transition="250ms";
-                navBar.style.background="transparent";
-                links.classList.remove("scroll");
-            }
-        })
-        </script>
-        <?php
-        require "includes/footer2.php";
-        ?>
+    </div>
+</div>
+<?php include('includes/side_content.php') ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $('.slider-wrapper').slick({
+        //autoplay: true,
+        //autoplaySpeed: 2000,
+    });
+    window.addEventListener('scroll', function(){
+    let scroll = document.querySelector('.slider-wrapper');
+    let scrollText = document.querySelector('.intro-wrapper');
+    let navBar = document.querySelector('.homeHeader');
+    let links = document.querySelector('.list');
+    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+        scroll.style.opacity = "0.6";
+        scroll.style.transition="250ms";
+        scrollText.style.opacity = "0.5";
+        scrollText.style.transition="250ms";
+        navBar.style.background="white";
+        links.classList.add("scroll");
+    } 
+    else{
+        scroll.style.opacity = "1";
+        scroll.style.transition="250ms";
+        scrollText.style.opacity = "1";
+        scrollText.style.transition="250ms";
+        navBar.style.background="transparent";
+        links.classList.remove("scroll");
+    }
+})
+</script>
+<?php require "includes/footer2.php"; ?>
