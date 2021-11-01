@@ -1,5 +1,5 @@
 .content{
-  width: 65%;
+  width: 90%;
   display: grid;
   grid-template-columns: 70% 25%;
   grid-gap: 1em;
@@ -41,11 +41,23 @@
 
 @import "./card";
 
-.index-homepage{
-  width: 100%;
-  height: 20px;
-  margin: 10px auto;
+.pager-wrapper{
+  display: grid;
+  place-items: center;
+  .index-homepage{
+    width: 100%;
+    height: 20px;
+    margin: 10px auto;
+    .pager{
+      background-color: $headcolor;
+      color: white;
+      border-radius: 2rem;
+      border: none;
+      font-size: 17px;
+    }
+  }
 }
+
 }
 @import "./side-content";
 

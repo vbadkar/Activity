@@ -5,7 +5,7 @@
   background-color: $bgColor;
 }
 @mixin userInputForms {
-  width: 30%;
+  width: 40%;
   margin: 50px auto;
   padding: 20px;
   background-color: $bgcolor;
@@ -13,7 +13,7 @@
   border: 1px solid $post_border_color;
 }
 @mixin formTitle {
-  text-align: left;
+  text-align: center;
   text-transform: uppercase;
   font-size: 40px;
   margin: 0;
