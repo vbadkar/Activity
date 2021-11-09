@@ -12,6 +12,9 @@
     <link href="includes/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link href="select2-4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="select2-4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://kit.fontawesome.com/7ed99e45ec.js" crossorigin="anonymous"></script>
 
 </head>
@@ -46,23 +49,27 @@
                             $selHI = 'selected';
                         }
                     ?>
-                    <select id="lang" onchange="getSelectedValue();">
-                        <option value="">Select Language</option>
-                        <option value="en" <?php echo $selEN;?> >English</option>
-                        <option value="hi" <?php echo $selHI;?> >Hindi</option>
+                    <select class= "lang" id="sel_user" onchange="getSelectedValue();">
+                    <?php
+                    $sql = "SELECT * FROM languages";
+                    $result=mysqli_query($con,$sql);
+                    $i=0;
+                    if(mysqli_num_rows($result) > $i){
+                        while($data=mysqli_fetch_assoc($result)){
+                    ?>
+                        <option value="<?php echo $data['langCode']; ?>" <?php echo $selEN;?> ><?php echo $data['lang_name']; ?></option>
+                    <?php 
+                        }
+                    }
+                    ?>
                     </select>
                 </li>
+                
                 <script>
                     function getSelectedValue(){
-                        let select = document.querySelector("#lang").value;
-                        if(select == "en"){
-                            document.cookie = "lang_code=en; path=/";
-                            window.location.reload();
-                        }else if(select == "hi"){
-                            document.cookie = "lang_code=hi; path=/";
-                            window.location.reload();
-                        }
-                        
+                        let select = document.querySelector(".lang").value;
+                        document.cookie = "lang_code=" + select;" path=/";
+                        window.location.reload();
                     }
                 </script>
                 <?php 
@@ -70,7 +77,8 @@
                     <li class="sub-list"><a class="links">Category<i class="fas fa-chevron-down"></i></a>
                     <ul>
 						<?php 
-							$sql = "SELECT * FROM categories";
+                            $lang_code = $_COOKIE['lang_code'];
+							$sql = "SELECT * FROM categories WHERE lang_code= '$lang_code' ";
 							$result = mysqli_query($con, $sql);
 							$i = 0;
 							if(mysqli_num_rows($result) > $i){
@@ -90,11 +98,19 @@
                     <?php }else{ ?>
                         <li class="sub-list"><a class="links">श्रेणी<i class="fas fa-chevron-down"></i></a>
                     <ul>
-                        <li class="catContent" ><a href="category/Food">भोजन</a></li>
-                        <li class="catContent"><a href="category/Music">संगीत</a></li>
-                        <li class="catContent"><a href="category/Sports">खेल</a></li>
-                        <li class="catContent"><a href="category/Gymnastics">कसरत</a></li>
-                        <li class="catContent"><a href="category/Travel">यात्रा</a></li>
+                    <?php 
+                            $lang_code = $_COOKIE['lang_code'];
+							$sql = "SELECT * FROM categories WHERE lang_code = '$lang_code' ";
+							$result = mysqli_query($con, $sql);
+							$i = 0;
+							if(mysqli_num_rows($result) > $i){
+								while($row = mysqli_fetch_assoc($result)){
+						?>
+                        <li class="catContent"><a href="category/<?php echo $row['cat_name'];?>"><?php echo $row['cat_name'];?></a></li>
+						<?php 
+								}
+							}
+						?>
                     </ul>
                 </li>
                 <li><a class="links" href='homepage'>घर</a></li>    
@@ -259,4 +275,15 @@
     }
 })
 </script>
-<?php require "includes/footer2.php"; ?>
+<script>
+    $(document).ready(function(){
+        $("#sel_user").select2();
+        $("#sel_user").select2({
+        minimumResultsForSearch: Infinity,
+        placeholder: "Select a Language"
+        });
+        
+
+    });
+</script>
+<?php require "includes/footer2.php";?>
