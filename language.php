@@ -38,7 +38,7 @@
                         <td><?php echo $row['lang_id']; ?></td>
                         <td><?php echo $row['lang_name']; ?></td>
                         <td><?php echo $row['langCode']; ?></td>
-                        <td><a href="translate.php?id=<?php echo $id; ?>&&langCode=<?php echo $row['langCode']; ?>">Edit</a></td>
+                        <td><a href="translate.php?id=<?php echo $id; ?>&&action=edit&&langCode=<?php echo $row['langCode']; ?>">Edit</a></td>
                     </tr>
                     <?php
                             }else{
@@ -47,7 +47,7 @@
                         <td><?php echo $row['lang_id']; ?></td>
                         <td><?php echo $row['lang_name']; ?></td>
                         <td><?php echo $row['langCode']; ?></td>
-                        <td><a href="translate.php?id=<?php echo $id; ?>&&langCode=<?php echo $row['langCode']; ?>">Add</a></td>
+                        <td><a href="translate.php?id=<?php echo $id; ?>&&action=add&&langCode=<?php echo $row['langCode']; ?>">Add</a></td>
                     </tr>
 
                         <?php
