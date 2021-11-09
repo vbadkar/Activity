@@ -36,7 +36,7 @@
                 }
                 else
                 {
-                    $sql="INSERT INTO languages (lang_name, lang_code) VALUES (?, ?)";
+                    $sql="INSERT INTO languages (lang_name, langCode) VALUES (?, ?)";
                     $stmt=mysqli_stmt_init($con);
                     if(!mysqli_stmt_prepare($stmt, $sql))
                     {
