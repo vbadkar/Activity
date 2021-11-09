@@ -77,6 +77,7 @@ if(isset($_POST['reset-button'])){
     }
    
 }else{
+    // if error occurs redirect to login.php?error
     header("Location: ../login.php?error");
     exit();
 }
