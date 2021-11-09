@@ -19,21 +19,26 @@
                         if(mysqli_num_rows($res) > 0){
                             while($row = mysqli_fetch_assoc($res)){  
                                 $id = $_GET['id'];
-                                $sql = "SELECT lang_code, dup_id, p_id FROM posts WHERE p_id = '$id' ";
+                                $code = $row['langCode'];
+                                $lang_code = array($row['langCode']);
+                                $sql = "SELECT lang_code, p_id, dup_id FROM posts WHERE dup_id = '$id' AND lang_code = '$code'";
                                 $result = mysqli_query($con, $sql);
-                                
                                 if(mysqli_num_rows($result) > 0){
-                                    while($data = mysqli_fetch_assoc($result)){  
+                                    while($data = mysqli_fetch_assoc($result)){
+                                        $langCode = array($data['lang_code']);
+                                    }
+                                }
                                     
                     ?>
                     <?php
-                        if($row['langCode'] == $data['lang_code'] && $data['p_id'] == $data['dup_id']){
+                        for($i = 0; $i < sizeof($lang_code); $i++){
+                            if($row['langCode'] == $langCode[$i]){
                     ?>
                     <tr>
                         <td><?php echo $row['lang_id']; ?></td>
                         <td><?php echo $row['lang_name']; ?></td>
-                        <td><?php echo $data['lang_code']; ?></td>
-                        <td>Edit</td>
+                        <td><?php echo $row['langCode']; ?></td>
+                        <td><a href="translate.php?id=<?php echo $id; ?>&&langCode=<?php echo $row['langCode']; ?>">Edit</a></td>
                     </tr>
                     <?php
                             }else{
@@ -41,17 +46,16 @@
                         <tr>
                         <td><?php echo $row['lang_id']; ?></td>
                         <td><?php echo $row['lang_name']; ?></td>
-                        <td><?php echo $data['lang_code']; ?></td>
-                        <td>Add</td>
+                        <td><?php echo $row['langCode']; ?></td>
+                        <td><a href="translate.php?id=<?php echo $id; ?>&&langCode=<?php echo $row['langCode']; ?>">Add</a></td>
                     </tr>
 
                         <?php
                             }
+                        }
                             
                         ?>
                     <?php
-                                    }
-                                }
                             }
                         }
                     ?>
