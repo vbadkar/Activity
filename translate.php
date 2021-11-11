@@ -15,9 +15,10 @@
     <?php
         if($_GET['action'] == 'edit'){
     ?>
-        <form action="includes/translate_validate.php?id=<?php echo $_GET['id']?>" method="post">
+        <form action="includes/translate_validate.php?action=edit&&id=<?php echo $_GET['id']?>" method="post">
             <?php
                 $code = $_GET['langCode'];
+                $id = $_GET['id'];
                 $sql = "SELECT lang_name FROM languages WHERE langCode = '$code' ";
                 $result = mysqli_query($con, $sql);
                 if(mysqli_num_rows($result) > 0){
@@ -28,13 +29,13 @@
             ?>
             <h1 class="form-title">Translate Post[<?php echo $lang; ?>]</h1>
             <?php
-                $sql = "SELECT * FROM posts WHERE lang_code = '$code' ";
+                $sql = "SELECT * FROM posts WHERE lang_code = '$code' AND dup_id = '$id' ";
                 $result = mysqli_query($con, $sql);
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
             ?>
                 <input class="text-input" type="text" name="title" placeholder="Title" autocomplete='off' value="<?php echo $row['title'];?>">
-                <textarea id="editor" class="text-input" name="desc" placeholder="Description" autocomplete='off'>value="<?php echo $row['description'];?>"</textarea>
+                <textarea id="editor" class="text-input" name="desc" placeholder="Description" autocomplete='off'><?php echo $row['description'];?></textarea>
                 <input type="hidden" name="language"  value="<?php echo $code; ?>">
                 <select class="text-input" name="category">
                     <option value="select">Select Category</option>
@@ -61,7 +62,7 @@
     <?php
         }elseif($_GET['action'] == 'add'){
     ?>
-        <form action="includes/translate_validate.php?id=<?php echo $_GET['id']?>" method="post">
+        <form action="includes/translate_validate.php?action=add&&id=<?php echo $_GET['id']?>" method="post">
             <?php
                 $code = $_GET['langCode'];
                 $sql = "SELECT lang_name FROM languages WHERE langCode = '$code' ";
