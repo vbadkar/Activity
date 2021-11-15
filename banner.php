@@ -23,6 +23,7 @@
                 header("Location: banner.php?error=imagealreadyexists");
                 exit();
             }
+            // Adding Banner
             mysqli_stmt_bind_param($stmt, "s", $image);
             mysqli_stmt_execute($stmt);
             $_SESSION['message'] = "Banner added";
