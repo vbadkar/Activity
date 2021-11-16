@@ -74,6 +74,7 @@
                 </script>
                 <?php 
                     if(isset($_COOKIE['lang_code']) && $_COOKIE['lang_code']==='en'){?>
+		    //english language
                     <li class="sub-list"><a class="links">Category<i class="fas fa-chevron-down"></i></a>
                     <ul>
 						<?php 
@@ -95,7 +96,9 @@
                 <li><a class="links" href='register'>Register</a></li>
                 <li><a class="links" href='login'>Login</a></li>
                     
-                    <?php }else{ ?>
+                    <?php }
+		    // hindi language
+		    else{ ?>
                         <li class="sub-list"><a class="links">श्रेणी<i class="fas fa-chevron-down"></i></a>
                     <ul>
                     <?php 
