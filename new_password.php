@@ -13,6 +13,7 @@
         </div>
     <?php endif;?>
     <?php
+        //generation token
         $tokenAuth= $_GET['tokenAuth'];
         $tokenValidator= $_GET['tokenValidator'];
         if(empty($tokenAuth) || empty($tokenValidator)){
