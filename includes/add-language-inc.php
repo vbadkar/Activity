@@ -5,7 +5,8 @@
         session_start();
         $language=$_POST['language'];
         $lang_code=$_POST['lang_code'];
-        if(empty($language) || empty($lang_code))
+        $dir = $_POST['dir'];
+        if(empty($language) || empty($lang_code) || empty($dir))
         {
             $_SESSION['message']="Fields are blank";
             $_SESSION['type']="error";
@@ -36,7 +37,7 @@
                 }
                 else
                 {
-                    $sql="INSERT INTO languages (lang_name, langCode) VALUES (?, ?)";
+                    $sql="INSERT INTO languages (lang_name, langCode, dir) VALUES (?, ?, ?)";
                     $stmt=mysqli_stmt_init($con);
                     if(!mysqli_stmt_prepare($stmt, $sql))
                     {
@@ -45,7 +46,7 @@
                     }
                     else
                     {
-                        mysqli_stmt_bind_param($stmt,"ss",$language, $lang_code);
+                        mysqli_stmt_bind_param($stmt,"sss",$language, $lang_code, $dir);
                         mysqli_stmt_execute($stmt);
                         $_SESSION['message']="Language added sucessfully";
                         $_SESSION['type']="success";
