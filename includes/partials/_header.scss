@@ -247,12 +247,15 @@
     align-items: initial;
     background-color: #ffffff;
     box-shadow: 0 1px 4px 0 wheat;
+    position: sticky;
+    
     header {
         height: 70px;
         width: 60%;
         margin: 0 auto;
         border: none;
         line-height: 4rem;
+        
         a{
             border: none;
         }

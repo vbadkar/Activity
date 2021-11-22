@@ -1,18 +1,32 @@
 <?php
     require_once "includes/database.php";
     require_once "includes/createpost_validate.php";
-    $base = "http://test_vozga.com/";
+    $lang_code = $_COOKIE['lang_code'];
+    $sql = "SELECT * FROM languages WHERE langCode = '$lang_code' ";
+    $result = mysqli_query($con, $sql);
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_assoc($result)){
+            if($row['dir'] == 'rtl'){
 ?>
-<html lang="en">
+<html lang="<?php echo $row['langCode']; ?>" dir="<?php echo $row['dir']; ?>">
+<?php       }else{ ?>
+<html lang="<?php echo $row['langCode']; ?>" dir="<?php echo $row['dir']; ?>">
+<?php 
+            }
+        }
+    }
+
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="<?php echo $base; ?>">
+    <base href="http://test_vozga.com/">
     <link href="includes/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <link href="select2-4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src='select2.js'></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="select2-4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://kit.fontawesome.com/7ed99e45ec.js" crossorigin="anonymous"></script>
@@ -44,27 +58,28 @@
                 <li>
                     <?php
                         if(isset($_COOKIE['lang_code']) && $_COOKIE['lang_code']==='en'){
-                            $selEN = 'selected';
+                            $sel = 'selected';
                         }else{
-                            $selHI = 'selected';
+                            $sel = 'selected';
                         }
                     ?>
-                    <select class= "lang" id="sel_user" onchange="getSelectedValue();">
-                    <?php
-                    $sql = "SELECT * FROM languages";
-                    $result=mysqli_query($con,$sql);
-                    $i=0;
-                    if(mysqli_num_rows($result) > $i){
-                        while($data=mysqli_fetch_assoc($result)){
-                    ?>
-                        <option value="<?php echo $data['langCode']; ?>" <?php echo $selEN;?> ><?php echo $data['lang_name']; ?></option>
-                    <?php 
+                    <div class="custom-select">
+                        <select class= "lang" id="sel_user" onchange="getSelectedValue();">
+                        <?php
+                        $sql = "SELECT * FROM languages";
+                        $result=mysqli_query($con,$sql);
+                        if(mysqli_num_rows($result) > 0){
+                            while($data=mysqli_fetch_assoc($result)){
+                        ?>
+                            <option value="<?php echo $data['langCode']; ?>" <?php echo $sel;?> ><?php echo $data['lang_name']; ?></option>
+                        <?php 
+                            }
                         }
-                    }
-                    ?>
-                    </select>
-                </li>
+                        ?>
+                        </select>
+                    </div>
                 
+                </li>
                 <script>
                     function getSelectedValue(){
                         let select = document.querySelector(".lang").value;
@@ -74,7 +89,6 @@
                 </script>
                 <?php 
                     if(isset($_COOKIE['lang_code']) && $_COOKIE['lang_code']==='en'){?>
-		    //english language
                     <li class="sub-list"><a class="links">Category<i class="fas fa-chevron-down"></i></a>
                     <ul>
 						<?php 
@@ -277,16 +291,5 @@
         links.classList.remove("scroll");
     }
 })
-</script>
-<script>
-    $(document).ready(function(){
-        $("#sel_user").select2();
-        $("#sel_user").select2({
-        minimumResultsForSearch: Infinity,
-        placeholder: "Select a Language"
-        });
-        
-
-    });
 </script>
 <?php require "includes/footer2.php";?>

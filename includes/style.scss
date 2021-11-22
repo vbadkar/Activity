@@ -74,7 +74,18 @@ p{
     }
 }
 
-
+.language-content{
+    width: 90%;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: 5rem;
+    .language-table{
+        a{
+            border: none;
+            
+        }
+    }
+}
 .manage-posts-user{
     display: block;
         .user-manage{
@@ -208,13 +219,35 @@ p{
     .main-content-admin{
         width: 90%;
         margin: 0 auto;
-        display: grid;
-        grid-column-gap: 1.5rem;
-        grid-row-gap: 2.0rem;
-        grid-template-columns: 45% 45%;
-        grid-auto-rows: max-content;
         background-color: #f8f8f8;
         padding: 0 5px;
+        table{
+            tbody{
+                text-align: center;
+            }
+            td{
+                padding: 10px;
+            }
+            th{
+                padding: 10px;
+                border-bottom: 1px solid black;
+            }
+            .btn{
+                border: none;
+                border-radius: 0.3rem;
+                padding: 10px;
+                color: white;
+                &.edit-link{
+                    background-color: green;
+                }
+                &.delete-link{
+                    background-color: red;
+                }
+                &.translate-link{
+                    background-color: #1f2024;
+                }
+            }
+        }
         .main-post-admin{
             background-color: white;
             width: 100%;
@@ -342,11 +375,63 @@ p{
     position: absolute;
     right:20px;
 }
+.accordian .label.active::before{
+    content: '-';
+    position: absolute;
+    right: 20px;
+}
 .accordian .wrapper{
     height: 0;
 }
 .accordian .wrapper.active{
     height: 150px;
+}
+.custom-select{
+    position: relative;
+    margin-top: 1.5rem; 
+    select{
+        padding: 0.5rem;
+        
+        font-size: 14px;
+        border: none;
+        outline: none;
+    }
+    option{
+        padding: 0.5rem;
+        appearance: none;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        background-color: peru;
+    }
+    option:hover{
+        background-color: salmon;
+        color: black;
+    }
+    
+    .down-arrow{
+        position: absolute;
+        background-color: red;
+        height: 100%;
+        top: 0;
+        right: 0;
+        width: 2rem;
+        display: block;
+        pointer-events: none;
+    }
+    .down-arrow::after{
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-left: 0.6rem solid transparent;
+        border-right: 0.6rem solid transparent ;
+        border-top: 0.6rem solid black;
+
+    }
 }
 .content-table{
     border-collapse: collapse;

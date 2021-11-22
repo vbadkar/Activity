@@ -311,6 +311,8 @@
   background-color: #ffffff;
   -webkit-box-shadow: 0 1px 4px 0 wheat;
           box-shadow: 0 1px 4px 0 wheat;
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .header-wrapper header {
@@ -2958,6 +2960,8 @@
   background-color: #ffffff;
   -webkit-box-shadow: 0 1px 4px 0 wheat;
           box-shadow: 0 1px 4px 0 wheat;
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .header-wrapper header {
@@ -3975,6 +3979,17 @@ p a {
   border: none;
 }
 
+.language-content {
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+  margin-top: 5rem;
+}
+
+.language-content .language-table a {
+  border: none;
+}
+
 .manage-posts-user {
   display: block;
 }
@@ -4122,16 +4137,40 @@ p a {
 .manage-posts-admin .main-content-admin {
   width: 90%;
   margin: 0 auto;
-  display: -ms-grid;
-  display: grid;
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 2.0rem;
-  -ms-grid-columns: 45% 45%;
-      grid-template-columns: 45% 45%;
-  grid-auto-rows: -webkit-max-content;
-  grid-auto-rows: max-content;
   background-color: #f8f8f8;
   padding: 0 5px;
+}
+
+.manage-posts-admin .main-content-admin table tbody {
+  text-align: center;
+}
+
+.manage-posts-admin .main-content-admin table td {
+  padding: 10px;
+}
+
+.manage-posts-admin .main-content-admin table th {
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.manage-posts-admin .main-content-admin table .btn {
+  border: none;
+  border-radius: 0.3rem;
+  padding: 10px;
+  color: white;
+}
+
+.manage-posts-admin .main-content-admin table .btn.edit-link {
+  background-color: green;
+}
+
+.manage-posts-admin .main-content-admin table .btn.delete-link {
+  background-color: red;
+}
+
+.manage-posts-admin .main-content-admin table .btn.translate-link {
+  background-color: #1f2024;
 }
 
 .manage-posts-admin .main-content-admin .main-post-admin {
@@ -4282,12 +4321,71 @@ p a {
   right: 20px;
 }
 
+.accordian .label.active::before {
+  content: '-';
+  position: absolute;
+  right: 20px;
+}
+
 .accordian .wrapper {
   height: 0;
 }
 
 .accordian .wrapper.active {
   height: 150px;
+}
+
+.custom-select {
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.custom-select select {
+  padding: 0.5rem;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
+
+.custom-select option {
+  padding: 0.5rem;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background-color: peru;
+}
+
+.custom-select option:hover {
+  background-color: salmon;
+  color: black;
+}
+
+.custom-select .down-arrow {
+  position: absolute;
+  background-color: red;
+  height: 100%;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  display: block;
+  pointer-events: none;
+}
+
+.custom-select .down-arrow::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-left: 0.6rem solid transparent;
+  border-right: 0.6rem solid transparent;
+  border-top: 0.6rem solid black;
 }
 
 .content-table {
