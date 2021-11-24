@@ -265,10 +265,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    $('.slider-wrapper').slick({
-        //autoplay: true,
-        //autoplaySpeed: 2000,
-    });
     window.addEventListener('scroll', function(){
     let scroll = document.querySelector('.slider-wrapper');
     let scrollText = document.querySelector('.intro-wrapper');
@@ -292,4 +288,27 @@
     }
 })
 </script>
+<?php
+$sql = "SELECT dir FROM languages WHERE langCode = '$lang_code' ";
+$result = mysqli_query($con, $sql);
+if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc($result)){
+        if($row['dir'] == 'rtl'){
+?>
+<script>
+$('.slider-wrapper').slick({
+        rtl: true
+    });
+</script>
+<?php }else{?>
+<script>
+$('.slider-wrapper').slick({
+        rtl: false
+    });
+</script>
+<?php
+        }
+    }
+}
+?>
 <?php require "includes/footer2.php";?>
